@@ -37,71 +37,47 @@ namespace ConsoleTest.Test
         }
 
         #region
-        public string LongestPalindrome3(string s)
+       
+
+
+        public string LongestPalindrome5(string s)
         {
-            string result = "";
-            int longs= s.Length * 2 - 1;
-            int n = s.Length - 1;
-            for (int i = 0; i <= longs; i++)
-            {
-                double mid = longs / 2.0;
-                int p = (int)Math.Floor(mid);
-                int q = (int)Math.Ceiling(mid);
-                int len = 0;
-                while(p>=0&&q<n)
-                {
-                    if(s[p]!=s[q])
-                    {
-                        break;
-                    }
-                
-                    p--;q++;
-                }
-                len = q - p-1;
-                if (len>result.Length)
-                {
-                    result.Substring(p+1,len);
-                }
-
-
-
-            }
-            return result;
-        }
-
-
-        public string LongestPalindrome4(string s)
-        {
-            string outstring = "";
+            string outList = "";
             int n = s.Length;
-            int longs = s.Length * 2 - 1;
-            for(int i=0;i<longs;i++)
+            int longLength = s.Length * 2 - 1;
+
+            for (int i = 0; i < longLength; i++)
             {
-                double mid = i / 0.2;
+                double mid = i / 2.0;
+
                 int p = (int)Math.Floor(mid);
                 int q = (int)Math.Ceiling(mid);
-                while(p>=0&&q<n)
+
+                while (p >= 0 && q < n)
                 {
-                    if(s[p]!=s[q])
+                    if (s[p] != s[q])
                     {
                         break;
                     }
-                    else
-                    {
-                        p--;q++;
-                    }
+
+                    p--; q++;
                 }
-                int len = q - p-1;
-                if(len>outstring.Length)
+                int len = q - p - 1;
+
+                if (len > outList.Length)
                 {
-                    outstring = s.Substring(p+1, len);
+                    outList = s.Substring(p + 1, len);
                 }
+
+
 
             }
-            return outstring;
 
+
+
+
+            return outList;
         }
-
         #endregion
     }
 }
