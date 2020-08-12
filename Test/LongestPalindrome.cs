@@ -78,6 +78,41 @@ namespace ConsoleTest.Test
 
             return outList;
         }
+
+
+        public string LongestPalindrome6(string s)
+        {
+            string longest = "";
+            int n = s.Length;
+            int longLength = n * 2 - 1;
+            for(int i=0;i<longLength;i++)
+            {
+                double mid = i / 2.0;
+
+                int p = (int)Math.Floor(mid);
+                int q = (int)Math.Ceiling(mid);
+
+                while(p>=0&&q<n)
+                {
+                    if(s[p]!=s[q])
+                    {
+                        break;
+                    }
+                    p--;q++;
+                }
+                int len = q - p - 1;
+
+
+                if(len>longest.Length)
+                {
+                    longest = s.Substring(p+1,len);
+                }
+
+               
+            }
+
+            return longest;
+        }
         #endregion
     }
 }
