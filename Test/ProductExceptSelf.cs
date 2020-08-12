@@ -95,5 +95,45 @@ namespace ConsoleTest.Test
             return awert;
         
         }
+
+        public int[] ProductExceptSelf5(int[] nums) {
+
+            int length = nums.Length;
+            int[] awuser = new int[length];
+            awuser[0] = 1;
+            int r = 1;
+            for(int i=1;i<length;i++)
+            {
+                awuser[i] = awuser[i - 1] * nums[i - 1];
+            }
+            for(int i=length-1;i>=0;i--)
+            {
+                awuser[i] = r * awuser[i];
+                r = r * nums[i];
+            }
+            return awuser;
+        
+        }
+
+        public int[] ProductExceptSelf6(int[] nums)
+        {
+            int length = nums.Length;
+            int[] outList = new int[length];
+            int r = 1;
+            outList[0] = 1;
+            for(int i=1;i<length;i++)
+            {
+                outList[i] = outList[i - 1] * nums[i - 1];
+            }
+            for(int i=length-1;i>=0;i--)
+            {
+                outList[i] = r * outList[i];
+                r = r * nums[i];
+            }
+
+            return outList;
+
+
+        }
     }
 }
