@@ -6,6 +6,12 @@ namespace ConsoleTest.Test
 {
     public class SpiralOrder
     {
+        //螺旋矩阵
+        //方法二：按层模拟
+        //可以将矩阵看成若干层，首先输出最外层的元素，其次输出次外层的元素，直到输出最内层的元素。
+        //时间复杂度：O(mn)O(mn)，其中 mm 和 nn 分别是输入矩阵的行数和列数。矩阵中的每个元素都要被访问一次。
+        //空间复杂度：O(1)O(1)。除了输出数组以外，空间复杂度是常数。
+
         public IList<int> SpiralOrder1(int[][] matrix)
         {
             List<int> order = new List<int>();
@@ -57,138 +63,44 @@ namespace ConsoleTest.Test
             return order;
         }
         #region 测试
-        public IList<int> SpiralOrder2(int[][] matrix)
+
+     
+
+     
+        public IList<int> SpiralOrder5(int[][] matrix) 
         {
-            List<int> list = new List<int>();
-            if (matrix == null || matrix.Length == 0 || matrix[0].Length == 0)
+
+            List<int> outList = new List<int>();
+            if(matrix==null||matrix.Length<1||matrix[0].Length<1)
             {
-                return list;
-            }
-            int top = 0;
-            int bottom = matrix.Length - 1;
-            int left = 0;
-            int right= matrix[0].Length - 1;
-            while(top<=bottom&&left<=right)
-            {
-
-                for(int col=left;col<=right;col++)
-                {
-                    list.Add(matrix[top][col]);
-                }
-                for (int row = top+1; row <= bottom; row++)
-                {
-                    list.Add(matrix[row][right]);
-                }
-                if(left < right && top < bottom)
-                {
-                    for(int col=right-1;col>left;col--)
-                    {
-                        list.Add(matrix[bottom][col]);
-                    }
-                    for (int row = bottom ; row >top; row--)
-                    {
-                        list.Add(matrix[row][left]);
-                    }
-
-
-                }
-
-
-                top++;
-                bottom--;
-                left++;
-                right--;
-            }
-
-
-
-            return list;
-        }
-
-
-        public IList<int> SpiralOrder3(int[][] matrix)
-        {
-            List<int> list = new List<int>();
-            if (matrix == null || matrix.Length == 0 || matrix[0].Length == 0)
-            {
-                return list;
-            }
-            int top = 0;
-            int bottom = matrix.Length - 1;
-            int left = 0;
-            int right = matrix[0].Length - 1;
-            while(top<= bottom&& left<= right)
-            {
-
-                for(int col= left; col<= right; col++)
-                {
-                    list.Add(matrix[top][col]);
-                }
-                for (int row = top+1; row <= bottom; row++)
-                {
-                    list.Add(matrix[row][right]);
-                }
-                if(left<right &&top<bottom)
-                {
-                    for(int col=right-1;col>left;col--)
-                    {
-                        list.Add(matrix[bottom][col]);
-                    }
-
-                    for (int row = bottom - 1; row > top; row--)
-                    {
-                        list.Add(matrix[row][left]);
-                    }
-
-
-                }
-
-
-                top++;
-                bottom--;
-                left++;
-                right--;
-            }
-
-
-            return list;
-        }
-
-        public IList<int> SpiralOrder4(int[][] matrix)
-        {
-            List<int> listInt = new List<int>();
-            if (matrix == null || matrix.Length == 0 || matrix[0].Length == 0)
-            {
-                return list;
+                return outList;
             }
             int left = 0;
-            int right = matrix[0].Length - 1;
+            int right = matrix[0].Length-1;
             int top = 0;
-            int bottom = matrix.Length - 1;
+            int bottom = matrix.Length-1;
+
             while(left<=right&&top<=bottom)
             {
                 for(int col=left;col<=right;col++)
                 {
-                    listInt.Add(matrix[top][col]);
+                    outList.Add(matrix[top][col]);
                 }
-                for (int row = top-1; row <= bottom; row++)
+                for (int row = top+1; row <= bottom; row++)
                 {
-                    listInt.Add(matrix[row][right]);
+                    outList.Add(matrix[row][right]);
                 }
                 if(left<right&&top<bottom)
                 {
-                    for(int col=right-1;col>left;col--)
+                    for (int col = right-1; col > left; col--)
                     {
-                        listInt.Add(matrix[bottom][col]);
+                        outList.Add(matrix[bottom][col]);
                     }
-                    for(int row = bottom - 1; row > top; row--)
+                    for (int row = bottom; row > top; row--)
                     {
-                        listInt.Add(matrix[row][left]);
+                        outList.Add(matrix[row][left]);
                     }
-
                 }
-
-
                 left++;
                 right--;
                 top++;
@@ -196,11 +108,9 @@ namespace ConsoleTest.Test
             }
 
 
-            return listInt;
-
-
+            return outList;
+        
         }
-
         #endregion
     }
 }

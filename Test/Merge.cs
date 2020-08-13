@@ -5,6 +5,10 @@ using System.Text;
 
 namespace ConsoleTest.Test
 {
+    //合并区间
+    //排序
+    //时间复杂度：O(nlog n)O(nlogn)
+    //空间复杂度：O(log n)O(logn)
     public class Merge
     {
 
@@ -55,106 +59,40 @@ namespace ConsoleTest.Test
             return result;
         }
 
-        public int[][] Merge2(int[][] intervals)
+
+
+        public int[][] Merge5(int[][] intervals)
         {
-
-            Array.Sort(intervals, (c, v) => c[0] - v[0]);
-            var list = new List<int[]>();
-            int[] lats = new int[2];
-            for (int i = 0; i < intervals.Length; i++)
-            {
-                //进行比较
-                //相交
-                if (i == 0)
-                {
-                    lats = intervals[i];
-                    list.Add(intervals[i]);
-                    continue;
-                }
-                var item = intervals[i];
-                if (item[0] > lats[1])//两个集合无交集
-                {
-                    lats = item;
-                    list.Add(lats);
-                    continue;
-                }
-                else
-                {
-                    lats[1] = Math.Max(item[1], lats[1]);
-                    continue;
-                }
-            }
-            return list.ToArray();
-        }
-
-
-        public int[][] Merge3(int[][] intervals)
-        {
-            List<int[]> tempList = new List<int[]>();
-            intervals = intervals.OrderBy(p => p[0]).ToArray();
-            for(int i=0;i<intervals.Length-1;i++)
-            {
-                if(intervals[i][1]>=intervals[i+1][0])
-                {
-                    intervals[i + 1][0] = intervals[i][0];
-                    if(intervals[i][1] >= intervals[i + 1][1])
-                    {
-                        intervals[i + 1][1] = intervals[i][1];
-                    }
-                }
-                else
-                {
-                    tempList.Add(intervals[i]);
-                }
-            }
-            tempList.Add(intervals[intervals.Length-1]);
-            return  tempList.ToArray();
-
-        }
-
-        public int[][] Merge4(int[][] intervals)
-        {
-            if(intervals.Length==0)
-            {
-                return intervals;
-            }
-            List<int[]> listout = new List<int[]>();
-           
-            intervals = intervals.OrderBy(p => p[0]).ToArray();
-
-
+            List<int[]> outlist = new List<int[]>();
+            intervals = intervals.OrderBy(o => o[0]).ToArray();
             for(int i=0;i<intervals.Length-1;i++)
             {
                 if(intervals[i][1]>= intervals[i+1][0])
                 {
+
                     intervals[i + 1][0] = intervals[i][0];
-                    if(intervals[i][1] >= intervals[i + 1][1])
+                    if (intervals[i][1] >= intervals[i+1][1])
                     {
-                        intervals[i + 1][1] = intervals[i][1];
+                        intervals[i + 1][1] = intervals[1][1];
                     }
                 }
                 else
-                {
-                    listout.Add(intervals[i]);
-                }
+                { outlist.Add(intervals[i]); }
             }
+            outlist.Add(intervals[intervals.Length - 1]);
+            return outlist.ToArray();
 
-            listout.Add(intervals[intervals.Length-1]);
-            int[][] result = listout.ToArray();
-            return result;
-          
         }
 
-        public int[][] Merge5(int[][] intervals)
-        {
+        public int[][] Merge6(int[][] intervals)
+        { 
             if(intervals.Length==0)
             {
                 return intervals;
             }
-            List<int[]> outlist = new List<int[]>();
             intervals = intervals.OrderBy(o => o[0]).ToArray();
-
-            for(int i=0;i<intervals.Length-1;i++)
+            List<int[]> outList = new List<int[]>();
+            for(int i=0;i<intervals.Length;i++)
             {
                 if(intervals[i][1]>=intervals[i+1][0])
                 {
@@ -166,13 +104,14 @@ namespace ConsoleTest.Test
                 }
                 else
                 {
-                    outlist.Add(intervals[i]);
-
+                    outList.Add(intervals[i]);
                 }
+                
             }
-            outlist.Add(intervals[intervals.Length - 1]);
-            return outlist.ToArray();
-
+            outList.Add(intervals[intervals.Length - 1]);
+            return outList.ToArray();
+        
+        
         }
     }
 }

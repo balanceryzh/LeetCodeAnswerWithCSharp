@@ -117,6 +117,28 @@ namespace ConsoleTest.Test
 
             return outList;
         }
+
+        public IList<IList<int>> LevelOrderTest3(TreeNode root)
+        {
+            List<IList<int>> outlist = new List<IList<int>>();
+            Queue<TreeNode> templist = new Queue<TreeNode>();
+
+            templist.Enqueue(root);
+            while(templist.Count>0)
+            {
+                List<int> node = new List<int>();
+                int count = templist.Count;
+                for(int i=0;i<count;i++)
+                {
+                   TreeNode tempNode= templist.Dequeue();
+                    node.Add(tempNode.val);
+                    if (tempNode.left != null) { templist.Enqueue(tempNode.left); }
+                    if (tempNode.right != null) { templist.Enqueue(tempNode.right); }
+                }
+                outlist.Add(node);
+            }
+            return outlist;
+        }
     }
     #endregion
 }
