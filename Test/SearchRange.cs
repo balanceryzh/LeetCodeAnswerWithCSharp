@@ -6,6 +6,13 @@ namespace ConsoleTest.Test
 {
     public class SearchRange
     {
+        //给定一个按照升序排列的整数数组 nums，和一个目标值 target。找出给定目标值在数组中的开始位置和结束位置。
+
+//        你的算法时间复杂度必须是 O(log n) 级别。
+
+//如果数组中不存在目标值，返回[-1, -1]。
+
+
         public static int[] SearchRange1(int[] nums, int target)
         {
 
@@ -155,12 +162,12 @@ namespace ConsoleTest.Test
         {
             int low = -1;
             int high = -1;
-            int left = 0;
-            int right = nums.Length - 1;
-            while(left<=right)
+            int i = 0;
+            int j = nums.Length - 1;
+            while(i<=j)
             {
-                int mid = (left + right) / 2;
-                if (nums[mid]==target)
+                int mid = (i + j) / 2;
+                if(target==nums[mid])
                 {
                     if(mid==0||nums[mid-1]<target)
                     {
@@ -169,25 +176,26 @@ namespace ConsoleTest.Test
                     }
                     else
                     {
-                        right = mid - 1;
+                        j = mid - 1;
                     }
                 }
-                else if(nums[mid]>target)
+                else if(target< nums[mid])
                 {
-                    right = mid - 1;
+                    j = mid - 1;
                 }
                 else
                 {
-                    left = mid + 1;
+                    i = mid + 1;
                 }
-            }
-            left = 0;
-            right = nums.Length - 1;
 
-            while (left <= right)
+                 
+            }
+            i = 0;
+            j = nums.Length - 1;
+            while (i <= j)
             {
-                int mid = (left + right) / 2;
-                if (nums[mid] == target)
+                int mid = (i + j) / 2;
+                if (target == nums[mid])
                 {
                     if (mid == nums.Length - 1 || nums[mid + 1] > target)
                     {
@@ -196,18 +204,18 @@ namespace ConsoleTest.Test
                     }
                     else
                     {
-                        left = mid + 1;
+                        i = mid + 1;
                     }
-
                 }
-                else if (nums[mid] > target)
+                else if (target < nums[mid])
                 {
-                    right = mid - 1;
+                    j = mid - 1;
                 }
                 else
                 {
-                    left = mid + 1;
+                    i = mid + 1;
                 }
+
 
             }
 

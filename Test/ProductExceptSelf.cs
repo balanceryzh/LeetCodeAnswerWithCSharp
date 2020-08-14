@@ -7,6 +7,7 @@ namespace ConsoleTest.Test
 {
     public class ProductExceptSelf
     {
+        //除自身以外数组的乘积
         //左右乘积列表
         //空间复杂度 O(1) 的方法
         public int[] ProductExceptSelf1(int[] nums)
@@ -60,24 +61,7 @@ namespace ConsoleTest.Test
         
         }
 
-        public int[] ProductExceptSelf5(int[] nums) {
 
-            int length = nums.Length;
-            int[] awuser = new int[length];
-            awuser[0] = 1;
-            int r = 1;
-            for(int i=1;i<length;i++)
-            {
-                awuser[i] = awuser[i - 1] * nums[i - 1];
-            }
-            for(int i=length-1;i>=0;i--)
-            {
-                awuser[i] = r * awuser[i];
-                r = r * nums[i];
-            }
-            return awuser;
-        
-        }
 
         public int[] ProductExceptSelf6(int[] nums)
         {
@@ -98,6 +82,24 @@ namespace ConsoleTest.Test
             return outList;
 
 
+        }
+
+        public int[] ProductExceptSelf7(int[] nums)
+        {
+            int len = nums.Length;
+            int[] awers = new int[len];
+            awers[0] = 1;
+            int r = 1;
+            for(int i=1;i<len;i++)
+            {
+                awers[i] = awers[i - 1] * nums[i - 1];
+            }
+            for (int i=len-1;i>=0;i--)
+            {
+                awers[i] = r * awers[i];
+                r = r * nums[i];
+            }
+                return awers;
         }
     }
 }

@@ -12,36 +12,7 @@ namespace ConsoleTest.Test
 
     public class NextPermutation
     {
-        public void NextPermutation1(int[] nums)
-        {
-            for(int i=nums.Length-1;i>0;i--)
-            {
-                if(nums[i]>nums[i-1])
-                {
-                    int temp = nums[i - 1];
-
-                    for(int j = nums.Length - 1; j > i - 1; j--)
-                    {
-                        if(temp<=nums[j])
-                        {
-                            nums[i - 1] = nums[j];
-                            nums[j] = temp;
-                            if(nums.Length - i>0)
-                            {
-                                Array.Sort(nums, i, nums.Length - i);
-
-                            }
-                            return;
-                        }
-                    }
-                    break;
-                }
-
-
-            }
-            Array.Sort(nums);
-
-        }
+   
         public void NextPermutation2(int[] nums)
         {
             for (int i = nums.Length - 1; i > 0; i--)
@@ -68,35 +39,67 @@ namespace ConsoleTest.Test
 
         }
 
-        public void NextPermutation3(int[] nums)
+    
+        public void NextPermutatin5(int[] nums)
         {
-
             for(int i=nums.Length-1;i>0;i--)
             {
-              if(nums[i]>nums[i-1])
+                if(nums[i]>nums[i-1])
                 {
-                    int temp = i - 1;
-                    for(int j=nums.Length;j> temp;j--)
+                    int temp = nums[i - 1];
+                    for(int j=nums.Length-1;j>=0;j--)
                     {
-                        if(nums[temp]<nums[j])
+                        //错误点
+                        if(nums[j]>temp)
                         {
-                            int tempval = nums[temp];
-                            nums[temp] = nums[j];
-                            nums[j] = tempval;
-                            if(nums.Length - i>0)
+                            nums[i - 1] = nums[j];
+                            nums[j] = temp;
+                            if(nums.Length-i>0)
                             {
-                                Array.Sort(nums, i, nums.Length - i );
+                                Array.Sort(nums, i, nums.Length - i);
+                                //错误点
                                 return;
                             }
-                        }
-                    }
 
+                        }
+
+                    }
+                    break;
                 }
             }
+
             Array.Sort(nums);
         }
 
+        public void NextPermutatin6(int[] nums) {
 
+            for(int i=nums.Length-1;i>0;i--)
+            {
+                if(nums[i]>nums[i-1])
+                {
+                    for(int j= nums.Length - 1;j>i-1;j--)
+                    {
+                        if(nums[i-1]<nums[j])
+                        {
+                            int temp = nums[i - 1];
+                            nums[i - 1] = nums[j];
+                            nums[j] = temp;
+                            if(nums.Length-i>0)
+                            {
+                                Array.Sort(nums,i, nums.Length - i);
+                                return;
+                            }
+                        }
+
+                    }
+
+                    break;
+                }
+
+            }
+                Array.Sort(nums);
+        
+        }
 
     }
 }

@@ -7,6 +7,7 @@ namespace ConsoleTest.Test
 {
     public class LongestPalindrome
     {
+        //最长回文子串
         public string LongestPalindrome2(string s)
         {
             string result = "";
@@ -113,6 +114,35 @@ namespace ConsoleTest.Test
 
             return longest;
         }
+        //
+        public string LongestPalindrome7(string s)
+        {
+            string outlist = "";
+            int len = s.Length;
+            int longlen = len * 2 - 1;
+            for(int i=0;i<longlen;i++)
+            {
+                double mid = i / 2.0;
+                int p = (int)Math.Floor(mid);
+                int q = (int)Math.Ceiling(mid);
+                while (p >= 0&&q<len)
+                {
+                    if(s[p]!=s[q])
+                    {
+                        break;
+                    }
+                    p--;q++;
+                }
+                int lens = q - p - 1;
+                if(lens>outlist.Length)
+                {
+                    outlist = s.Substring(p + 1, lens);
+                }
+
+            }
+            return outlist;
+        }
+
         #endregion
     }
 }

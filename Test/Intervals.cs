@@ -7,7 +7,7 @@ namespace ConsoleTest.Test
 {
     public class Intervals
     {
-        public int[][] Merge1(int[][] intervals)
+        public int[][] Intervals1(int[][] intervals)
         {
             if(intervals.Length==0)
             {
