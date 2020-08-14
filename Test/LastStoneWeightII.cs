@@ -37,8 +37,8 @@ namespace ConsoleTest.Test
     /// </summary>
     public class LastStoneWeightII
     {
-
-        public int LastStoneWeightII1(int[] stones)
+        //背包问题
+        public static int LastStoneWeightII1(int[] stones)
         {  /* 由于石头拿走还能放回去，因此可以简单地把所有石头看作两堆
          * 假设总重量为 sum, 则问题转化为背包问题：如何使两堆石头总重量接近 sum / 2
          */
@@ -52,6 +52,8 @@ namespace ConsoleTest.Test
             /* 定义 dp[i] 重量上限为 i 时背包所能装载的最大石头重量 */
             int maxCapacity = sum / 2;
             int[] dp = new int[maxCapacity + 1];
+
+
             for (int i = 0; i < len; i++)
             {
                 int curStone = stones[i];
@@ -60,9 +62,24 @@ namespace ConsoleTest.Test
                     dp[j] = Math.Max(dp[j], dp[j - curStone] + curStone);
                 }
             }
+
+            //总重减两个背包能装最大重量的石头
             return sum - 2 * dp[maxCapacity];
 
          
+
+        }
+
+
+
+        public static int LastStoneWeightII2(int[] stones)
+        {
+            int sum = 0;
+            foreach(int i in stones)
+            {
+                sum = sum + i;
+            }
+
 
         }
     }
