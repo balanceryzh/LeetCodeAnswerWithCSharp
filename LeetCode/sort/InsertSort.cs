@@ -17,14 +17,14 @@ namespace ConsoleTest.Sort
                     int temp = list[i];
                     for (int j=i;j>0;j--)
                     {
-                        if(temp <= list[j-1])
+                        if(temp < list[j-1])
                         {
                             list[j] = list[j-1];
 
                         }
                         else
                         {
-                            list[j] = temp;
+                            list[j-1] = temp;
                             break;
                         }
                         if (j - 1 == 0)
@@ -129,7 +129,7 @@ namespace ConsoleTest.Sort
                     }
                     else
                     {
-                        list[j - 1] = temp;
+                        list[j] = temp;
                         break;
                     }
                     if(j-1==0)
