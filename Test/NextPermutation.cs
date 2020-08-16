@@ -4,11 +4,11 @@ using System.Text;
 
 namespace ConsoleTest.Test
 {
-//以下是一些例子，输入位于左侧列，其相应输出位于右侧列。
-//1,2,3 → 1,3,2
-//3,2,1 → 1,2,3
-//1,1,5 → 1,5,1
-//1,2,3,1-> 1,1,3,2
+    //以下是一些例子，输入位于左侧列，其相应输出位于右侧列。
+    //1,2,3 → 1,3,2
+    //3,2,1 → 1,2,3
+    //1,1,5 → 1,5,1
+    //1,2,3,1-> 1,1,3,2
 
     public class NextPermutation
     {
@@ -73,31 +73,6 @@ namespace ConsoleTest.Test
 
         public void NextPermutatin6(int[] nums) {
 
-            for(int i=nums.Length-1;i>0;i--)
-            {
-                if(nums[i]>nums[i-1])
-                {
-                    for(int j= nums.Length - 1;j>i-1;j--)
-                    {
-                        if(nums[i-1]<nums[j])
-                        {
-                            int temp = nums[i - 1];
-                            nums[i - 1] = nums[j];
-                            nums[j] = temp;
-                            if(nums.Length-i>0)
-                            {
-                                Array.Sort(nums,i, nums.Length - i);
-                                return;
-                            }
-                        }
-
-                    }
-
-                    break;
-                }
-
-            }
-                Array.Sort(nums);
         
         }
 

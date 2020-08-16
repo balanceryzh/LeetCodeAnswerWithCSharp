@@ -84,22 +84,9 @@ namespace ConsoleTest.Test
 
         }
 
-        public int[] ProductExceptSelf7(int[] nums)
-        {
-            int len = nums.Length;
-            int[] awers = new int[len];
-            awers[0] = 1;
-            int r = 1;
-            for(int i=1;i<len;i++)
-            {
-                awers[i] = awers[i - 1] * nums[i - 1];
-            }
-            for (int i=len-1;i>=0;i--)
-            {
-                awers[i] = r * awers[i];
-                r = r * nums[i];
-            }
-                return awers;
-        }
+        //public int[] ProductExceptSelf7(int[] nums)
+        //{
+           
+        //}
     }
 }

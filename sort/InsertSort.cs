@@ -118,18 +118,18 @@ namespace ConsoleTest.Sort
 
         public static int[] insertSortTest3(int[] list)
         {
-            for(int i=1;i<list.Length;i++)
+           for(int i=1;i<list.Length;i++)
             {
                 int temp = list[i];
                 for(int j=i;j>0;j--)
                 {
-                    if(temp>=list[j-1])
+                    if(temp>list[j-1])
                     {
                         list[j] = list[j - 1];
                     }
                     else
                     {
-                        list[j] = temp;
+                        list[j - 1] = temp;
                         break;
                     }
                     if(j-1==0)
@@ -137,8 +137,8 @@ namespace ConsoleTest.Sort
                         list[j - 1] = temp;
                     }
                 }
-               
             }
+
             return list;
         }
         #endregion
