@@ -28,5 +28,13 @@ namespace XUnitTest
             var test = SpiralOrder.SpiralOrder5(intervals);
             Assert.Equal(new int[] { 1, 2, 3, 6, 9, 8, 7, 4, 5 }, test);
         }
+
+
+        [Fact]
+        public void ProductExceptSelfTest()
+        {
+            var test = ProductExceptSelf.ProductExceptSelf7(new int[] { 1, 2, 3, 4 });
+            Assert.Equal(new int[] { 24, 12, 8, 6 }, test);
+        }
     }
 }

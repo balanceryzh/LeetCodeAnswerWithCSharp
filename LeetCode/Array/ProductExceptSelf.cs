@@ -84,9 +84,25 @@ namespace ConsoleTest.Test
 
         }
 
-        //public int[] ProductExceptSelf7(int[] nums)
-        //{
-           
-        //}
+        public static int[] ProductExceptSelf7(int[] nums)
+        {
+            int len = nums.Length;
+            int[] outList = new int[len];
+            outList[0] = 1;
+            int right = 1;
+            for(int i=1;i<=len-1;i++)
+            {
+                outList[i] = outList[i - 1] * nums[i - 1];
+            }
+            for (int i = len-1; i >=0; i--)
+            {
+                outList[i] = outList[i] * right;
+                right = right * nums[i];
+            }
+
+
+            return outList;
+
+        }
     }
 }

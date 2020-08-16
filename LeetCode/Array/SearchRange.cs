@@ -158,10 +158,70 @@ namespace ConsoleTest.Test
 
         #region 测试区域
 
-        //public int[] SearchRange3(int[] nums, int target)
-        //{
-            
-        //}
+        public int[] SearchRange3(int[] nums, int target)
+        {
+            int low = -1;int high = -1;
+            int i = 0;
+            int j = nums.Length - 1;
+            //要有等号
+            while(i<=j)
+            {
+                int mid = (i + j) / 2;
+                if (target == nums[mid])
+                { 
+                    if(mid==0||nums[mid-1]< target)
+                    {
+                        low = mid;
+                        break;
+                    }
+                    else
+                    {
+                        j = mid - 1;
+                    }
+                }
+                else if(target> nums[mid])
+                {
+
+                    i = mid + 1;
+                }
+                else
+                {
+                    j = mid - 1;
+                }
+
+            }
+            i = 0;
+            j = nums.Length - 1;
+            while (i <= j)
+            {
+                int mid = (i + j) / 2;
+                if (target == nums[mid])
+                {
+                    if (mid == nums.Length - 1 || nums[mid + 1] > target)
+                    {
+                        high = mid;
+                        break;
+                    }
+                    else
+                    {
+                        i = mid + 1;
+                    }
+                }
+                else if (target > nums[mid])
+                {
+
+                    i = mid + 1;
+                }
+                else
+                {
+                    j = mid - 1;
+                }
+
+            }
+
+
+            return new int[]{low,high};
+        }
         #endregion
     }
 }
