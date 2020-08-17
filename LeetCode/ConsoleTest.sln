@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29411.108
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTest", "ConsoleTest.csproj", "{25892721-EE1E-4D62-BBC2-5880B7B187D5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTest", "..\XUnitTest\XUnitTest.csproj", "{6F88ECBB-50AF-4A28-8E36-24B1F9321FAC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "XUnitTest", "..\XUnitTest\XUnitTest.csproj", "{6F88ECBB-50AF-4A28-8E36-24B1F9321FAC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPatterns", "..\DesignPatterns\DesignPatterns\DesignPatterns.csproj", "{65EF17AB-4D6D-4E9B-8689-CDC27BFF7198}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{6F88ECBB-50AF-4A28-8E36-24B1F9321FAC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6F88ECBB-50AF-4A28-8E36-24B1F9321FAC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6F88ECBB-50AF-4A28-8E36-24B1F9321FAC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65EF17AB-4D6D-4E9B-8689-CDC27BFF7198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65EF17AB-4D6D-4E9B-8689-CDC27BFF7198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65EF17AB-4D6D-4E9B-8689-CDC27BFF7198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65EF17AB-4D6D-4E9B-8689-CDC27BFF7198}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
