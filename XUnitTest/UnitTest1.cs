@@ -36,5 +36,19 @@ namespace XUnitTest
             var test = ProductExceptSelf.ProductExceptSelf7(new int[] { 1, 2, 3, 4 });
             Assert.Equal(new int[] { 24, 12, 8, 6 }, test);
         }
+
+        [Fact]
+        public void LongestPalindromeTest()
+        {
+            var test = LongestPalindrome.LongestPalindrome7("aabc");
+            Assert.Equal("aa", test);
+        }
+
+        [Fact]
+        public void MaxSubArrayTest()
+        {
+            var test = MaxSubArray.MaxSubArray2(new int[] { 1, 2, 3, 4 });
+            Assert.Equal(10, test);
+        }
     }
 }

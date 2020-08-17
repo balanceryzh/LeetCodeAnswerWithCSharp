@@ -115,17 +115,17 @@ namespace ConsoleTest.Test
             return longest;
         }
         //
-        public string LongestPalindrome7(string s)
+        public static string LongestPalindrome7(string s)
         {
-            string outlist = "";
+            string outstring = "";
             int len = s.Length;
-            int longlen = len * 2 - 1;
-            for(int i=0;i<longlen;i++)
+            int length = len * 2 - 1;
+            for(int i=0;i<=length;i++)
             {
                 double mid = i / 2.0;
                 int p = (int)Math.Floor(mid);
                 int q = (int)Math.Ceiling(mid);
-                while (p >= 0&&q<len)
+                while(p>=0&&q<len)
                 {
                     if(s[p]!=s[q])
                     {
@@ -133,14 +133,16 @@ namespace ConsoleTest.Test
                     }
                     p--;q++;
                 }
-                int lens = q - p - 1;
-                if(lens>outlist.Length)
+                int outlen = q - p - 1;
+                if(outlen> outstring.Length)
                 {
-                    outlist = s.Substring(p + 1, lens);
+                    outstring = s.Substring(p + 1, outlen);
                 }
+              
 
             }
-            return outlist;
+
+            return outstring;
         }
 
         #endregion
