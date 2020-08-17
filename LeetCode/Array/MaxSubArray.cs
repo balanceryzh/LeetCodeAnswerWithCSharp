@@ -50,8 +50,8 @@ namespace ConsoleTest.Test
             int tempi = 0;int pre = nums[0];
             foreach(int i in nums)
             {
-                tempi = Math.Max(tempi+i,i);
-                pre = Math.Max(pre,tempi);
+                tempi = Math.Max(tempi + i, i);
+                pre = Math.Max(tempi, pre);
             }
             return pre;
         }
