@@ -1,4 +1,5 @@
 using ConsoleTest.Sort;
+using ConsoleTest.StrList;
 using ConsoleTest.Test;
 using System;
 using Xunit;
@@ -50,5 +51,15 @@ namespace XUnitTest
             var test = MaxSubArray.MaxSubArray2(new int[] { 1, 2, 3, 4 });
             Assert.Equal(10, test);
         }
+
+        
+
+        [Fact]
+        public void MostCommonWordTest()
+        {
+            var test = MostCommonWord.MostCommonWord2("Bob hit a ball, the hit BALL flew far after it was hit.",new string[] { "hit" });
+            Assert.Equal("ball", test);
+        }
+        
     }
 }

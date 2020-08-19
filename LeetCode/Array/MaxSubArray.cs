@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace ConsoleTest.Test
@@ -59,13 +60,13 @@ namespace ConsoleTest.Test
         public static int MaxSubArray5(int[] nums)
         {
             int tempi = 0;int pre = nums[0];
-            foreach(int i in nums)
+
+            for(int i=0;i<nums.Length;i++)
             {
                 tempi = Math.Max(tempi+i,i);
-                pre = Math.Max(tempi, pre);
+                pre = Math.Max(tempi,pre);
 
             }
-
             return pre;
         }
 

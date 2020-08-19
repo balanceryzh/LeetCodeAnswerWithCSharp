@@ -88,21 +88,18 @@ namespace ConsoleTest.Test
         {
             int len = nums.Length;
             int[] outList = new int[len];
+            int r = 1;
             outList[0] = 1;
-            int right = 1;
-            for(int i=1;i<=len-1;i++)
+            for(int i=1;i<len;i++)
             {
                 outList[i] = outList[i - 1] * nums[i - 1];
             }
-            for (int i = len-1; i >=0; i--)
+            for(int i=len-1;i>=0;i--)
             {
-                outList[i] = outList[i] * right;
-                right = right * nums[i];
+                outList[i] = r * outList[i];
+                r = r * nums[i];
             }
-
-
             return outList;
-
         }
     }
 }
