@@ -5,7 +5,7 @@ using System.Text;
 namespace ConsoleTest.StrList
 {
 
-//    整数转换英文表示
+//    整数转换英文表示(重点)
 //将非负整数转换为其对应的英文表示。可以保证给定输入小于 231 - 1 。
 
 //示例 1:

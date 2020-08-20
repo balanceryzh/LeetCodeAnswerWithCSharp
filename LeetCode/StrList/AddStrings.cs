@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleTest.StrList
 {
-//    字符串相加
+//    字符串相加(重点)
 //给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。
 
  

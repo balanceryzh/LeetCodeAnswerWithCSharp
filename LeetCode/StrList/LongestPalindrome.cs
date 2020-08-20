@@ -7,7 +7,7 @@ namespace ConsoleTest.Test
 {
     public class LongestPalindrome
     {
-        //最长回文子串
+        //最长回文子串(重点)
         public string LongestPalindrome2(string s)
         {
             string result = "";

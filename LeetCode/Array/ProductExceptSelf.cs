@@ -7,7 +7,7 @@ namespace ConsoleTest.Test
 {
     public class ProductExceptSelf
     {
-        //除自身以外数组的乘积
+        //除自身以外数组的乘积(重点)
         //左右乘积列表
         //空间复杂度 O(1) 的方法
         public int[] ProductExceptSelf1(int[] nums)

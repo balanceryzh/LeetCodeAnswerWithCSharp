@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ConsoleTest.StrList
 {
+    //最常见的单词(重点)
     public class MostCommonWord
     {
         //        给定一个段落(paragraph) 和一个禁用单词列表(banned)。返回出现次数最多，同时不在禁用列表中的单词。
@@ -68,7 +69,74 @@ namespace ConsoleTest.StrList
 
             return dic.Where(p => p.Value == dic.Values.Max()).Select(p => p.Key).FirstOrDefault();
         }
+        public string MostCommonWord3(string paragraph, string[] banned)
+        {
+            Dictionary<string, int> map = new Dictionary<string, int>();
+            paragraph = paragraph.ToLower();
 
+            int start = -1;
+            int end = 0;
+            while (end < paragraph.Length)
+            {
+                if (paragraph[end] < 'a' || paragraph[end] > 'z')
+                {
+                    if (start < 0)
+                    {
+                        end++;
+                        continue;
+                    }
+                    string str = paragraph.Substring(start, end - start);
+
+                    if (map.ContainsKey(str))
+                    {
+                        map[str]++;
+                    }
+                    else
+                    {
+                        map[str] = 1;
+                    }
+
+                    end++;
+                    start = -1;
+                }
+                else
+                {
+                    if (start < 0)
+                    {
+                        start = end;
+                    }
+                    end++;
+                }
+            }
+            if (start < paragraph.Length && start >= 0)
+            {
+                string str = paragraph.Substring(start, paragraph.Length - start);
+                if (map.ContainsKey(str))
+                {
+                    map[str]++;
+                }
+                else
+                {
+                    map[str] = 1;
+                }
+            }
+
+            foreach (var item in banned)
+            {
+                map[item] = -1;
+            }
+            int max = 0;
+            string maxStr = "";
+            foreach (var item in map)
+            {
+                if (item.Value > max)
+                {
+                    max = item.Value;
+                    maxStr = item.Key;
+                }
+            }
+            return maxStr;
+        }
 
     }
 }

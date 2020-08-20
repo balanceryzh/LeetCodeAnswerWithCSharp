@@ -4,6 +4,7 @@ using System.Text;
 
 namespace ConsoleTest.Test
 {
+    //下一个排列(重点)
     //以下是一些例子，输入位于左侧列，其相应输出位于右侧列。
     //1,2,3 → 1,3,2
     //3,2,1 → 1,2,3
