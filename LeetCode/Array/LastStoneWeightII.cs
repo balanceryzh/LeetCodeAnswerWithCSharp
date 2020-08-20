@@ -72,11 +72,16 @@ namespace ConsoleTest.Test
 
 
 
-        //public static int LastStoneWeightII2(int[] stones)
-        //{
-       
+        public static int LastStoneWeightII2(int[] stones)
+        {
+            int len = stones.Length;
+            int sum = 0;
+            foreach(int i in stones)
+            {
+
+            }
 
 
-        //}
+        }
     }
 }
