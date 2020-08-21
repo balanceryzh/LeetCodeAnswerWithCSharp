@@ -4,7 +4,9 @@ using System.Text;
 
 namespace ConsoleTest.Test
 {
-     public class TreeNode
+    //二叉树的层序遍历(重点)
+
+    public class TreeNode
     {
      public int val;
      public TreeNode left;
@@ -139,6 +141,37 @@ namespace ConsoleTest.Test
             }
             return outlist;
         }
+
+
+        public IList<IList<int>> LevelOrderTest5(TreeNode root)
+        {
+            List<IList<int>> outList = new List<IList<int>>();
+            if(root==null)
+            {
+                return outList;
+            }
+            Queue<TreeNode> temp = new Queue<TreeNode>();
+            temp.Enqueue(root);
+            while(temp.Count>0)
+            {
+                int count = temp.Count;
+                List<int> outListNode = new List<int>();
+                for(int i=0;i<count;i++)
+                {
+                  TreeNode tempnode=  temp.Dequeue();
+                    outListNode.Add(tempnode.val);
+                    if (tempnode.left != null) { temp.Enqueue(tempnode.left); }
+                    if (tempnode.right != null) { temp.Enqueue(tempnode.right); }
+                }
+
+                outList.Add(outListNode);
+
+            }
+
+            return outList;
+
+        }
+
     }
     #endregion
 }
