@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 
@@ -123,6 +124,29 @@ namespace ConsoleTest.Test
             }
             return sum - 2 * bg[bagMax];
 
+        }
+
+        public static int LastStoneWeightII4(int[] stones)
+        {
+            int sum = 0;
+            foreach(int i in stones)
+            {
+                sum = sum + i;
+            }
+            int maxbag = sum / 2;
+            int[] bg = new int[maxbag+1];
+            for(int i=0;i<stones.Length;i++)
+            {
+                int stone=stones[i];
+                for(int j=maxbag;j>=stone;j--)
+                {
+                    bg[j] = Math.Max(bg[j],bg[j-stone]+stone);
+                }
+
+            }
+
+
+            return sum - 2 * bg[maxbag];
         }
     }
 }
