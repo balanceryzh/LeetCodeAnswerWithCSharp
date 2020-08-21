@@ -98,5 +98,36 @@ namespace ConsoleTest.Test
             Array.Sort(nums);
         }
 
+       
+        public static void NextPermutatin8(int[] nums)
+        {
+            for(int i= nums.Length-1; i>0;i--)
+            {
+                if (nums[i] > nums[i - 1])
+                {
+
+                    int temp = nums[i - 1];
+
+                    for(int j = nums.Length - 1; j > i-1; j--)
+                    {
+                        if(temp<nums[j])
+                        {
+                            nums[i - 1] = nums[j];
+                            nums[j] = temp;
+                            if(nums.Length-i>0)
+                            {
+                                Array.Sort(nums,i, nums.Length - i);
+                            }
+
+                        }
+                        return;
+                    }
+                    break;
+                }
+              
+            }
+
+            Array.Sort(nums);
+        }
     }
 }

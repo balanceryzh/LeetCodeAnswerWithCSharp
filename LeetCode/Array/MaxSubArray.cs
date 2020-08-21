@@ -57,19 +57,32 @@ namespace ConsoleTest.Test
             return pre;
         }
 
-        public static int MaxSubArray5(int[] nums)
+
+
+        public static int MaxSubArray6(int[] nums)
         {
             int tempi = 0;int pre = nums[0];
-
             for(int i=0;i<nums.Length;i++)
             {
-                tempi = Math.Max(tempi+i,i);
-                pre = Math.Max(tempi,pre);
-
+                tempi = Math.Max(tempi + nums[i], nums[i]);
+                pre = Math.Max(pre,tempi);
             }
             return pre;
         }
 
+
+        public static int MaxSubArray7(int[] nums)
+        {
+
+            int outi = 0;int outpre = nums[0];
+            for(int i=0;i<nums.Length;i++)
+            {
+                outi = Math.Max(outi+nums[i],nums[i]);
+                outpre = Math.Max(outpre,outi);
+            }
+
+            return outpre;
+        }
     }
 
 

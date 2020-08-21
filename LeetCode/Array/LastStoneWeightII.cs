@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 
 namespace ConsoleTest.Test
 {
 
-    //最后一块石头的重量 II(重点)
+    //最后一块石头的重量 II(重点1)
     /// <summary>
     /// 有一堆石头，每块石头的重量都是正整数。
 
@@ -74,13 +75,53 @@ namespace ConsoleTest.Test
 
         public static int LastStoneWeightII2(int[] stones)
         {
-            int len = stones.Length;
+            
             int sum = 0;
             foreach(int i in stones)
             {
-
+                sum = sum + i;
             }
 
+            int bagmax = sum / 2;
+            int[] bg = new int[bagmax+1];
+            for(int i=0;i<stones.Length;i++)
+            {
+                int stone = stones[i];
+                for(int j=bagmax;j>=stone;j--)
+                {
+                    bg[j] = Math.Max(bg[j], bg[j - stone] + stone);
+                }
+            }
+
+            return sum - 2 * bg[bagmax];
+
+
+        }
+
+        public static int LastStoneWeightII3(int[] stones)
+        {
+
+            int sum = 0;
+            foreach(int i in stones)
+            {
+                sum = sum + i;
+            }
+
+            int bagMax = sum / 2;
+
+            int[] bg = new int[bagMax+1];
+
+            for(int i=0;i<stones.Length;i++)
+            {
+                int stone = stones[i];
+                for(int j=bagMax;j>=stone;j--)
+                {
+                    bg[j] = Math.Max(bg[j], bg[j - stone] + stone);
+                }
+
+
+            }
+            return sum - 2 * bg[bagMax];
 
         }
     }
