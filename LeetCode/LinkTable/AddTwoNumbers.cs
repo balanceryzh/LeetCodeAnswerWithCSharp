@@ -66,22 +66,30 @@ namespace ConsoleTest.LinkTable
         }
         public ListNode AddTwoNumbers4(ListNode l1, ListNode l2, int num = 0)
         {
-            if(l1==null&&l2==null)
+            if (l1 == null && l2 == null)
             {
                 if (num > 0) return new ListNode(num);
                 else return default;
             }
             int midValue = l1?.val ?? 0 + l2?.val ?? 0 + num;
-            ListNode listnode = new ListNode(midValue%num);
-            listnode.next = AddTwoNumbers4(l1?.next,l2?.next,midValue/10);
+            ListNode listnode = new ListNode(midValue % 10);
+            listnode.next = AddTwoNumbers4(l1?.next, l2?.next, midValue / 10);
             return listnode;
 
+        }
 
 
-
-            public ListNode AddTwoNumbers5(ListNode l1, ListNode l2, int num = 0
+            public ListNode AddTwoNumbers5(ListNode l1, ListNode l2, int num = 0)
+           {
+                if(l1==null&&l2==null)
                 {
-
-            }
+                    if (num > 0) { new ListNode(num); }
+                    else { return default; }
+                }
+            int miuValue = l1?.val ?? 0 + l2?.val ?? 0 + num;
+            ListNode listNode = new ListNode(miuValue % 10);
+            listNode.next = AddTwoNumbers5(l1?.next, l2?.next, miuValue / 10);
+                return listNode;
+           }
     }
 }

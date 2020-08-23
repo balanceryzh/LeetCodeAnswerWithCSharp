@@ -147,5 +147,25 @@ namespace ConsoleTest.Test
 
         }
         public static int LastStoneWeightII5(int[] stones)
+        {
+            int sum = 0;
+            foreach(int i in stones)
+            {
+                sum = sum + i;
+            }
+            int maxbag = sum / 2;
+            int[] bgmax = new int[maxbag+1];
+            for(int i=0;i<stones.Length;i++)
+            {
+                int stone = stones[i];
+                for(int j=maxbag;j>=stone;j--)
+                {
+                    bgmax[j] = Math.Max(bgmax[j],bgmax[j-stone]+stone);
+                }
+            }
+
+            return sum - 2 * bgmax[maxbag];
+
+        }
     }
 }
