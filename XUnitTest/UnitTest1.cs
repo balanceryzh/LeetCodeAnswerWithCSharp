@@ -1,6 +1,7 @@
 using ConsoleTest.Sort;
 using ConsoleTest.StrList;
 using ConsoleTest.Test;
+using ConsoleTest.tree;
 using System;
 using Xunit;
 
@@ -61,5 +62,21 @@ namespace XUnitTest
             Assert.Equal("ball", test);
         }
         
+
+        [Fact]
+        public void ZigzagLevelOrderTest()
+        {
+            ZigzagLevelOrder.TreeNode root = new ZigzagLevelOrder.TreeNode(1);
+            ZigzagLevelOrder.TreeNode root2 = new ZigzagLevelOrder.TreeNode(2);
+            ZigzagLevelOrder.TreeNode root3 = new ZigzagLevelOrder.TreeNode(3);
+            ZigzagLevelOrder.TreeNode root4 = new ZigzagLevelOrder.TreeNode(4);
+            ZigzagLevelOrder.TreeNode root5 = new ZigzagLevelOrder.TreeNode(5);
+            root.left = root2;
+            root.right = root3;
+            root2.left = root4;
+            root3.right = root5;
+         var list=   ZigzagLevelOrder.ZigzagLevelOrder2(root);
+
+        }
     }
 }

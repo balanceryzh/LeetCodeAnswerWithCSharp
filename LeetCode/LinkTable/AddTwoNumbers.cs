@@ -91,5 +91,20 @@ namespace ConsoleTest.LinkTable
             listNode.next = AddTwoNumbers5(l1?.next, l2?.next, miuValue / 10);
                 return listNode;
            }
+
+        public ListNode AddTwoNumbers6(ListNode l1, ListNode l2, int num = 0)
+        {
+            if(l1==null&&l2==null)
+            {
+                if (num > 0) return new ListNode(num);
+                return default;
+            }
+            int minValue = l1?.val ?? 0 + l2?.val ?? 0 + num;
+
+            ListNode listnode = new ListNode(minValue%10);
+            listnode.next = AddTwoNumbers6(l1?.next,l2?.next,minValue/10);
+            return listnode;
+
+        }
     }
 }
