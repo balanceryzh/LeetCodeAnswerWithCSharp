@@ -133,20 +133,19 @@ namespace ConsoleTest.Test
             {
                 sum = sum + i;
             }
-            int maxbag = sum / 2;
-            int[] bg = new int[maxbag+1];
+            int bagMax = sum / 2;
+            int[] bg = new int[bagMax+1];
             for(int i=0;i<stones.Length;i++)
             {
-                int stone=stones[i];
-                for(int j=maxbag;j>=stone;j--)
+                int stone = stones[i];
+                for(int j=bagMax;j>=stone;j--)
                 {
                     bg[j] = Math.Max(bg[j],bg[j-stone]+stone);
                 }
-
             }
+            return sum - 2 * bg[bagMax];
 
-
-            return sum - 2 * bg[maxbag];
         }
+        public static int LastStoneWeightII5(int[] stones)
     }
 }
