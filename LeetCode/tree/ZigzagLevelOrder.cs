@@ -148,5 +148,48 @@ namespace ConsoleTest.tree
             }
             return outList;
         }
+
+        public IList<IList<int>> ZigzagLevelOrder5(TreeNode root)
+        {
+            List<IList<int>> outList = new List<IList<int>>();
+            Stack<TreeNode> tempList = new Stack<TreeNode>();
+            int temp = 0;
+            tempList.Push(root);
+            while(tempList.Count>0)
+            {
+                int count = tempList.Count;
+                Stack<TreeNode> tempList2 = new Stack<TreeNode>();
+                List<int> node = new List<int>();
+                for (int i=0;i<count;i++)
+                {
+                    TreeNode treeNode = tempList.Pop();
+                    node.Add(treeNode.val);
+                    if(temp==0)
+                    {
+                        if (treeNode.left != null) { tempList2.Push(treeNode.left); }
+                        if (treeNode.right != null) { tempList2.Push(treeNode.right); }
+                    }
+                    else
+                    {
+                        if (treeNode.right != null) { tempList2.Push(treeNode.right); }
+                        if (treeNode.left != null) { tempList2.Push(treeNode.left); }
+                       
+                    }
+                }
+
+                if(temp==0)
+                {
+                    temp = 1;
+                }
+                else
+                {
+                    temp = 0;
+                }
+                tempList = tempList2;
+                outList.Add(node);
+            }
+            return outList;
+
+        }
     }
 }

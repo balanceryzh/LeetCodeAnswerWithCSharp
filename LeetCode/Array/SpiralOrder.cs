@@ -107,6 +107,48 @@ namespace ConsoleTest.Test
 
             return outList;
         }
+
+        public static IList<int> SpiralOrder6(int[][] matrix)
+        {
+            List<int> outList = new List<int>();
+            if (matrix == null || matrix.Length == 0||matrix[0].Length==0)
+            {
+                return outList;
+            }
+            int left = 0;
+            int right = matrix[0].Length - 1;
+
+            int top = 0;
+            int bottom = matrix.Length - 1;
+            while(left<=right&&top<= bottom)
+            {
+                for(int col=left;col<=right;col++)
+                {
+                    outList.Add(matrix[top][col]);
+                }
+                for(int row=top+1;top<=bottom; row++)
+                {
+                    outList.Add(matrix[right][row]);
+                }
+                while(left<right&&top<bottom)
+                {
+                    for (int col = right-1; col > left; col--)
+                    {
+                        outList.Add(matrix[bottom][col]);
+                    }
+                    for (int row = bottom; row > top; row--)
+                    {
+                        outList.Add(matrix[left][row]);
+                    }
+                }
+
+                left++;right--;top++;bottom--;
+            }
+
+
+            return outList;
+        }
+
         #endregion
     }
 }

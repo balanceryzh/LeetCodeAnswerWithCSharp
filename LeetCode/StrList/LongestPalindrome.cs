@@ -144,6 +144,37 @@ namespace ConsoleTest.Test
 
             return outstring;
         }
+        public static string LongestPalindrome8(string s)
+        {
+            int len = s.Length;
+            int templen = len * 2 - 1;
+            string outString = "";
+            for(int i=0;i<= templen; i++)
+            {
+                double mid = i / 2.0;
+                int p = (int)Math.Floor(mid);
+                int q = (int)Math.Ceiling(mid);
+                while(p>=0&&q<len)
+                {
+                    if(s[p]!=s[q])
+                    {
+                        break;
+                    }
+                    p--;q++;
+                }
+                int outlen = q - p - 1;
+                if(outlen> outString.Length)
+                {
+                    outString = s.Substring(p+1, outlen);
+                }
+            }
+
+
+            return outString;
+
+
+        }
+
 
         #endregion
     }
