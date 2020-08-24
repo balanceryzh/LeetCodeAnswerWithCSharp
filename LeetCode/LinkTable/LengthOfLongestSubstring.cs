@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 
 namespace ConsoleTest.LinkTable
@@ -88,6 +89,41 @@ namespace ConsoleTest.LinkTable
 
             char c, delstr;
             Queue<char> quesue = new Queue<char>();
+            for (int i = 0; i < s.Length; i++)
+            {
+                c = s[i];
+                if(quesue.Contains(c))
+                {
+                    do { delstr = quesue.Dequeue(); } while (delstr != c);
+                }
+                
+                    quesue.Enqueue(s[i]);
+                
+                max = quesue.Count > max ? quesue.Count : max;
+            }
+
+            return max;
+
+        }
+
+        public static int LengthOfLongestSubstring7(string s)
+        {
+            int max = s.Length >= 1 ? 1 : 0;
+            char c, delstr;
+            Queue<char> list = new Queue<char>();
+            for(int i=0;i<s.Length;i++)
+            {
+                c = s[i];
+                if(list.Contains(c))
+                {
+
+                    do { delstr = list.Dequeue(); } while (delstr != c);
+                }
+                list.Enqueue(c);
+                max = max < list.Count ? list.Count : max;
+            }
+
+            return max;
 
         }
     }
