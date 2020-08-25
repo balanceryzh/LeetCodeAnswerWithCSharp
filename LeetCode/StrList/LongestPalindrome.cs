@@ -175,7 +175,34 @@ namespace ConsoleTest.Test
 
         }
 
+        public static string LongestPalindrome9(string s)
+        {
+            int len = s.Length;
+            int length = len * 2 - 1;
+            string outString = "";
+            for(int i=0;i<=length;i++)
+            {
+                double mid = i / 2.0;
+                int p = (int)Math.Floor(mid);
+                int q = (int)Math.Ceiling(mid);
+                while(p>=0&&q<len)
+                {
+                    if(s[p]!=s[q])
+                    {
+                        break;
+                    }
+                    p--;q++;
+                }
+                int outInt = q - p - 1;
+                if(outInt>outString.Length)
+                {
+                    outString.Substring(p + 1, outInt);
+                }
 
+            }
+            return outString;
+        
+        }
         #endregion
     }
 }
