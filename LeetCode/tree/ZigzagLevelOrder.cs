@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace ConsoleTest.tree
 {
-
+    //二叉树的锯齿形层次遍历
     //给定一个二叉树，返回其节点值的锯齿形层次遍历。（即先从左往右，再从右往左进行下一层遍历，以此类推，层与层之间交替进行）。
     public class ZigzagLevelOrder
     {
@@ -107,126 +108,56 @@ namespace ConsoleTest.tree
         }
 
 
-        public IList<IList<int>> ZigzagLevelOrder4(TreeNode root) {
-            List<IList<int>> outList = new List<IList<int>>();
+      
 
+        public IList<IList<int>> ZigzagLevelOrder7(TreeNode root)
+        {
+            List<IList<int>> outlist = new List<IList<int>>();
             if(root==null)
             {
-                return outList;
+                return outlist;
             }
-            Stack<TreeNode> stack = new Stack<TreeNode>();
-            stack.Push(root);
             int temp = 0;
-            while(stack.Count>0)
+            Stack<TreeNode> list = new Stack<TreeNode>();
+
+            list.Push(root);
+
+            while(list.Count>0)
             {
-                List<int> list = new List<int>();
-                Stack<TreeNode> stack2 = new Stack<TreeNode>();
-                int count = stack.Count;
+
+                Stack<TreeNode> Stack2 = new Stack<TreeNode>();
+                int count = list.Count;
+                List<int> listnode = new List<int>();
                 for(int i=0;i<count;i++)
                 {
-                    TreeNode treeNode = stack.Pop();
-                    list.Add(treeNode.val);
+                    TreeNode tempNode = list.Pop();
+                    listnode.Add(tempNode.val);
+
                     if(temp==0)
                     {
-                        if (treeNode.left != null) stack2.Push(treeNode.left);
-                        if (treeNode.right != null) stack2.Push(treeNode.right);
+                        if (tempNode.left != null) Stack2.Push(tempNode.left);
+                        if (tempNode.right != null) Stack2.Push(tempNode.right);
                     }
                     else
                     {
-                        if (treeNode.right != null) stack2.Push(treeNode.right);
-                        if (treeNode.left != null) stack2.Push(treeNode.left);
-
+                      
+                        if (tempNode.right != null) Stack2.Push(tempNode.right);
+                        if (tempNode.left != null) Stack2.Push(tempNode.left);
                     }
 
+            
+
                 }
-
-
-                stack = stack2;
+                outlist.Add(listnode);
                 if (temp == 0) temp = 1;
                 else temp = 0;
-                outList.Add(list);
-            }
-            return outList;
-        }
-
-        public IList<IList<int>> ZigzagLevelOrder5(TreeNode root)
-        {
-            List<IList<int>> outList = new List<IList<int>>();
-            Stack<TreeNode> tempList = new Stack<TreeNode>();
-            int temp = 0;
-            tempList.Push(root);
-            while(tempList.Count>0)
-            {
-                int count = tempList.Count;
-                Stack<TreeNode> tempList2 = new Stack<TreeNode>();
-                List<int> node = new List<int>();
-                for (int i=0;i<count;i++)
-                {
-                    TreeNode treeNode = tempList.Pop();
-                    node.Add(treeNode.val);
-                    if(temp==0)
-                    {
-                        if (treeNode.left != null) { tempList2.Push(treeNode.left); }
-                        if (treeNode.right != null) { tempList2.Push(treeNode.right); }
-                    }
-                    else
-                    {
-                        if (treeNode.right != null) { tempList2.Push(treeNode.right); }
-                        if (treeNode.left != null) { tempList2.Push(treeNode.left); }
-                       
-                    }
-                }
-
-                if(temp==0)
-                {
-                    temp = 1;
-                }
-                else
-                {
-                    temp = 0;
-                }
-                tempList = tempList2;
-                outList.Add(node);
-            }
-            return outList;
-
-        }
-
-
-        public IList<IList<int>> ZigzagLevelOrder6(TreeNode root)
-        {
-            List<IList<int>> outList = new List<IList<int>>();
-            Stack<TreeNode> stack = new Stack<TreeNode>();
-            stack.Push(root);
-            int temp = 0;
-            while(stack.Count>0)
-            {
-                int count = stack.Count;
-                Stack<TreeNode> stack2 = new Stack<TreeNode>();
-                List<int> listNode = new List<int>();
-                for(int i=0;i<count;i++)
-                {
-                    TreeNode tn = stack.Pop();
-                    listNode.Add(tn.val);
-                    if(temp==0)
-                    {
-                        if (tn.left != null) stack.Push(tn.left);
-                        if (tn.right != null) stack.Push(tn.right);
-                    }
-                    else
-                    {
-                        if (tn.right != null) stack.Push(tn.right);
-                        if (tn.left != null) stack.Push(tn.left);
-                    }
-                }
-                stack = stack2;
-                if (temp == 0) temp = 1;
-                else temp = 0;
-                outList.Add(listNode);
+                list = Stack2;
 
             }
 
-            return outList;
+
+            return outlist;
+
         }
     }
 }

@@ -53,123 +53,13 @@ namespace ConsoleTest.LinkTable
         }
 
 
-        public static int LengthOfLongestSubstring5(string s)
+   
+
+        public static int LengthOfLongestSubstring10(string s)
         {
-            int max = s.Length >= 1 ? 1 : 0;
-            Queue<char> que = new Queue<char>();
-            char c;
-            char delStr;
-            for(int i = 0; i < s.Length; i++)
-            {
-                c = s[i];
-
-                if(que.Contains(c))
-                {
-                    do
-                    {
-                        delStr = que.Dequeue();
-                    } while (delStr != c);
-                }
-
-                que.Enqueue(c);
-                max = que.Count > max ? que.Count : max;
-            }
+          
 
 
-
-
-
-            return max;
-        }
-
-
-        public static int LengthOfLongestSubstring6(string s)
-        {
-            int max = s.Length >= 1 ? 1 : 0;
-
-            char c, delstr;
-            Queue<char> quesue = new Queue<char>();
-            for (int i = 0; i < s.Length; i++)
-            {
-                c = s[i];
-                if(quesue.Contains(c))
-                {
-                    do { delstr = quesue.Dequeue(); } while (delstr != c);
-                }
-                
-                    quesue.Enqueue(s[i]);
-                
-                max = quesue.Count > max ? quesue.Count : max;
-            }
-
-            return max;
-
-        }
-
-        public static int LengthOfLongestSubstring7(string s)
-        {
-            int max = s.Length >= 1 ? 1 : 0;
-            char c, delstr;
-            Queue<char> list = new Queue<char>();
-            for(int i=0;i<s.Length;i++)
-            {
-                c = s[i];
-                if(list.Contains(c))
-                {
-
-                    do { delstr = list.Dequeue(); } while (delstr != c);
-                }
-                list.Enqueue(c);
-                max = max < list.Count ? list.Count : max;
-            }
-
-            return max;
-
-        }
-
-        public static int LengthOfLongestSubstring8(string s)
-        {
-            int max = s.Length >= 1 ? 1 : 0;
-            char c, delstr;
-            Queue<char> queueList = new Queue<char>();
-            for(int i=0;i<s.Length;i++)
-            {
-                c = s[i];
-                if(queueList.Contains(c))
-                {
-                    do{ delstr = queueList.Dequeue(); }while (delstr!=c) ;
-                }
-                queueList.Enqueue(c);
-                max = max < queueList.Count ? queueList.Count : max;
-            }
-
-            return max;
-
-
-        }
-
-
-        public static int LengthOfLongestSubstring9(string s)
-        {
-            int max = s.Length >= 0 ? 1 : 0;
-            char c, delstr;
-            Queue<char> list = new Queue<char>();
-            for(int i=0;i<s.Length;i++)
-            {
-                c = s[i];
-                if(list.Contains(c))
-                {
-                    
-                    do {
-                        delstr = list.Dequeue();
-                    
-                    } while (delstr != c);
-                }
-                list.Enqueue(c);
-            }
-            max = max < list.Count ? list.Count : max;
-
-            return max;
         }
     }
 }

@@ -86,5 +86,7 @@ namespace ConsoleTest.LinkTable
                
            
         }
+
+        public ListNode RemoveNthFromEnd4(ListNode head, int n)
     }
 }

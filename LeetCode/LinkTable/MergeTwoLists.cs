@@ -67,6 +67,6 @@ namespace ConsoleTest.LinkTable
 
         }
 
-
+        public ListNode MergeTwoLists3(ListNode l1, ListNode l2)
     }
 }
