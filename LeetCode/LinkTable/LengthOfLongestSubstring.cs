@@ -147,5 +147,29 @@ namespace ConsoleTest.LinkTable
 
 
         }
+
+
+        public static int LengthOfLongestSubstring9(string s)
+        {
+            int max = s.Length >= 0 ? 1 : 0;
+            char c, delstr;
+            Queue<char> list = new Queue<char>();
+            for(int i=0;i<s.Length;i++)
+            {
+                c = s[i];
+                if(list.Contains(c))
+                {
+                    
+                    do {
+                        delstr = list.Dequeue();
+                    
+                    } while (delstr != c);
+                }
+                list.Enqueue(c);
+            }
+            max = max < list.Count ? list.Count : max;
+
+            return max;
+        }
     }
 }
