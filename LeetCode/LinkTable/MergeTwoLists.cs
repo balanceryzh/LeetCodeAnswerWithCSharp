@@ -22,6 +22,7 @@ namespace ConsoleTest.LinkTable
             ListNode prehead = new ListNode(-1);
 
             ListNode prev = prehead;
+
             while (l1 != null && l2 != null)
             {
                 if (l1.val <= l2.val)
@@ -43,7 +44,28 @@ namespace ConsoleTest.LinkTable
 
             return prehead.next;
         }
+        public ListNode MergeTwoLists3(ListNode l1, ListNode l2)
+        {
+            ListNode tempi = new ListNode(-1);
+            ListNode tempj = tempi;
 
+            while(l1!=null&&l2!=null)
+            {
+                if(l1.val<=l2.val)
+                {
+                    tempj.next = l1;
+                    l1 = l1.next;
+                }
+                else
+                {
+                    tempj.next = l2;
+                    l2 = l2.next;
+                }
+            }
+            tempj.next = l1 == null ? l2 : l1;
+            return tempi.next;
+
+        }
 
 
     }
