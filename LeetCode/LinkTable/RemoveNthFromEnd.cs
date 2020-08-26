@@ -87,11 +87,74 @@ namespace ConsoleTest.LinkTable
            
         }
 
-        public ListNode RemoveNthFromEnd4(ListNode head, int n)
+  
+        public ListNode RemoveNthFromEnd5(ListNode head, int n)
+        {
+            ListNode temp = head;
+            int i = 1;
+            while(temp.next!=null)
+            {
+                temp = temp.next;
+                i++;
+            }
+            if(n==i)
+            {
+                return head.next;
+            }
+            else
+            {
+                temp = head;
+                int index = i - n + 1;
+                int j = 1;
+                
+                while(j<index-1)
+                {
+                    temp = temp.next;
+                    j++;
+
+                }
+                temp.next = temp.next.next;
+
+            }
+            return head;
+
+        }
+
+
+        public ListNode RemoveNthFromEnd6(ListNode head, int n)
         {
             ListNode pre = head;
             int i = 1;
-            while(pre!=null)
+            while (pre.next != null)
+            {
+                pre = pre.next;
+                i++;
+            }
+            if (i == n)
+            {
+                return head.next;
+            }
+            else
+            {
+                int index = i - n + 1;
+                int j = 1;
+                pre = head;
+                while (j < index - 1)
+                {
+                    pre = pre.next;
+                    j++;
+                }
+                pre.next = pre.next.next;
+            }
+            return head;
+        }
+
+
+        public ListNode RemoveNthFromEnd7(ListNode head, int n)
+        {
+            ListNode pre = head;
+            int i = 1;
+            while(pre.next!=null)
             {
                 pre = pre.next;
                 i++;
@@ -102,17 +165,19 @@ namespace ConsoleTest.LinkTable
             }
             else
             {
-                pre = head;
                 int j = 1;
                 int index = i - n + 1;
+                pre = head;
                 while(j<index-1)
                 {
-
                     pre = pre.next;
                     j++;
                 }
 
                 pre.next = pre.next.next;
+
+
+
             }
             return head;
 

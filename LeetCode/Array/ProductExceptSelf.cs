@@ -101,5 +101,32 @@ namespace ConsoleTest.Test
             }
             return outList;
         }
+
+        public static int[] ProductExceptSelf8(int[] nums)
+        {
+            if(nums.Length==0)
+            {
+                return nums;
+            }
+            int len = nums.Length;
+            int[] tempi = new int[len];
+            tempi[0] = 1;
+            int r = 1;
+            for(int i=1;i<len;i++)
+            {
+                tempi[i] = tempi[i - 1] * nums[i - 1];
+            }
+            for(int i=len-1;i>=0;i--)
+            {
+                tempi[i] = tempi[i] * r;
+                r = r * nums[i];
+
+            }
+
+            return tempi;
+
+
+
+        }
     }
 }

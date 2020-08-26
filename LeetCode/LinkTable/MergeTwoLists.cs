@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace ConsoleTest.LinkTable
@@ -73,6 +74,57 @@ namespace ConsoleTest.LinkTable
 
 
         public ListNode MergeTwoLists5(ListNode l1, ListNode l2)
+        {
+            ListNode i = new ListNode(-1);
+            ListNode j = i;
+
+            while(l1!=null&&l2!=null)
+            {
+                if(l1.val<=l2.val)
+                {
+                    j.next = l1;
+                    l1 = l1.next;
+
+                }
+                else
+                {
+                    j.next = l2;
+                    l2 = l2.next;
+                }
+                j = j.next;
+            }
+            j.next = l1 == null ? l2 : l1;
+
+            return i.next;
+
+        }
+
+        public ListNode MergeTwoLists6(ListNode l1, ListNode l2)
+        {
+            ListNode i = new ListNode(-1);
+            ListNode j = i;
+            while(l1!=null&&l2!=null)
+            {
+                if(l1.val<=l2.val)
+                {
+                    j.next = l1;
+                    l1 = l1.next;
+                }
+                else
+                {
+                    j.next = l2;
+                    l2 = l2.next;
+
+                }
+             
+
+               
+            }
+            j.next = l1 == null ? l2 : l1;
+            return i.next;
+        }
+
+        public ListNode MergeTwoLists7(ListNode l1, ListNode l2)
         {
             ListNode i = new ListNode(-1);
             ListNode j = i;
