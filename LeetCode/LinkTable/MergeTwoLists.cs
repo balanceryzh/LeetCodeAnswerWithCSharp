@@ -44,29 +44,31 @@ namespace ConsoleTest.LinkTable
 
             return prehead.next;
         }
-        public ListNode MergeTwoLists3(ListNode l1, ListNode l2)
-        {
-            ListNode tempi = new ListNode(-1);
-            ListNode tempj = tempi;
+      
 
+        public ListNode MergeTwoLists4(ListNode l1, ListNode l2)
+        {
+            ListNode list = new ListNode(-1);
+            ListNode list2 = list;
             while(l1!=null&&l2!=null)
             {
                 if(l1.val<=l2.val)
                 {
-                    tempj.next = l1;
+                    list2.next = l1;
                     l1 = l1.next;
                 }
                 else
                 {
-                    tempj.next = l2;
+                    list2.next = l2;
                     l2 = l2.next;
                 }
+                list2 = list2.next;
             }
-            tempj.next = l1 == null ? l2 : l1;
-            return tempi.next;
+            list2.next = l1 == null ? l2 : l1;
+
+            return list.next;
+
 
         }
-
-        public ListNode MergeTwoLists3(ListNode l1, ListNode l2)
     }
 }

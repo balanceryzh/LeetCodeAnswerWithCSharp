@@ -57,7 +57,24 @@ namespace ConsoleTest.LinkTable
 
         public static int LengthOfLongestSubstring10(string s)
         {
-          
+            int max = s.Length >= 1 ? 1 : 0;
+
+            Queue<char> list = new Queue<char>();
+            char c, delstr;
+            for(int i=0;i<s.Length;i++)
+            {
+                c = s[i];
+                if(list.Contains(c))
+                {
+                    do { delstr = list.Dequeue(); } while (delstr != c);
+                }
+
+                list.Enqueue(c);
+                max = max < list.Count ? list.Count : max;
+
+            }
+
+            return max;
 
 
         }

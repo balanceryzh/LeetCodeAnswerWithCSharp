@@ -79,7 +79,7 @@ namespace ConsoleTest.LinkTable
         }
 
 
-            public ListNode AddTwoNumbers5(ListNode l1, ListNode l2, int num = 0)
+        public ListNode AddTwoNumbers5(ListNode l1, ListNode l2, int num = 0)
            {
                 if(l1==null&&l2==null)
                 {
@@ -124,5 +124,22 @@ namespace ConsoleTest.LinkTable
         }
 
         public ListNode AddTwoNumbers8(ListNode l1, ListNode l2, int num = 0)
+        {
+
+           if(l1==null&&l2==null)
+            {
+                if (num > 0) return new ListNode(num);
+                else return default;
+            }
+
+            int midValue = l1?.val ?? 0 + l2?.val ?? 0 + num;
+
+            ListNode outNode = new ListNode(midValue % 10);
+            outNode.next = AddTwoNumbers8(l1?.next, l2?.next, midValue / 10);
+            return outNode;
+
+
+
+        }
     }
 }

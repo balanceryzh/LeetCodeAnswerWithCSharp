@@ -88,5 +88,34 @@ namespace ConsoleTest.LinkTable
         }
 
         public ListNode RemoveNthFromEnd4(ListNode head, int n)
+        {
+            ListNode pre = head;
+            int i = 1;
+            while(pre!=null)
+            {
+                pre = pre.next;
+                i++;
+            }
+            if(i==n)
+            {
+                return head.next;
+            }
+            else
+            {
+                pre = head;
+                int j = 1;
+                int index = i - n + 1;
+                while(j<index-1)
+                {
+
+                    pre = pre.next;
+                    j++;
+                }
+
+                pre.next = pre.next.next;
+            }
+            return head;
+
+        }
     }
 }
