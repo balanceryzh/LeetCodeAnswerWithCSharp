@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 /// <summary>
 /// 给定一个链表，每个节点包含一个额外增加的随机指针，该指针可以指向链表中的任何节点或空节点。
@@ -75,6 +76,99 @@ namespace ConsoleTest.LinkTable
             return tempHead.next.next;
         }
 
+        public Node CopyRandomList3(Node head)
+        {
+            if(head==null)
+            {
+                return head;
+            }
 
+            Node i = new Node(-1);
+            Node j = new Node(-2);
+            i.next = j;
+            Dictionary<Node, Node> list = new Dictionary<Node, Node>();
+
+            while(head!=null)
+            {
+                if(list.ContainsKey(head))
+                {
+                    j.next = list[head];
+                }
+                else
+                {
+                 
+                    j.next = new Node(head.val);
+                    list.TryAdd(head, j.next);
+
+                }
+                if(head.random!=null)
+                {
+
+                    if(list.ContainsKey(head.random))
+                    {
+                        j.next.random = list[head.random];
+                    }
+                    else
+                    {
+                        j.next.random = new Node(head.random.val);
+                        list.TryAdd(head.random, j.next.random);
+                    }
+                }
+                head = head.next;
+                j = j.next;
+            }
+
+            return i.next.next;
+;
+        }
+
+
+      
+
+         public Node CopyRandomList5(Node head)
+        {
+            if (head == null)
+            {
+                return head;
+            }
+            Node i = new Node(-1);
+            Node j = new Node(-2);
+            j = i.next;
+            Dictionary<Node, Node> list = new Dictionary<Node, Node>();
+            while(head!=null)
+            {
+                if(list.ContainsValue(head))
+                {
+                    j.next = list[head];
+                }
+                else
+                {
+                    j.next =new Node(head.val);
+                    list.TryAdd(head, j.next);
+                }
+                if(head.random!=null)
+                {
+                    if (list.ContainsValue(head.random))
+                    {
+                        j.next.random = list[head.random];
+                    }
+                    else
+                    {
+                        j.next.random = new Node(head.random.val);
+                        list.TryAdd(head.random, j.next.random);
+                    }
+                }
+
+                j = j.next;
+                head = head.next;
+
+            }
+
+
+            return i.next.next;
+
+            
+
+        }
     }
 }
