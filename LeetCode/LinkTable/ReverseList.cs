@@ -45,6 +45,32 @@ namespace ConsoleTest.LinkTable
             return i;
         }
 
+        public ListNode reverseList3(ListNode head)
+        {
+            ListNode i = null;
+            ListNode j = head;
+            while(j!=null)
+            {
+                ListNode temp = j.next;
+                j.next = i;
+                i = j;
+                j = temp;
+            }
+            return i;
 
+        }
+        public ListNode reverseList4(ListNode head)
+        {
+            ListNode i = null;
+            ListNode j = head;
+            while(j!=null)
+            {
+                ListNode temp = j.next;
+                j.next = i;
+                i = j;
+                j = temp;
+            }
+            return i;
+        }
     }
 }

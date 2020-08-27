@@ -2,6 +2,7 @@ using ConsoleTest.Sort;
 using ConsoleTest.StrList;
 using ConsoleTest.Test;
 using ConsoleTest.tree;
+using ConsoleTest.StackQeueue;
 using System;
 using Xunit;
 
@@ -63,20 +64,14 @@ namespace XUnitTest
         }
         
 
-        [Fact]
-        public void ZigzagLevelOrderTest()
-        {
-            ZigzagLevelOrder.TreeNode root = new ZigzagLevelOrder.TreeNode(1);
-            ZigzagLevelOrder.TreeNode root2 = new ZigzagLevelOrder.TreeNode(2);
-            ZigzagLevelOrder.TreeNode root3 = new ZigzagLevelOrder.TreeNode(3);
-            ZigzagLevelOrder.TreeNode root4 = new ZigzagLevelOrder.TreeNode(4);
-            ZigzagLevelOrder.TreeNode root5 = new ZigzagLevelOrder.TreeNode(5);
-            root.left = root2;
-            root.right = root3;
-            root2.left = root4;
-            root3.right = root5;
-         var list=   ZigzagLevelOrder.ZigzagLevelOrder2(root);
 
+        [Fact]
+        public void MinMeetingRoomsTest()
+        {
+            int[][] test = new int[][] { new int[] { 0,30},new int[] { 5,10},new int[] {15,20 } };
+            int[][] test3 = new int[][] { new int[] { 9, 10 }, new int[] { 4, 9 }, new int[] { 4, 17 } };
+            var test2=   MinMeetingRooms.MinMeetingRooms3(test3);
+            Assert.Equal(2,test2);
         }
     }
 }

@@ -205,6 +205,46 @@ namespace ConsoleTest
             return stack.Count == 0;
         }
 
+        public bool IsValid4(string s)
+        {
+            Stack<char> list = new Stack<char>();
+            Hashtable validList = new Hashtable() { {')','(' },{']','[' },{'}','{' } };
 
+            for(int i=0;i<s.Length;i++)
+            {
+                if(validList.ContainsValue(s[i]))
+                {
+                    list.Push(s[i]);
+                }
+                else if (list.Count == 0 || list.Pop() != (char)validList[s[i]])
+                {
+                    return false;
+                }
+            }
+            return list.Count == 0;
+
+        }
+
+        public bool IsValid5(string s)
+        {
+            Stack<char> list = new Stack<char>();
+            Hashtable hashtable = new Hashtable() { { ')', '(' }, { ']', '[' }, { '}', '{' } };
+            for(int i=0;i<s.Length;i++)
+            {
+                if(hashtable.ContainsValue(s[i]))
+                {
+                    list.Push(s[i]);
+                }
+                else if (list.Count == 0 || list.Pop() != (char)hashtable[s[i]])
+                {
+                  
+                    
+                        return false;
+                    
+                }
+            }
+            return list.Count == 0;
+
+        }
     }
 }
