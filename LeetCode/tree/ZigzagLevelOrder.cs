@@ -159,5 +159,7 @@ namespace ConsoleTest.tree
             return outlist;
 
         }
+
+        public IList<IList<int>> ZigzagLevelOrder7(TreeNode root) { }
     }
 }
