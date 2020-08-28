@@ -90,7 +90,18 @@ namespace ConsoleTest.LinkTable
 
         public ListNode reverseList6(ListNode head)
         {
+            ListNode i = null;
+            ListNode j = head;
+            while(j!=null)
+            {
+                ListNode Temp = j.next;
+                j.next = i;
+                i = j;
 
+                j = Temp;
+
+            }
+            return i;
         }
     }
 }
