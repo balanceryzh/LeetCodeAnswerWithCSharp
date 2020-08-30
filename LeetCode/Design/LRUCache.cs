@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Security.Principal;
 using System.Text;
 
 namespace ConsoleTest.Design
@@ -43,7 +44,7 @@ namespace ConsoleTest.Design
             }
         }
 
-        public void Put(int key, int value)
+        public void Set(int key, int value)
         {
             if (LRUDic.ContainsKey(key))
             {
@@ -100,51 +101,13 @@ namespace ConsoleTest.Design
     public class LRUCache2 {
         public class Node
         {
-            public int key;
-            public int value;
-            public Node pre;
-            public Node next;
-        }
-        int capacity;
-        Node head,tail;
-        Dictionary<int, Node> LRUDic;
-        public LRUCache2(int capacity)
-        {
-            this.capacity = capacity;
-            head = new Node();
-            tail = new Node();
-            LRUDic = new Dictionary<int, Node>();
-            head.next = tail;
-            tail.pre = head;
-        }
-
-
-        public void DelletNode(Node node)
-        {
-            node.pre.next = node.next;
-            node.next.pre = node.pre;
-        }
-
-        public void AddNodeAtHead(Node node)
-        {
-            node.next = head.next;
-            head.next.pre = node;
-
-            head.next = node;
-            node.pre = head;
+           public  int key;
+           public  int value;
+           public  Node pre;
+           public  Node next;
+            
 
         }
-
-
-        public int DelletTail()
-        {
-            int key = tail.pre.key;
-
-            Node node = tail.pre;
-            node.pre.next = tail;
-            tail.pre = node.pre;
-
-            return key;
-        }
+     
     }
 }
