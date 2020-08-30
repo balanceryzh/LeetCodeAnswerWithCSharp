@@ -202,5 +202,45 @@ namespace ConsoleTest.tree
             return list;
 
         }
+
+        public IList<IList<int>> ZigzagLevelOrde9(TreeNode root)
+        {
+            List<IList<int>> outlist = new List<IList<int>>();
+            Stack<TreeNode> list = new Stack<TreeNode>();
+            list.Push(root);
+            int temp = 0;
+            while(list.Count>0)
+            {
+                Stack<TreeNode> tempList = new Stack<TreeNode>();
+                int count = list.Count;
+                List<int> nodelist = new List<int>();
+                for(int i=0;i<count;i++)
+                {
+                    TreeNode node = list.Pop();
+                    nodelist.Add(node.val);
+                    if(temp==0)
+                    {
+                        if (node.left != null) { list.Push(node.left); }
+                        if (node.right != null) { list.Push(node.right); }
+                    }
+                    else
+                    {
+                        if (node.right != null) { list.Push(node.right); }
+                        if (node.left != null) { list.Push(node.left); }
+
+                    }
+
+                }
+
+                outlist.Add(nodelist);
+
+                list = tempList;
+                if (temp == 0) temp = 1;
+                else temp = 0;
+
+            }
+
+            return outlist;
+        }
     }
 }

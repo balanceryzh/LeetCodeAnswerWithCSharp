@@ -105,9 +105,24 @@ namespace ConsoleTest.StackQeueue
 
         }
         #endregion
-        //public IList<string> TopKFrequent7(string[] words, int k)
-        //{
-            
-        //}
+        public IList<string> TopKFrequent7(string[] words, int k)
+        {
+            Dictionary<string, int> templist = new Dictionary<string, int>();
+
+            foreach(string word in words)
+            {
+                templist[word] = templist.ContainsKey(word) ? templist[word] + 1 : 1;
+            }
+
+            var list = templist.OrderByDescending(o => o.Value).ThenBy(o => o.Key).Take(k).ToList();
+
+            List<string> outlist = new List<string>();
+
+            for(int i=0;i<k;i++)
+            {
+                outlist.Add(list[i].Key);
+            }
+            return outlist;
+        }
     }
 }
