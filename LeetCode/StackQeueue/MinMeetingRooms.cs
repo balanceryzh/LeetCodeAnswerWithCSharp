@@ -8,6 +8,7 @@ namespace ConsoleTest.StackQeueue
     //会议室
     public class MinMeetingRooms
     {
+        #region list
         public static  int MinMeetingRooms2(int[][] intervals)
         {
             if(intervals.Length==0)
@@ -148,46 +149,95 @@ namespace ConsoleTest.StackQeueue
             {
                 return 0;
             }
-
+            Queue<int[]> rooms = new Queue<int[]>();
             intervals = intervals.OrderBy(o => o[0]).ToArray();
+            for(int i=0;i<intervals.Length;i++)
+            {
+               
+                if(rooms.Count>0)
+                {
+                    int count = rooms.Count;   
+                    for(int j=0;j<count;j++)
+                    {
+                        int[] room = rooms.Dequeue();
+                        if (room[1]<=intervals[i][0])
+                        {
+                            room = intervals[i];
+                            rooms.Enqueue(room);
 
+                        }
+                        else
+                        {
+                            rooms.Enqueue(room);
+                            if(j==count-1)
+                            {
+                                rooms.Enqueue(intervals[i]);
+                            }
+                        }
+
+                    }
+                    
+                }
+                else
+                {
+                    rooms.Enqueue(intervals[i]);
+
+                }
+
+
+            }
+
+
+            return rooms.Count;
+        }
+
+        public static int MinMeetingRooms6(int[][] intervals)
+        {
+            if(intervals.Length==0)
+            {
+                return 0;
+            }
+            intervals = intervals.OrderBy(o => o[0]).ToArray();
             Queue<int[]> list = new Queue<int[]>();
-
-            for(int i=0;i< intervals.Length;i++)
+            for(int i=0;i<intervals.Length;i++)
             {
                 if(list.Count>0)
                 {
                     int count = list.Count;
                     for(int j=0;j<count;j++)
                     {
-                        int[] temp = list.Dequeue();
-                        if(temp[1]<=intervals[i][0])
+                        int[] room = list.Dequeue();
+                        if(room[1]<=intervals[i][0])
                         {
-                            temp = intervals[i];
-                            list.Enqueue(temp);
-                            break;
+                            room = intervals[i];
+                            list.Enqueue(room);
                         }
                         else
                         {
-                            list.Enqueue(temp);
+                            list.Enqueue(room);
                             if(j==count-1)
                             {
                                 list.Enqueue(intervals[i]);
                             }
+
                         }
 
+
                     }
+
                 }
                 else
                 {
-
                     list.Enqueue(intervals[i]);
-                };
+                }
 
 
             }
 
-            return list.Count;
+            return list.Count();
+
         }
+        #endregion
+     
     }
 }

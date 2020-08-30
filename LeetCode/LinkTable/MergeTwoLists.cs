@@ -149,5 +149,31 @@ namespace ConsoleTest.LinkTable
             return i.next;
 
         }
+
+        public ListNode MergeTwoLists8(ListNode l1, ListNode l2) 
+        {
+            ListNode outList = new ListNode(-1);
+            ListNode temp = outList;
+            while(l1!=null&&l2!=null)
+            {
+                if(l1.val<=l2.val)
+                {
+                    outList.next = l1;
+                    l1 = l1.next;
+                }
+                else
+                {
+                    outList.next = l2;
+                    l2 = l2.next;
+                }
+
+                outList = outList.next;
+            }
+
+            outList.next = l1 == null ? l2 : l1;
+
+            return temp.next;
+        
+        }
     }
 }

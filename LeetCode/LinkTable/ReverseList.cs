@@ -16,6 +16,7 @@ namespace ConsoleTest.LinkTable
 //你可以迭代或递归地反转链表。你能否用两种方法解决这道题？
     public class ReverseList
     {
+        #region list
         public ListNode reverseList(ListNode head)
         {
             ListNode prev = null;
@@ -102,6 +103,25 @@ namespace ConsoleTest.LinkTable
 
             }
             return i;
+        }
+        #endregion
+        public ListNode reverseList16(ListNode head) 
+        
+        {
+            ListNode i = null;
+            ListNode j = head;
+            while(j!=null)
+            {
+                ListNode temp = j.next;
+                j.next = i;
+                i = j;
+
+                j = temp;
+
+            }
+
+            return i;
+        
         }
     }
 }

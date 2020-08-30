@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace ConsoleTest.LinkTable
@@ -181,6 +182,39 @@ namespace ConsoleTest.LinkTable
             }
             return head;
 
+        }
+
+
+        public ListNode RemoveNthFromEnd8(ListNode head, int n)         
+        {
+            ListNode pre = head;
+            int i = 1;
+            while(pre!=null)
+            {
+                i = i + 1;
+                pre = pre.next;
+            }
+            if (i == n)
+            {
+                return head.next;
+            }
+            else
+            {
+                pre = head;
+                int j = 1;
+                int index = i - n - 1;
+                while (j < index - 1)
+                {
+                    pre = pre.next;
+                    j = j + 1;
+                }
+                pre.next = pre.next.next;
+            }
+            return head;
+
+
+
+        
         }
     }
 }
