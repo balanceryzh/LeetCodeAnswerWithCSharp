@@ -68,7 +68,7 @@ namespace ConsoleTest.Test
             //总重减两个背包能装最大重量的石头
             return sum - 2 * dp[maxCapacity];
 
-         
+
 
         }
 
@@ -76,19 +76,19 @@ namespace ConsoleTest.Test
 
         public static int LastStoneWeightII2(int[] stones)
         {
-            
+
             int sum = 0;
-            foreach(int i in stones)
+            foreach (int i in stones)
             {
                 sum = sum + i;
             }
 
             int bagmax = sum / 2;
-            int[] bg = new int[bagmax+1];
-            for(int i=0;i<stones.Length;i++)
+            int[] bg = new int[bagmax + 1];
+            for (int i = 0; i < stones.Length; i++)
             {
                 int stone = stones[i];
-                for(int j=bagmax;j>=stone;j--)
+                for (int j = bagmax; j >= stone; j--)
                 {
                     bg[j] = Math.Max(bg[j], bg[j - stone] + stone);
                 }
@@ -103,19 +103,19 @@ namespace ConsoleTest.Test
         {
 
             int sum = 0;
-            foreach(int i in stones)
+            foreach (int i in stones)
             {
                 sum = sum + i;
             }
 
             int bagMax = sum / 2;
 
-            int[] bg = new int[bagMax+1];
+            int[] bg = new int[bagMax + 1];
 
-            for(int i=0;i<stones.Length;i++)
+            for (int i = 0; i < stones.Length; i++)
             {
                 int stone = stones[i];
-                for(int j=bagMax;j>=stone;j--)
+                for (int j = bagMax; j >= stone; j--)
                 {
                     bg[j] = Math.Max(bg[j], bg[j - stone] + stone);
                 }
@@ -129,18 +129,18 @@ namespace ConsoleTest.Test
         public static int LastStoneWeightII4(int[] stones)
         {
             int sum = 0;
-            foreach(int i in stones)
+            foreach (int i in stones)
             {
                 sum = sum + i;
             }
             int bagMax = sum / 2;
-            int[] bg = new int[bagMax+1];
-            for(int i=0;i<stones.Length;i++)
+            int[] bg = new int[bagMax + 1];
+            for (int i = 0; i < stones.Length; i++)
             {
                 int stone = stones[i];
-                for(int j=bagMax;j>=stone;j--)
+                for (int j = bagMax; j >= stone; j--)
                 {
-                    bg[j] = Math.Max(bg[j],bg[j-stone]+stone);
+                    bg[j] = Math.Max(bg[j], bg[j - stone] + stone);
                 }
             }
             return sum - 2 * bg[bagMax];
@@ -149,18 +149,18 @@ namespace ConsoleTest.Test
         public static int LastStoneWeightII5(int[] stones)
         {
             int sum = 0;
-            foreach(int i in stones)
+            foreach (int i in stones)
             {
                 sum = sum + i;
             }
             int maxbag = sum / 2;
-            int[] bgmax = new int[maxbag+1];
-            for(int i=0;i<stones.Length;i++)
+            int[] bgmax = new int[maxbag + 1];
+            for (int i = 0; i < stones.Length; i++)
             {
                 int stone = stones[i];
-                for(int j=maxbag;j>=stone;j--)
+                for (int j = maxbag; j >= stone; j--)
                 {
-                    bgmax[j] = Math.Max(bgmax[j],bgmax[j-stone]+stone);
+                    bgmax[j] = Math.Max(bgmax[j], bgmax[j - stone] + stone);
                 }
             }
 
@@ -171,18 +171,18 @@ namespace ConsoleTest.Test
         public static int LastStoneWeightII6(int[] stones)
         {
             int sum = 0;
-            foreach(int i in stones)
+            foreach (int i in stones)
             {
                 sum = sum + i;
             }
             int maxbag = sum / 2;
             int[] bgmax = new int[maxbag + 1];
-            for(int i=0;i<stones.Length;i++)
+            for (int i = 0; i < stones.Length; i++)
             {
                 int stone = stones[i];
-                for(int j=maxbag;j>=stone;j--)
+                for (int j = maxbag; j >= stone; j--)
                 {
-                    bgmax[j] = Math.Max(bgmax[j],bgmax[j-stone]+stone);
+                    bgmax[j] = Math.Max(bgmax[j], bgmax[j - stone] + stone);
                 }
             }
 
@@ -193,18 +193,18 @@ namespace ConsoleTest.Test
         public static int LastStoneWeightII7(int[] stones)
         {
             int sum = 0;
-            foreach(int i in stones)
+            foreach (int i in stones)
             {
                 sum = sum + i;
             }
             int maxbg = sum / 2;
-            int[] bgs = new int[maxbg+1];
-            for(int i=0;i<stones.Length;i++)
+            int[] bgs = new int[maxbg + 1];
+            for (int i = 0; i < stones.Length; i++)
             {
                 int stone = stones[i];
-                for(int j=maxbg;j>=stone;j--)
+                for (int j = maxbg; j >= stone; j--)
                 {
-                    bgs[j] = Math.Max(bgs[j],bgs[j-stone]+stone);
+                    bgs[j] = Math.Max(bgs[j], bgs[j - stone] + stone);
                 }
 
 
@@ -228,23 +228,50 @@ namespace ConsoleTest.Test
         public static int LastStoneWeightII8(int[] stones)
         {
             int sum = 0;
-            foreach(int i in stones)
+            foreach (int i in stones)
             {
                 sum = sum + i;
             }
 
             int maxbag = sum / 2;
             int[] bgmax = new int[maxbag];
-            for(int i=0;i<stones.Length;i++)
+            for (int i = 0; i < stones.Length; i++)
             {
                 int stone = stones[i];
-                for(int j=maxbag;j>=stone;j--)
+                for (int j = maxbag; j >= stone; j--)
                 {
-                    bgmax[j] = Math.Max(bgmax[j],bgmax[j-stone]+stone);
+                    bgmax[j] = Math.Max(bgmax[j], bgmax[j - stone] + stone);
                 }
             }
 
             return sum - 2 * bgmax[maxbag];
+
+
+
+
+        }
+
+        public static int LastStoneWeightII9(int[] stones)
+        {
+            int sum = 0;
+            foreach (int temp in stones)
+            {
+                sum = sum + temp;
+            }
+
+            int bigbag = sum / 2;
+            int[] bgs = new int[bigbag + 1];
+
+            for (int i = 0; i < stones.Length; i++)
+            {
+                int stone = stones[i];
+                for (int j = bigbag; j >= stone; j--)
+                {
+                    bgs[j] = Math.Max(bgs[j], bgs[j - stone] + stone);
+                }
+
+            }
+            return sum - 2 * bgs[bigbag];
 
         }
     }

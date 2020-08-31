@@ -96,6 +96,23 @@ namespace ConsoleTest.Test
 
             return pre;
         }
+
+
+        public static int MaxSubArray9(int[] nums)
+        {
+            int tempi = 0; int pre = nums[0];
+
+            for(int i=0;i<nums.Length;i++)
+            {
+                tempi = Math.Max(tempi + nums[i], nums[i]);
+
+                pre = Math.Max(tempi, pre);
+
+            }
+
+            return pre;
+
+        }
     }
 
 

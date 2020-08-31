@@ -24,7 +24,7 @@ namespace ConsoleTest.LinkTable
 
     public class RemoveNthFromEnd
     {
-
+        #region 
         public ListNode RemoveNthFromEnd2(ListNode head, int n)
         {
             ListNode cur = head;
@@ -215,6 +215,52 @@ namespace ConsoleTest.LinkTable
 
 
         
+        }
+        #endregion
+        public ListNode RemoveNthFromEnd9(ListNode head, int n)
+        {
+            int i = 0;
+            ListNode j = head;
+            while(j!=null)
+            {
+                i = i + 1;
+                j = j.next;
+            }
+            if(i==n)
+            {
+                return head.next;
+            }
+            else
+            {
+                j = head;
+                int x = 0;
+                int index = x - n + 1;
+
+                while(x<index-1)
+                {
+                    j = j.next;
+
+                    x = x + 1;
+
+                }
+                j.next = j.next.next;
+
+
+                return head;
+
+
+
+
+
+
+
+
+
+
+            }
+            
+
+
         }
     }
 }
