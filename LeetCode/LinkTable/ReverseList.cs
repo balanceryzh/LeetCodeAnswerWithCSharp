@@ -105,8 +105,7 @@ namespace ConsoleTest.LinkTable
             return i;
         }
         #endregion
-        public ListNode reverseList16(ListNode head) 
-        
+        public ListNode reverseList16(ListNode head)
         {
             ListNode i = null;
             ListNode j = head;
@@ -115,13 +114,12 @@ namespace ConsoleTest.LinkTable
                 ListNode temp = j.next;
                 j.next = i;
                 i = j;
-
                 j = temp;
 
             }
 
             return i;
-        
+
         }
     }
 }

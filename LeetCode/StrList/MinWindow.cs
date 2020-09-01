@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace ConsoleTest.StrList
@@ -91,18 +92,46 @@ namespace ConsoleTest.StrList
         {
             Dictionary<char, int> need = new Dictionary<char, int>();
             Dictionary<char, int> window = new Dictionary<char, int>();
-            foreach (var item in t)
+            for(int i=0;i<t.Length;i++)
             {
-                if (!need.ContainsKey(item))
+                if(!need.ContainsKey(t[i]))
                 {
-                    need.Add(item, 1);
+
+                    need.Add(t[i], 1);
+
                 }
                 else
                 {
-                    need[item]++;
+                    need[t[i]] = need[t[i]] + 1;
+                }
+            }
+            int right = 0;
+            int left = 0;
+            int value = 0;
+            int len = int.MaxValue;
+
+          while(right<s.Length)
+            {
+                char c = s[right];
+                right++;
+                if (need.ContainsKey(c))
+                {
+                    if (!window.ContainsKey(c))
+                    {
+                        window.Add(c, 1);
+                    }
+                    else
+                    {
+                        window[c]++;
+                    }
+                    if (window[c] == need[c])
+                    {
+                        value++;
+                    }
                 }
             }
 
-        }
+         }
+    
     }
 }

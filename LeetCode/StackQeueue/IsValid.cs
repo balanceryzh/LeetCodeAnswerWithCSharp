@@ -309,23 +309,7 @@ namespace ConsoleTest
         #endregion
         public bool IsValid9(string s)
         {
-            Stack<char> list = new Stack<char>();
-            Hashtable hasttable = new Hashtable() { { ')', '(' }, { ']', '[' }, { '}', '{' } };
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (hasttable.ContainsValue(s[i]))
-                { 
-                    list.Push(s[i]);
-                }
-                else if(list.Count==0||list.Pop()!=(char)hasttable[s[i]])
-                {
-
-                    return false;
-
-                }
-
-            }
-            return list.Count == 0;
+           
         }
     }
 }
