@@ -116,5 +116,94 @@ namespace ConsoleTest.Seach
                 DFS3(x, y-1, grid);
             }
         }
+
+
+
+        public int NumIsLands4(char[][] grid)
+        {
+            if(grid.Length==0)
+            {
+                return 0;
+            }
+
+            int langs = 0;
+
+            for(int i=0;i<grid.Length;i++)
+            {
+                for(int j=0;j<grid.Length;j++)
+                {
+                    if(grid[i][j]!='0')
+                    {
+                        DFS4(i, j, grid);
+
+                        langs = langs + 1;
+
+                    }
+
+                }
+            }
+
+            return langs;
+
+
+        }
+
+        public void DFS4(int i, int j, char[][] grid)
+        {
+            grid[i][j] = '0';
+            if (i + 1 < grid.Length&&grid[i+1][j]=='1')
+            {
+                DFS4(i + 1, j, grid);
+            }
+            if (i - 1 >=0 && grid[i - 1][j] == '1')
+            {
+                DFS4(i - 1, j, grid);
+            }
+            if (j + 1 < grid[0].Length && grid[i][j+1] == '1')
+            {
+                DFS4(i, j+1, grid);
+            }
+            if (j - 1 >= 0 && grid[i][j-1] == '1')
+            {
+                DFS4(i, j-1, grid);
+            }
+        }
+
+
+        public int NumIsLands5(char[][] grid)
+        {
+            if(grid.Length==0)
+            {
+                return 0;
+            }
+            int outLands = 0;
+            for(int i=0;i<grid.Length;i++)
+            {
+                for (int j=0;j<grid[0].Length;j++)
+                {
+                    if(grid[i][j]!=0)
+                    {
+                        DFS5(i, j, grid);
+                        outLands = outLands + 1;
+                    }
+
+                }
+            }
+            return outLands;
+
+        }
+
+
+        public void DFS5(int i, int j, char[][] grid)      
+        {
+            grid[i][j] = '0';
+            if (i + 1 < grid.Length&&grid[i+1][j]=='1') { DFS5(i + 1, j, grid);     }
+            if (i - 1 >= 0 && grid[i - 1][j] == '1') { DFS5(i - 1, j, grid); }
+
+            if (j + 1 < grid[0].Length && grid[i][j+1] == '1') { DFS5(i, j+1, grid); }
+
+            if (j - 1 >=0 && grid[i][j-1] == '1') { DFS5(i, j-1, grid); }
+
+        }
     }
 }

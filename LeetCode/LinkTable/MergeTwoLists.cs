@@ -150,30 +150,32 @@ namespace ConsoleTest.LinkTable
 
         }
 
-        public ListNode MergeTwoLists8(ListNode l1, ListNode l2) 
+    
+
+        public ListNode MergeTwoLists9(ListNode l1, ListNode l2)
         {
-            ListNode outList = new ListNode(-1);
-            ListNode temp = outList;
+            ListNode i = new ListNode(-1);
+            ListNode j = i;
             while(l1!=null&&l2!=null)
             {
                 if(l1.val<=l2.val)
                 {
-                    outList.next = l1;
+                    j.next = l1;
                     l1 = l1.next;
                 }
                 else
                 {
-                    outList.next = l2;
+                    j.next = l2;
                     l2 = l2.next;
                 }
 
-                outList = outList.next;
+                j = j.next;
+
             }
+            j.next = l1 != null ? l1 : l2;
+            return i.next;
 
-            outList.next = l1 == null ? l2 : l1;
-
-            return temp.next;
-        
         }
+
     }
 }
