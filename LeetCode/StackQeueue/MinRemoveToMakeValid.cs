@@ -123,7 +123,7 @@ namespace ConsoleTest.StackQeueue
 
         public string MinRemoveToMakeValid3(string s)
         {
-            StringBuilder s1 = new StringBuilder();
+            StringBuilder sb = new StringBuilder();
             int open = 0;
             int close = 0;
             for(int i=0;i<s.Length;i++)
@@ -133,25 +133,30 @@ namespace ConsoleTest.StackQeueue
                     open++;
                     close++;
                 }
-                if(s[i]==')')
+                else if(s[i]==')')
                 {
-                    if (close <= 0) continue;
-                    close--;
+                    if (close == 0) continue;
+                    else close--;
                 }
-                s1.Append(s[i]);
+
+                sb.Append(s[i]);
+
             }
-            StringBuilder s2 = new StringBuilder();
             int outs = open - close;
-            for(int i=0;i<s1.Length;i++)
+            StringBuilder sb2 = new StringBuilder();
+            for(int i=0;i<sb.Length;i++)
             {
-                if(s1[i]=='(')
+                if(sb[i]=='(')
                 {
-                    if (outs <= 0) continue;
-                    outs--;
+                    if (outs == 0) continue;
+                       else outs--;
                 }
-                s2.Append(s1[i]);
+
+                sb2.Append(sb[i]);
             }
-            return s2.ToString();
+
+            return sb2.ToString();
+
         }
     }
 }

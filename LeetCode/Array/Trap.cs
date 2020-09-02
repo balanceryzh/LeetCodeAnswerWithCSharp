@@ -76,5 +76,9 @@ namespace ConsoleTest.Array
             return outTrap;
 
         }
+
+
+
+ 
     }
 }

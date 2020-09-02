@@ -79,7 +79,61 @@ namespace ConsoleTest
 
             return result.ToArray();
         }
+
+        public int[] TwoSum5(int[] nums, int target)
+        {
+            var dic = new Dictionary<int, int>();
+            for(int i=0;i<nums.Length;i++)
+            {
+                if(dic.ContainsKey(target-nums[i]))
+                {
+                    return new int[] { dic[target - nums[i]], i };
+                }
+                else if(!dic.ContainsKey(nums[i]))
+                {
+                    dic.Add(nums[i], i);
+
+                }
+
+
+            }
+            throw new ArgumentException("No solution");
+
+        }
+
+
+        public int[] TwoSum6(int[] nums, int target)
+        {
+            var dlc = new Dictionary<int, int>();
+            for(int i=0;i<nums.Length;i++)
+            {
+                if(dlc.ContainsKey(target- nums[i]))
+                {
+                    return new int[] { dlc[target - nums[i]], i };
+                }
+                else if(!dlc.ContainsKey(nums[i]) )
+                {
+
+                    dlc.Add(nums[i], i);
+                }
+            }
+            throw new ArgumentException("");
+;        }
+        public int[] TwoSum7(int[] nums, int target)
+        {
+            var dlc = new Dictionary<int, int>();
+            for(int i=0;i<nums.Length;i++)
+            {
+                if(dlc.ContainsKey(target-nums[i]))
+                {
+                    return new int[] {dlc[target - nums[i]],i };
+                }
+                else if(!dlc.ContainsKey(nums[i]))
+                {
+                    dlc.Add(nums[i],i);
+                }
+            }
+            throw new AggregateException("no");
+        }
     }
-
-
 }
