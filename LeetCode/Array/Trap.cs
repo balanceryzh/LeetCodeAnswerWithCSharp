@@ -51,29 +51,31 @@ namespace ConsoleTest.Array
 
         public int Trap3(int[] height)
         {
+
             if (height == null||height.Length==0)
             {
                 return 0;
             }
-            var list = new Stack<int>();
-            int outTrap = 0;
+
+            int trapCount = 0;
+            var list =new Stack<int>();
+
             for(int i=0;i<height.Length;i++)
             {
-                while(list.Count>0&& height[i]> height[list.Peek()])
+                if(list.Count>0&&height[i]<height[list.Peek()])
                 {
                     int temp = list.Pop();
                     if (list.Count == 0) break;
+
                     int width = i - list.Peek() - 1;
                     int heights = Math.Min(height[i], height[list.Peek()]) - height[temp];
-
-                    outTrap = outTrap + width * heights;
-
+                    trapCount = trapCount + width * heights;
                 }
-
                 list.Push(i);
             }
 
-            return outTrap;
+            return trapCount;
+
 
         }
 
