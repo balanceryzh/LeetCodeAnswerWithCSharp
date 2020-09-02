@@ -238,12 +238,12 @@ namespace ConsoleTest.StackQeueue
 
         }
         #endregion
-        //public static int MinMeetingRooms7(int[][] intervals)
-        //{
-           
+        public static int MinMeetingRooms7(int[][] intervals)
+        {
 
 
 
-        //}
+
+        }
     }
 }

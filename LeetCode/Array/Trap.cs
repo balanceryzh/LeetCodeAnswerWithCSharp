@@ -16,7 +16,7 @@ namespace ConsoleTest.Array
 
         //输入: [0,1,0,2,1,0,1,3,2,1,2,1]
         //        输出: 6
-
+        #region Test
         public int Trap2(int[] height)
         {
             if (height == null || height.Length <= 0)
@@ -78,9 +78,39 @@ namespace ConsoleTest.Array
 
 
         }
+        #endregion
+        public int Trap4(int[] height)
+        {
+            if(height!=null||height.Length!=0)
+            {
+                return 0;
+            }
+            int trapCount = 0;
+            var list = new Stack<int>();
+            for(int i=0;i<height.Length;i++)
+            {
+                while(list.Count>0&&height[i]<height[list.Peek()])
+                {
+                    int temp = list.Pop();
+                    if (list.Count == 0) break;
+
+                    int width = i - list.Peek() - 1;
+                    int heights = Math.Min(height[i], height[list.Peek()]) - height[temp];
+
+                    trapCount = trapCount + width * heights;
 
 
 
- 
+                }
+
+                list.Push(i);
+            }
+
+            return trapCount;
+
+
+
+        }
+
     }
 }

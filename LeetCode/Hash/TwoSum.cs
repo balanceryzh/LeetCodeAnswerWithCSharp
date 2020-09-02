@@ -9,7 +9,7 @@ namespace ConsoleTest
     /// </summary>
     public class TwoSum
     {
-
+        #region Test
         /// <summary>
         /// leecode1 速度最快 内存使用更多需要引用System.Collections.Generic
         /// </summary>
@@ -119,21 +119,28 @@ namespace ConsoleTest
             }
             throw new ArgumentException("");
 ;        }
-        public int[] TwoSum7(int[] nums, int target)
+  
+        #endregion
+        public int[] TwoSum8(int[] nums, int target)
         {
-            var dlc = new Dictionary<int, int>();
+            Dictionary<int, int> list = new Dictionary<int, int>();
+
             for(int i=0;i<nums.Length;i++)
             {
-                if(dlc.ContainsKey(target-nums[i]))
+                if(list.ContainsKey(target-nums[i]))
                 {
-                    return new int[] {dlc[target - nums[i]],i };
+                    return new int[] { list[target - nums[i]], i };
+
                 }
-                else if(!dlc.ContainsKey(nums[i]))
+                else if(!list.ContainsKey(nums[i]))
                 {
-                    dlc.Add(nums[i],i);
+                    list.Add(nums[i], i);
                 }
             }
+
             throw new AggregateException("no");
+
         }
+
     }
 }
