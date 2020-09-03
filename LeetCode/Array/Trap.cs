@@ -54,60 +54,36 @@ namespace ConsoleTest.Array
    
         public int Trap5(int[] height)
         {
-            if(height==null||height.Length==0)
-            {
-                return 0;
-            }
-
-            Stack<int> TrapList = new Stack<int>();
-            int TrapCount = 0;
-
-            for(int i=0;i<height.Length;i++)
-            {
-                while (TrapList.Count > 0 && height[i]>height[TrapList.Peek()])
-                {
-                    int temp = TrapList.Pop();
-                    if (TrapList.Count == 0) break;
-                    int width = i - TrapList.Peek() - 1;
-                    int heights = Math.Min(height[i], height[TrapList.Peek()]) - height[temp];
-
-                    TrapCount = TrapCount + width * heights;
-
-                }
-                TrapList.Push(i);
-            }
-
-            return TrapCount;
-
-        }
-
-
-        public int Trap6(int[] height)
-        {
-            if(height==null||height.Length==0)
+            if(height==null)
             {
                 return 0;
             }
             Stack<int> list = new Stack<int>();
-            int outTrap = 0;
-
+            int Traps = 0;
             for(int i=0;i<height.Length;i++)
             {
                 while(list.Count>0&&height[i]>height[list.Peek()])
                 {
                     int temp = list.Pop();
+
                     if (list.Count == 0) break;
                     int width = i - list.Peek() - 1;
-                    int heights = Math.Min(height[i],height[list.Peek()])-height[temp];
-                    outTrap = outTrap + width * heights;
-
+                    int heights = Math.Min(height[i], height[list.Peek()]) - height[temp];
+                    Traps = Traps + width * heights;
 
                 }
+
+
 
                 list.Push(i);
             }
 
-            return outTrap;
+
+            return Traps;
+
         }
+
+
+   
     }
 }

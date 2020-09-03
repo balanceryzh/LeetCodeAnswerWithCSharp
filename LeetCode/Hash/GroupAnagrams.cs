@@ -55,32 +55,31 @@ namespace ConsoleTest.Hash
         }
         public IList<IList<string>> GroupAnagrams3(string[] strs)
         {
-            Dictionary<long, int> list = new Dictionary<long, int>();
-
-            List<IList<string>> outlist = new List<IList<string>>();
+            Dictionary<long, int> templist = new Dictionary<long, int>();
+            List<IList<string>> outList = new List<IList<string>>();
             int count = 0;
-
             for(int i=0;i<strs.Length;i++)
             {
                 long t = 1;
                 for(int j=0;j<strs[i].Length;j++)
                 {
+
                     t = t * (long)((int)strs[i][j] + 100);
                 }
-                if(list.ContainsKey(t))
+                if (templist.ContainsKey(t))
                 {
-                    outlist[list[t]].Add(strs[i]);
+                    outList[templist[t]].Add(strs[i]);
                 }
                 else
                 {
-                    list.Add(t, count);
+                    templist.Add(t, count);
                     count++;
-                    outlist.Add(new List<string> { strs[i] });
+                    outList.Add(new List<string> {strs[i] });
 
                 }
-
             }
-            return outlist;
+
+            return outList;
 
         }
    }
