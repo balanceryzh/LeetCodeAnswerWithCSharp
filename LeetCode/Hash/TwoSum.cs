@@ -124,20 +124,18 @@ namespace ConsoleTest
         public int[] TwoSum8(int[] nums, int target)
         {
             Dictionary<int, int> list = new Dictionary<int, int>();
-
             for(int i=0;i<nums.Length;i++)
             {
                 if(list.ContainsKey(target-nums[i]))
                 {
                     return new int[] { list[target - nums[i]], i };
-
                 }
                 else if(!list.ContainsKey(nums[i]))
                 {
-                    list.Add(nums[i], i);
+                    list.Add(nums[i],i);
                 }
-            }
 
+            }
             throw new AggregateException("no");
 
         }
