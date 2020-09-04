@@ -82,5 +82,37 @@ namespace ConsoleTest.Hash
             return outList;
 
         }
+
+        public IList<IList<string>> GroupAnagrams5(string[] strs)
+        {
+            List<IList<string>> list = new List<IList<string>>();
+            Dictionary<long, List<string>> strlist = new Dictionary<long, List<string>> ();
+            List<long> tlist = new List<long>();
+            int count = 0;
+            for(int i=0;i<strs.Length;i++)
+            {
+                long t = 1;
+                for(int j=0;j<strs[i].Length;j++)
+                {
+                    t = t * (long)((int)strs[i][j] + 100);
+
+                }
+                if(strlist.ContainsKey(t))
+                {
+                    strlist[t].Add(strs[i]);
+                }
+                else
+                {
+                    strlist.Add(t, new List<string> {strs[i] });
+                    tlist.Add(t);
+                    count++;
+                }
+            }
+            for(int i=0;i<count;i++)
+            {
+                list.Add(strlist[tlist[i]]);
+            }
+            return list;
+        }
    }
 }

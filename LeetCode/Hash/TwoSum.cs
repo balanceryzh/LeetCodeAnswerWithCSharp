@@ -134,7 +134,6 @@ namespace ConsoleTest
                 {
                     list.Add(nums[i],i);
                 }
-
             }
             throw new AggregateException("no");
 

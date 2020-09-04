@@ -28,18 +28,25 @@ namespace ConsoleTest.StrList
             int len2 = num2.Length - 1;
             int ad = 0;
             StringBuilder str = new StringBuilder();
+
             while (len1 >= 0 || len2 >= 0 || ad != 0)
             {
                 int x = len1 >= 0 ? num1[len1] - '0' : 0;
+
                 int y = len2 >= 0 ? num2[len2] - '0' : 0;
+
                 int tmp = x + y + ad;
+
                 string s = (tmp % 10).ToString();
+
                 str.Append(s);
+
                 ad = tmp / 10;
 
                 len1--;
                 len2--;
             }
+
             string res = str.ToString();
             char[] chararr = res.ToCharArray();
             Array.Reverse(chararr);

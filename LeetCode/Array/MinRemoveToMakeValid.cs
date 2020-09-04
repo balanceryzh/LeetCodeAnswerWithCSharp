@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleTest.Array
+namespace ConsoleTest
 {
     public class MinRemoveToMakeValid
     {
