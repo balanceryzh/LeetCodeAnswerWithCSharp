@@ -88,50 +88,7 @@ namespace ConsoleTest.StrList
             return len == int.MaxValue ? "" : s.Substring(startindex, len);
         }
 
-        public string MinWindow3(string s, string t)
-        {
-            Dictionary<char, int> need = new Dictionary<char, int>();
-            Dictionary<char, int> window = new Dictionary<char, int>();
-            for(int i=0;i<t.Length;i++)
-            {
-                if(!need.ContainsKey(t[i]))
-                {
-
-                    need.Add(t[i], 1);
-
-                }
-                else
-                {
-                    need[t[i]] = need[t[i]] + 1;
-                }
-            }
-            int right = 0;
-            int left = 0;
-            int value = 0;
-            int len = int.MaxValue;
-
-          while(right<s.Length)
-            {
-                char c = s[right];
-                right++;
-                if (need.ContainsKey(c))
-                {
-                    if (!window.ContainsKey(c))
-                    {
-                        window.Add(c, 1);
-                    }
-                    else
-                    {
-                        window[c]++;
-                    }
-                    if (window[c] == need[c])
-                    {
-                        value++;
-                    }
-                }
-            }
-
-         }
+    
     
     }
 }

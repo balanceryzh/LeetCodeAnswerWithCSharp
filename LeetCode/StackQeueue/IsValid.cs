@@ -310,17 +310,14 @@ namespace ConsoleTest
         public bool IsValid9(string s)
         {
             Stack<char> list = new Stack<char>();
-            Hashtable hashtable = new Hashtable() { {')', '(' },{']','[' },{'}','{' } };
-
-            for(int i=0;i<s.Length;i++)
+            Hashtable hashtable = new Hashtable() { { ')', '(' }, { ']', '[' }, { '}', '{' } };
+            for (int i = 0; i < s.Length; i++)
             {
-                if(hashtable.ContainsValue(s[i]))
+                if (hashtable.ContainsValue(s[i]))
                 {
                     list.Push(s[i]);
-
-
                 }
-                else if(list.Count==0||list.Pop()!=(char)hashtable[s[i]])
+                else if (list.Count == 0||list.Pop()!=(char)hashtable[s[i]])
                 {
                     return false;
                 }

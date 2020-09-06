@@ -128,15 +128,14 @@ namespace ConsoleTest
             {
                 if(list.ContainsKey(target-nums[i]))
                 {
-                    return new int[] { list[target - nums[i]], i };
+                    return new int[] {list[target-nums[i]],i };
                 }
                 else if(!list.ContainsKey(nums[i]))
                 {
-                    list.Add(nums[i],i);
+                    list.Add(nums[i], i);
                 }
             }
             throw new AggregateException("no");
-
         }
 
     }

@@ -65,52 +65,7 @@ namespace ConsoleTest.StrList
     {9, "Ninety"}
 };
 
-        public string NumberToWords2(int num)
-        {
-            if (num < 20) return numDic[num]; //20以下直接取字典
-            StringBuilder sb = new StringBuilder();
-            if (num < 100) //20以上逐级拆分
-            {
-                int x = num / 10;
-                int y = num % 10;
-                sb.Append(tyDic[x]);
-                if (y > 0) sb.Append(' ' + numDic[y]);
-            }
-            else if (num < 1000)
-            {
-                int x = num / 100;
-                int y = num % 100;
-                sb.Append(numDic[x]);
-                sb.Append(" Hundred");
-                if (y > 0) sb.Append(' ' + NumberToWords2(y));
-            }
-            else if (num < 1000000)
-            {
-                int x = num / 1000;
-                int y = num % 1000;
-                sb.Append(NumberToWords2(x));
-                sb.Append(" Thousand");
-                if (y > 0) sb.Append(' ' + NumberToWords2(y));
-            }
-            else if (num < 1000000000)
-            {
-                int x = num / 1000000;
-                int y = num % 1000000;
-                sb.Append(NumberToWords2(x));
-                sb.Append(" Million");
-                if (y > 0) sb.Append(' ' + NumberToWords2(y));
-            }
-            else
-            {
-                int x = num / 1000000000;
-                int y = num % 1000000000;
-                sb.Append(NumberToWords2(x));
-                sb.Append(" Billion");
-                if (y > 0) sb.Append(' ' + NumberToWords2(y));
-            }
-            return sb.ToString();
-        }
-
+      
         
 
         public string NumberToWords3(int num)
@@ -300,7 +255,8 @@ namespace ConsoleTest.StrList
                 int x = num / 10;
                 int y = num % 10;
                 sb.Append(tys[x]);
-                if (y > 0) { sb.Append(" " + nums[x]); }
+                if (y > 0) { sb.Append(" "+nums[y]); }
+                
             }
             else if(num<1000)
             {
@@ -309,8 +265,9 @@ namespace ConsoleTest.StrList
                 sb.Append(nums[x]);
                 sb.Append(" Hundred");
                 if (y > 0) { sb.Append(" " + NumberToWords(y)); }
+
             }
-            else if (num < 1000000)
+            else if(num<1000000)
             {
                 int x = num / 1000;
                 int y = num % 1000;
@@ -318,7 +275,7 @@ namespace ConsoleTest.StrList
                 sb.Append(" Thousand");
                 if (y > 0) { sb.Append(" " + NumberToWords(y)); }
             }
-            else if (num < 1000000000)
+            else if(num<1000000000)
             {
                 int x = num / 1000000;
                 int y = num % 1000000;
@@ -334,9 +291,10 @@ namespace ConsoleTest.StrList
                 sb.Append(" Billion");
                 if (y > 0) { sb.Append(" " + NumberToWords(y)); }
             }
-
             return sb.ToString();
         }
+
+
 
     }
 }

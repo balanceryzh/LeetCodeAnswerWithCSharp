@@ -129,5 +129,32 @@ namespace ConsoleTest.StackQeueue
             return outlist;
 
         }
+
+        public IList<string> TopKFrequent8(string[] words, int k)
+        {
+            Dictionary<string, int> list = new Dictionary<string, int>();
+            for(int i=0;i<words.Length;i++)
+            {
+               if(list.ContainsKey(words[i]))
+                {
+                    list[words[i]]++;
+                }
+               else
+                {
+                    list.Add(words[i], 1);
+                }
+            }
+
+            var templist = list.OrderByDescending(o => o.Value).ThenBy(o => o.Key).Take(k).ToList();
+            List<string> outlist = new List<string>();
+            for(int i=0;i<k;i++)
+            {
+                outlist.Add(templist[i].Key);
+            }
+            return outlist;
+
+        }
+
+
     }
 }
