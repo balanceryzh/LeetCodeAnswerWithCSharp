@@ -198,5 +198,39 @@ namespace ConsoleTest.StackQeueue
 
             return sb2.ToString();
         }
+
+        public string MinRemoveToMakeValid5(string s)
+        {
+            StringBuilder sb = new StringBuilder();
+            int open = 0;
+            int close = 0;
+            for(int i=0;i<s.Length;i++)
+            {
+                if(s[i]=='(')
+                {
+                    open++;
+                    close++;
+                }
+                else if(s[i]==')')
+                {
+                    if (close <= 0) continue;
+                    close--;
+                }
+                sb.Append(s[i]);
+            }
+            int dels = open - close;
+            StringBuilder sb2 = new StringBuilder();
+            for(int i=0;i<sb.Length;i++)
+            {
+                if(sb[i]=='(')
+                {
+                    if (dels <= 0) continue;
+                    dels--;
+                }
+                sb2.Append(sb[i]);
+            }
+            return sb2.ToString();
+
+        }
     }
 }

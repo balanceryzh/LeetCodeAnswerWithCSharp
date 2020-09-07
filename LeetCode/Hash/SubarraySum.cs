@@ -68,60 +68,7 @@ namespace ConsoleTest.Hash
         }
         #endregion
 
-        public int SubarraySum4(int[] nums, int k)
-        {
-            Dictionary<int, int> list = new Dictionary<int, int>() { { 0,1} };
-            int pre = 0;int count = 0;
-
-            for(int i=0;i<nums.Length;i++)
-            {
-                pre = pre + nums[i];
-                if(list.ContainsKey(pre-k))
-                {
-                    count=count+ list[pre - k];
-
-                }
-                if(list.ContainsKey(pre))
-                {
-                    list[pre] = list[pre] + 1;
-                }
-                else
-                {
-                    list.Add(pre,1);
-                }
-
-            }
-            return count;
-        }
-
-
-        public int SubarraySum5(int[] nums, int k)
-        {
-            int count = 0;int pre = 0;
-            Dictionary<int, int> list = new Dictionary<int, int>() { { 0, 1 } };
-            for(int i=0;i<nums.Length;i++)
-            {
-                pre = pre + nums[i];
-                if(list.ContainsKey(pre-k))
-                {
-                    count = count + list[pre - k];
-                }
-                if(list.ContainsKey(pre))
-                {
-                    list[pre]++;
-                }
-                else
-                {
-                    list.Add(pre, 1);
-                }
-            }
-
-            return count;
-
-
-
-        }
-
+       
         public int SubarraySum6(int[] nums,int k)
         {
             Dictionary<int, int> list = new Dictionary<int, int>() { {0, 1 } };
@@ -146,6 +93,38 @@ namespace ConsoleTest.Hash
 
             }
             return count;
+
+        }
+
+
+        public int SubarraySum7(int[] nums,int k)
+        {
+            if(nums.Length==0)
+            {
+                return 0;
+            }
+            int count = 0;
+            int pre = 0;
+            Dictionary<int, int> temps = new Dictionary<int, int>() { 0, 1 };
+            for(int i=0;i<nums.Length;i++)
+            {
+                pre = pre + nums[i];
+                if(temps.ContainsKey(pre-k))
+                {
+                    count = count + temps[pre - k];
+                }
+                if(temps.ContainsKey(pre))
+                {
+                    temps[pre]++;
+                }
+                else
+                {
+                    temps.Add(pre, 1);
+                }
+
+            }
+            return count;
+
 
         }
     }

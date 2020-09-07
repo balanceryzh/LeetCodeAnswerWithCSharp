@@ -9,20 +9,20 @@ namespace ConsoleTest.Hash
 
         //给定一个字符串数组，将字母异位词组合在一起。字母异位词指字母相同，但排列不同的字符串。
 
-//        示例:
+        //        示例:
 
-//输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
-//        输出:
-//[
-//  ["ate","eat","tea"],
-//  ["nat","tan"],
-//  ["bat"]
-//]
-//说明：
+        //输入: ["eat", "tea", "tan", "ate", "nat", "bat"]
+        //        输出:
+        //[
+        //  ["ate","eat","tea"],
+        //  ["nat","tan"],
+        //  ["bat"]
+        //]
+        //说明：
 
-//所有输入均为小写字母。
-//不考虑答案输出的顺序。
-
+        //所有输入均为小写字母。
+        //不考虑答案输出的顺序。
+        #region List
 
         public IList<IList<string>> GroupAnagrams2(string[] strs)
         {
@@ -145,5 +145,39 @@ namespace ConsoleTest.Hash
 
 
         }
-   }
+        #endregion
+
+        public IList<IList<string>> GroupAnagrams7(string[] strs)
+        {
+            List<IList<string>> outList = new List<IList<string>>();
+            int count = 0;
+            Dictionary<long, int> tempList = new Dictionary<long, int>();
+            for(int i=0;i<strs.Length;i++)
+            {
+                long t = 1;
+                for(int j=0;j<strs[i].Length;j++)
+                {
+                    t = t * (long)((int)strs[i][j] + 100);
+                  
+                }
+                if (tempList.ContainsKey(t))
+                {
+                    outList[tempList[t]].Add(strs[i]);
+                }
+                else
+                {
+                    tempList.Add(t, count);
+                    count++;
+                    outList.Add(new List<string>() {strs[i] });
+                }
+            }
+
+            return outList;
+        }
+
+
+
+
+
+    }
 }

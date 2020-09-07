@@ -20,7 +20,7 @@ namespace ConsoleTest.LinkTable
   }
     public class AddTwoNumbers
     {
-
+        #region List
 
         /// <summary>
         /// 计算两个链表相加结果：递归法
@@ -161,5 +161,31 @@ namespace ConsoleTest.LinkTable
 
 
         }
+
+
+        public ListNode AddTwoNumber10(ListNode l1,ListNode l2,int num=0)
+        {
+            if(l1== null &&l2==null)
+            {
+                if (num > 0) return new ListNode(num);
+                else
+                    return default;
+            }
+            
+            int temp = l1?.val??0 + l2?.val??0+num;
+
+            ListNode outlist = new ListNode(temp%10);
+
+            outlist.next = AddTwoNumber10(l1?.next, l2?.next, temp / 10);
+
+
+            return outlist;
+
+        }
+
+        #endregion
     }
+
+
+
 }

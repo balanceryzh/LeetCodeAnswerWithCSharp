@@ -108,25 +108,27 @@ namespace ConsoleTest.LinkTable
         #endregion
         public static int LengthOfLongestSubstring12(string s)
         {
-            Queue<char> list = new Queue<char>();
-            char c, delstr;
-            int outs = 0;
-            for(int i=0;i<s.Length;i++)
-            {
-                if(list.Contains(s[i]))
-                {
-                    do { delstr = list.Dequeue(); } while (delstr != s[i]);
-                }
-                else
-                {
-                    list.Enqueue(s[i]);
-                }
 
-                outs = list.Count > outs ? list.Count : outs;
+            int outInt = 0;
+            Queue<char> list = new Queue<char>();
+           char del;
+            for (int i=0;i<s.Length;i++)
+            {
+                if (list.Contains(s[i]))
+                {
+                    do { del = list.Dequeue(); } while (del != s[i]);
+                }
+               
+                    list.Enqueue(s[i]);
+                    if(list.Count>outInt)
+                    {
+                        outInt = list.Count;
+                    }
+                
 
             }
+            return outInt;
 
-            return outs;
 
         }
     }

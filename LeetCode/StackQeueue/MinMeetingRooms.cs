@@ -240,23 +240,23 @@ namespace ConsoleTest.StackQeueue
         #endregion
         public static int MinMeetingRooms7(int[][] intervals)
         {
-            if(intervals==null||intervals.Length==0)
+            if(intervals.Length==0)
             {
                 return 0;
+
             }
             intervals = intervals.OrderBy(o => o[0]).ToArray();
             Queue<int[]> list = new Queue<int[]>();
-            
+
             for(int i=0;i<intervals.Length;i++)
             {
                 if(list.Count>0)
                 {
-                    int count = list.Count;
-                   
-                    for (int j=0;j<count;j++)
+                    int count = list.Count();
+                    for(int j=0;j<count;j++)
                     {
                         int[] temp = list.Dequeue();
-                        if (temp[1]<=intervals[i][0])
+                        if(temp[1]<=intervals[i][0])
                         {
                             temp = intervals[i];
                             list.Enqueue(temp);
@@ -270,20 +270,17 @@ namespace ConsoleTest.StackQeueue
                                 list.Enqueue(intervals[i]);
                             }
                         }
-                    }
 
+
+
+                    }
                 }
                 else
                 {
                     list.Enqueue(intervals[i]);
                 }
-
             }
-
-            return list.Count;
-
-
-
+            return list.Count();
         }
 
     }
