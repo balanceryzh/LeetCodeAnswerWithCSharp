@@ -22,7 +22,7 @@ namespace ConsoleTest.StrList
     public class AddStrings
     {
         //
-        public string AddStrings2(string num1, string num2)
+        public static string AddStrings2(string num1, string num2)
         {
             int len1 = num1.Length - 1;
             int len2 = num2.Length - 1;
@@ -51,6 +51,59 @@ namespace ConsoleTest.StrList
             char[] chararr = res.ToCharArray();
             Array.Reverse(chararr);
             return new string(chararr);
+        }
+
+        public static string AddStrings3(string num1,string num2)
+        {
+            int i = num1.Length - 1;
+            int j = num2.Length - 1;
+            int a = 0;
+            StringBuilder sb = new StringBuilder();
+            while(i>=0||j>=0||a>0)
+            {
+                int x = i >= 0 ? num1[i] - '0' : 0;
+                int y = j >= 0 ? num2[j] - '0' : 0;
+
+                int temp = x + y + a;
+
+                string s = (temp % 10).ToString();
+                sb.Append(s);
+                a = temp / 10;
+                i--;
+                j--;
+
+            }
+            char[] templsit = sb.ToString().ToCharArray();
+            Array.Reverse(templsit);
+            return new string(templsit);
+        }
+
+        public static string AddStrings4(string num1, string num2)
+        {
+            int i = num1.Length - 1;
+            int j = num2.Length - 1;
+            int a = 0;
+            Stack<string> sb = new Stack<string>();
+            while(i>=0||j>=0||a>0)
+            {
+                int x = i >= 0 ? num1[i] - '0' : 0;
+                int y = j >= 0 ? num2[j] - '0' : 0;
+
+                int temp = x + y + a;
+                string outString = (temp % 10).ToString();
+                sb.Push(outString);
+                a = temp / 10;
+                i--;
+                j--;
+
+            }
+            StringBuilder sb1 = new StringBuilder();
+            while(sb.Count>0)
+            {
+                sb1.Append(sb.Pop());
+            }
+            return sb1.ToString();
+
         }
     }
 }

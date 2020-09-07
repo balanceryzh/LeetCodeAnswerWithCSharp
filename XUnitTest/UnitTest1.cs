@@ -73,5 +73,11 @@ namespace XUnitTest
             var test2=   MinMeetingRooms.MinMeetingRooms3(test3);
             Assert.Equal(2,test2);
         }
+        [Fact]
+        public void AddStringsTest()
+        {
+          var test=  AddStrings.AddStrings2("111", "222");
+            Assert.Equal("333", test);
+        }
     }
 }

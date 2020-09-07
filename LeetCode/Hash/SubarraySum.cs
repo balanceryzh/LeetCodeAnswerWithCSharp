@@ -105,7 +105,7 @@ namespace ConsoleTest.Hash
             }
             int count = 0;
             int pre = 0;
-            Dictionary<int, int> temps = new Dictionary<int, int>() { 0, 1 };
+            Dictionary<int, int> temps = new Dictionary<int, int>() { { 0, 1 } };
             for(int i=0;i<nums.Length;i++)
             {
                 pre = pre + nums[i];
