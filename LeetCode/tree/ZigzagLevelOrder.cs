@@ -16,7 +16,7 @@ namespace ConsoleTest.tree
             public TreeNode right;
             public TreeNode(int x) { val = x; }
         }
-
+        #region list
         public IList<IList<int>> ZigzagLevelOrder2(TreeNode root)
         {
             Stack<TreeNode> stack = new Stack<TreeNode>();
@@ -242,5 +242,44 @@ namespace ConsoleTest.tree
 
             return outlist;
         }
+        #endregion
+        public IList<IList<int>> ZigzagLevelOrde10(TreeNode root)
+        {
+            List<IList<int>> list = new List<IList<int>>();
+            Stack<TreeNode> templist1 = new Stack<TreeNode>();
+
+            templist1.Push(root);
+            int temp = 0;
+            while(templist1.Count>0)
+            {
+                Stack<TreeNode> templist2 = new Stack<TreeNode>();
+                int count = templist1.Count;
+                List<int> nodelist = new List<int>();
+                for(int i=0;i<count;i++)
+                {
+                    TreeNode node = templist1.Pop();
+                    nodelist.Add(node.val);
+                    if(temp==0)
+                    {
+                        if (node.left !=null) { templist2.Push(node.left); }
+                        if (node.right != null) { templist2.Push(node.right); }
+                    }
+                    else
+                    {
+                        if (node.right != null) { templist2.Push(node.right); }
+                        if (node.left != null) { templist2.Push(node.left); }
+                    }
+
+                }
+                templist1 = templist2;
+                list.Add(nodelist);
+                if (temp == 0) temp = 1;
+                else temp = 0;
+
+
+            }
+            return list;
+        }
+
     }
 }

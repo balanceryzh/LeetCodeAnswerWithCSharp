@@ -21,6 +21,7 @@ namespace ConsoleTest.StrList
 
     public class AddStrings
     {
+        #region list
         //
         public static string AddStrings2(string num1, string num2)
         {
@@ -105,5 +106,13 @@ namespace ConsoleTest.StrList
             return sb1.ToString();
 
         }
+        #endregion
+
+        //public static string AddStrings5(string num1, string num2)
+        //{
+           
+
+
+        //}
     }
 }

@@ -33,6 +33,7 @@ namespace ConsoleTest.StrList
 
     public class ReverseWords
     {
+        #region list
         public string ReverseWords2(string s)
         {
             string[] templist = s.Split(' ');
@@ -97,6 +98,32 @@ namespace ConsoleTest.StrList
                 sb.Append(list.Pop());
                 sb.Append(" ");
             }
+            return sb.ToString().TrimEnd();
+        }
+
+        #endregion
+        public string ReverseWords5(string s)
+        {
+            string[] list = s.Split(' ');
+
+            Stack<string> outList = new Stack<string>();
+
+            for (int i = 0; i < list.Length; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(list[i]))
+                {
+                    outList.Push(list[i]);
+                }
+            }
+
+            StringBuilder sb = new StringBuilder();
+            while(outList.Count>0)
+            {
+                sb.Append(outList.Pop());
+                sb.Append(" ");
+
+            }
+
             return sb.ToString().TrimEnd();
         }
     }

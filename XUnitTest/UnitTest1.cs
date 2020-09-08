@@ -5,6 +5,7 @@ using ConsoleTest.tree;
 using ConsoleTest.StackQeueue;
 using System;
 using Xunit;
+using ConsoleTest.LinkTable;
 
 namespace XUnitTest
 {
@@ -78,6 +79,13 @@ namespace XUnitTest
         {
           var test=  AddStrings.AddStrings2("111", "222");
             Assert.Equal("333", test);
+        }
+
+        [Fact]
+        public void LengthOfLongestSubstringTest()
+        {
+            var test = LengthOfLongestSubstring.LengthOfLongestSubstring12("pwwkew");
+            Assert.Equal(2, test);
         }
     }
 }

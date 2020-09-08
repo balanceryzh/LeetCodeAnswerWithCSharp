@@ -185,82 +185,8 @@ namespace ConsoleTest.LinkTable
         }
 
 
-        public ListNode RemoveNthFromEnd8(ListNode head, int n)         
-        {
-            ListNode pre = head;
-            int i = 1;
-            while(pre!=null)
-            {
-                i = i + 1;
-                pre = pre.next;
-            }
-            if (i == n)
-            {
-                return head.next;
-            }
-            else
-            {
-                pre = head;
-                int j = 1;
-                int index = i - n - 1;
-                while (j < index - 1)
-                {
-                    pre = pre.next;
-                    j = j + 1;
-                }
-                pre.next = pre.next.next;
-            }
-            return head;
-
-
-
-        
-        }
+ 
         #endregion
-        public ListNode RemoveNthFromEnd9(ListNode head, int n)
-        {
-            int i = 0;
-            ListNode j = head;
-            while(j!=null)
-            {
-                i = i + 1;
-                j = j.next;
-            }
-            if(i==n)
-            {
-                return head.next;
-            }
-            else
-            {
-                j = head;
-                int x = 0;
-                int index = x - n + 1;
 
-                while(x<index-1)
-                {
-                    j = j.next;
-
-                    x = x + 1;
-
-                }
-                j.next = j.next.next;
-
-
-                return head;
-
-
-
-
-
-
-
-
-
-
-            }
-            
-
-
-        }
     }
 }
