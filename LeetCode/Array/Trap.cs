@@ -58,25 +58,23 @@ namespace ConsoleTest
             {
                 return 0;
             }
+            int trapcount = 0;
             Stack<int> list = new Stack<int>();
-            int trapCount = 0;
-            for(int i=0;i<height.Length;i++)
+            for(int i=0;i< height.Length;i++)
             {
-                if(list.Count>0&&height[i]>height[list.Peek()])
+                while(list.Count>0&&height[i]>height[list.Peek()])
                 {
                     int temp = list.Pop();
                     if (list.Count == 0) break;
                     int width = i - list.Peek() - 1;
-                    int heights = Math.Min(height[i], height[list.Peek()])- height[temp];
-                    trapCount = trapCount + width * heights;
+                    int heights = Math.Min(height[i], height[list.Peek()]) - height[temp];
+                    trapcount = trapcount+ width * heights;
                 }
-                else
-                {
+               
                     list.Push(i);
-                }
+                
             }
-
-            return trapCount;
+            return trapcount;
 
         }
 
