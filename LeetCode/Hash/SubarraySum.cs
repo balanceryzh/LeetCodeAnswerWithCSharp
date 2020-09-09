@@ -99,29 +99,32 @@ namespace ConsoleTest.Hash
 
         public int SubarraySum7(int[] nums,int k)
         {
-            Dictionary<int, int> list = new Dictionary<int, int>() { { 0, 1 } };
-            int pre = 0;
+            int pre=0;
             int count = 0;
-            for(int i=0;i<nums.Length;i++)
+            Dictionary<int, int> list = new Dictionary<int, int>();
+            for (int i = 0; i < nums.Length; i++)
             {
                 pre = pre + nums[i];
-                if(list.ContainsKey(pre-k))
+                if (list.ContainsKey(pre - k))
                 {
-                    count = count+list[pre - k];
+                    count = count + list[pre - k];
                 }
-                if(list.ContainsKey(pre))
+                else if (list.ContainsKey(pre))
                 {
-                    list[pre]++;
+                    list[pre - k]++;
                 }
                 else
                 {
                     list.Add(pre, 1);
                 }
+
             }
             return count;
 
+
+
         }
-       
+
 
     }
 }
