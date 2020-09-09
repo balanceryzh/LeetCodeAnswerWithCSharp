@@ -81,50 +81,12 @@ namespace ConsoleTest.StrList
 ;
         }
 
-        public string ReverseWords4(string s)
-        {
-            string[] slist = s.Split(" ");
-            Stack<string> list = new Stack<string>();
-            for(int i=0;i<slist.Length;i++)
-            {
-                if (!string.IsNullOrWhiteSpace(slist[i]))
-                    {
-                    list.Push(slist[i]);
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            while(list.Count>0)
-            {
-                sb.Append(list.Pop());
-                sb.Append(" ");
-            }
-            return sb.ToString().TrimEnd();
-        }
+
 
         #endregion
-        public string ReverseWords5(string s)
-        {
-            string[] list = s.Split(' ');
+        //public string ReverseWords5(string s)
+        //{
 
-            Stack<string> outList = new Stack<string>();
-
-            for (int i = 0; i < list.Length; i++)
-            {
-                if (!string.IsNullOrWhiteSpace(list[i]))
-                {
-                    outList.Push(list[i]);
-                }
-            }
-
-            StringBuilder sb = new StringBuilder();
-            while(outList.Count>0)
-            {
-                sb.Append(outList.Pop());
-                sb.Append(" ");
-
-            }
-
-            return sb.ToString().TrimEnd();
-        }
+        //}
     }
 }
