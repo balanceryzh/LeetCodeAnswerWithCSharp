@@ -6,6 +6,7 @@ using ConsoleTest.StackQeueue;
 using System;
 using Xunit;
 using ConsoleTest.LinkTable;
+using ConsoleTest;
 
 namespace XUnitTest
 {
@@ -86,6 +87,21 @@ namespace XUnitTest
         {
             var test = LengthOfLongestSubstring.LengthOfLongestSubstring12("pwwkew");
             Assert.Equal(2, test);
+        }
+
+
+
+        [Fact]
+        public void Merge3Test()
+        {
+         MergeTwoArray.Merge3(new int[] {2,0 },1,new int[] {1 },1);
+    
+        }
+        [Fact]
+        public void ValidPalindromeTest()
+        {
+          var test=  ValidPalindrome.validPalindrome3("abca");
+            Assert.Equal(true, test);
         }
     }
 }

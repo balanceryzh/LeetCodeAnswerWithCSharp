@@ -25,6 +25,7 @@ namespace ConsoleTest
 
     public class MergeTwoArray
     {
+        #region test
         public void Merge2(int[] nums1, int m, int[] nums2, int n)
         {
             int numIndex1 = m - 1;
@@ -60,27 +61,30 @@ namespace ConsoleTest
             {
                 if (nums1[m] >= nums2[n])
                 {
-                    nums1[i--] = nums1[m--];
+                    nums1[i] = nums1[m];
+                    i--;
+                    m--;
                 }
                 else
                 {
-                    nums1[i--] = nums2[n--];
+                    nums1[i] = nums2[n];
+                    i--;
+                    n--;
                 }
             }
             while (n >= 0)
             {
-                nums1[i--] = nums2[n--];
+                nums1[i] = nums2[n];
+                i--;
+                n--;
             }
         }
+
+        #endregion
+
         public void Merge5(int[] nums1, int m, int[] nums2, int n)
         {
-            int i = nums1.Length - 1;
-            m--;
-            n--;
-            while(m>=0&&n>=0)
-            {
-
-            }
+          
         }
     }
 }

@@ -114,7 +114,7 @@ namespace ConsoleTest.StrList
             int j = num2.Length - 1;
             int a = 0;
             Stack<int> list = new Stack<int>();
-            while(i>=0||j>=0||a>0)j
+            while(i>=0||j>=0||a>0)
             {
                 int x = i >= 0 ?num1[i]-'0' : 0;
                 int y = j >= 0 ? num1[j] - '0' : 0;
