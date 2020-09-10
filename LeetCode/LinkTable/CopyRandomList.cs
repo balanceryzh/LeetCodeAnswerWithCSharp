@@ -167,45 +167,7 @@ namespace ConsoleTest.LinkTable
         }
         #endregion
 
-        public Node CopyRandomList9(Node head)
-        {
-            Node i = new Node(-2);
-            Node j = new Node(-1);
-            Dictionary<Node, Node> list = new Dictionary<Node, Node>();
-            
-            i.next = j;
-            while(head!=null)
-            {
-                if(list.ContainsKey(head))
-                {
-                    j.next = list[head];
-                }
-                else
-                {
-                    j.next = new Node(head.val);
-                    list.Add(head, j.next);
-                }
-                if(head.random!=null)
-                {
-                    if (list.ContainsKey(head.random))
-                    {
-                        j.next.random = list[head.random];
-                    }
-                    else
-                    {
-                        j.next.random = new Node(head.random.val);
-                        list.Add(head.random, j.next.random);
-                    }
-                }
-
-                head = head.next;
-                j = j.next;
-            }
-
-
-            return i.next.next;
-
-        }
+    
 
     }
 }
