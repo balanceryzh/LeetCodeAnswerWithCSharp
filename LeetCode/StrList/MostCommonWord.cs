@@ -39,7 +39,7 @@ namespace ConsoleTest.StrList
         //不存在没有连字符或者带有连字符的单词。
         //单词里只包含字母，不会出现省略号或者其他标点符号。
 
-
+        #region list
         public static string MostCommonWord2(string paragraph, string[] banned)
         {
             string newpara = paragraph.Replace(".", " ").Replace(",", " ").Replace("?", " ").Replace(";", " ").Replace("'", "").Replace("!"," ");
@@ -75,6 +75,7 @@ namespace ConsoleTest.StrList
             paragraph = paragraph.ToLower();
 
             int start = -1;
+
             int end = 0;
             while (end < paragraph.Length)
             {
@@ -108,6 +109,8 @@ namespace ConsoleTest.StrList
                     end++;
                 }
             }
+
+
             if (start < paragraph.Length && start >= 0)
             {
                 string str = paragraph.Substring(start, paragraph.Length - start);
@@ -121,10 +124,14 @@ namespace ConsoleTest.StrList
                 }
             }
 
+
+
             foreach (var item in banned)
             {
                 map[item] = -1;
             }
+
+
             int max = 0;
             string maxStr = "";
             foreach (var item in map)
@@ -138,5 +145,152 @@ namespace ConsoleTest.StrList
             return maxStr;
         }
 
+
+        public string MostCommonWord4(string paragraph, string[] banned)
+        {
+            int start = -1;
+            int end = 0;
+            Dictionary<string, int> list = new Dictionary<string, int>();
+            paragraph = paragraph.ToLower();
+            while (end<paragraph.Length)
+            {
+                if (paragraph[end] < 'a' || paragraph[end] > 'z')
+                {
+                    if(start<0)
+                    {
+                        end++;
+                        continue;
+                    }
+                    else
+                    {
+                        string str = paragraph.Substring(start, end - start);
+                        if(list.ContainsKey(str))
+                        {
+                            list[str]++;
+                        }
+                        else
+                        {
+                            list.Add(str, 1);
+                        }
+                        end++;
+                        start = -1;
+                    }
+                }
+                else
+                {
+                    if(start<0)
+                    {
+                        start = end;
+                    }
+                    end++;
+                }
+            }
+            if(start>=0&&start< paragraph.Length)
+            {
+                string str = paragraph.Substring(start, paragraph.Length - start);
+                if(list.ContainsKey(str))
+                {
+                    list[str]++;
+                }
+                else
+                {
+                    list.Add(str,1);
+                }
+            }
+            foreach(var item in banned)
+            {
+                list[item] = -1;
+
+            }
+
+            int max = 0;string outstring = "";
+
+            foreach(var item in list)
+            {
+                if(max<item.Value)
+                {
+                    max = item.Value;
+                    outstring = item.Key;
+                }
+
+            }
+
+            return outstring;
+
+        }
+        #endregion
+
+
+        public string MostCommonWord5(string par, string[] ban)
+        {
+            Dictionary<string, int> list = new Dictionary<string, int>();
+            int start = -1;
+            int end = 0;
+            par = par.ToLower();
+            while(end<par.Length)
+            {
+                if(par[end]<'a'||par[end]>'z')
+                {
+                    if(start<0)
+                    {
+                        end++;
+                        continue;
+                    }
+                    else
+                    {
+                        string str = par.Substring(start, end - start);
+                        if(list.ContainsKey(str))
+                        {
+                            list[str]++;
+                        }
+                        else
+                        {
+                            list.Add(str,1);
+                        }
+                        end++;
+
+                    }
+
+                }
+                else
+
+                {
+                    if(start<0)
+                    {
+                        start = end;
+                    }
+                    end++;
+                }
+            }
+            if(start>=0&&start<par.Length)
+                {
+                string str = par.Substring(start,par.Length-start);
+                if(list.ContainsKey(str))
+                {
+                    list[str]++;
+                }
+                else
+                {
+                    list.Add(str, 1);
+                }
+            }
+
+            foreach(var item in ban)
+            {
+                list[item] = -1;
+            }
+            int max = 0;string outstring = "";
+            foreach(var node in list)
+            {
+                if(node.Value>=max)
+                {
+                    max = node.Value;
+                        outstring = node.Key;
+                }
+            }
+
+
+            return outstring;
+        }
     }
 }

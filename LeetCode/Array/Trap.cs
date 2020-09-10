@@ -52,31 +52,11 @@ namespace ConsoleTest
  
         #endregion
    
-        public int Trap5(int[] height)
-        {
-            if(height.Length==0)
-            {
-                return 0;
-            }
-            int trapcount = 0;
-            Stack<int> list = new Stack<int>();
-            for(int i=0;i< height.Length;i++)
-            {
-                while(list.Count>0&&height[i]>height[list.Peek()])
-                {
-                    int temp = list.Pop();
-                    if (list.Count == 0) break;
-                    int width = i - list.Peek() - 1;
-                    int heights = Math.Min(height[i], height[list.Peek()]) - height[temp];
-                    trapcount = trapcount+ width * heights;
-                }
-               
-                    list.Push(i);
-                
-            }
-            return trapcount;
+        //public int Trap5(int[] height)
+        //{
 
-        }
+
+        //}
 
    
     }

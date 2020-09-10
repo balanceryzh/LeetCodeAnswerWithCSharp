@@ -113,30 +113,24 @@ namespace ConsoleTest.StrList
             int i = num1.Length - 1;
             int j = num2.Length - 1;
             int a = 0;
-            Stack<int> list = new Stack<int>();
+            Stack<int> outlist = new Stack<int>();
             while(i>=0||j>=0||a>0)
             {
-                int x = i >= 0 ?num1[i]-'0' : 0;
-                int y = j >= 0 ? num1[j] - '0' : 0;
+                int x = i >= 0 ? num1[i] - '0' : 0;
+                int y = j >= 0 ? num2[j] - '0' : 0;
                 int temp = x + y + a;
-                list.Push(temp%10);
+                outlist.Push(temp%10);
                 a = temp / 10;
                 i--;
                 j--;
 
-
             }
             StringBuilder sb = new StringBuilder();
-
-            while(list.Count>0)
+            while(outlist.Count>0)
             {
-                sb.Append(list.Pop());
+                sb.Append(outlist.Pop());
             }
-
             return sb.ToString();
-
-
-
         }
     }
 }

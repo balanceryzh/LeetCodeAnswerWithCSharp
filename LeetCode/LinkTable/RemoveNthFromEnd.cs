@@ -189,10 +189,7 @@ namespace ConsoleTest.LinkTable
         #endregion
         //public ListNode RemoveNthFromEnd21(ListNode head, int n)
         //{
-
-
-
-
+           
         //}
     }
 }
