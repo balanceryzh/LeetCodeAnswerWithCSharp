@@ -28,6 +28,7 @@ namespace ConsoleTest.StrList
 
     public class NumberToWords2
     {
+        #region test
         //字典 + 拆分
         public Dictionary<int, string> numDic = new Dictionary<int, string>()
 {
@@ -293,18 +294,17 @@ namespace ConsoleTest.StrList
             }
             return sb.ToString();
         }
-
+        #endregion
         public string NumberToWord6(int num)
         {
             if (num < 20) return nums[num];
-
             StringBuilder sb = new StringBuilder();
             if(num<100)
             {
                 int x = num / 10;
                 int y = num % 10;
                 sb.Append(tys[x]);
-                if (y > 0) { sb.Append(" "+nums[y]); }
+                if (y > 0) { sb.Append(" " +nums[y]); }
             }
             else if(num<1000)
             {

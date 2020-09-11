@@ -187,9 +187,41 @@ namespace ConsoleTest.LinkTable
 
 
         #endregion
-        //public ListNode RemoveNthFromEnd21(ListNode head, int n)
-        //{
-           
-        //}
+        public ListNode RemoveNthFromEnd21(ListNode head, int n)
+        {
+            ListNode j = head;
+
+            int i = 1;
+            while(j.next!=null)
+            {
+                j = j.next;
+                i++;
+            }
+            if(i==n)
+            {
+                return head.next;
+            }
+            else
+            {
+                int index = i - n;
+                int x = 1;
+                j = head;
+                while(x<index)
+                {
+                    j = j.next;
+                    x++;
+
+                }
+                j.next = j.next.next;
+
+
+
+
+            }
+            return head;
+
+
+
+        }
     }
 }

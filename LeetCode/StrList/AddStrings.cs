@@ -108,29 +108,6 @@ namespace ConsoleTest.StrList
         }
         #endregion
 
-        public static string AddStrings5(string num1, string num2)
-        {
-            int i = num1.Length - 1;
-            int j = num2.Length - 1;
-            int a = 0;
-            Stack<int> outlist = new Stack<int>();
-            while(i>=0||j>=0||a>0)
-            {
-                int x = i >= 0 ? num1[i] - '0' : 0;
-                int y = j >= 0 ? num2[j] - '0' : 0;
-                int temp = x + y + a;
-                outlist.Push(temp%10);
-                a = temp / 10;
-                i--;
-                j--;
-
-            }
-            StringBuilder sb = new StringBuilder();
-            while(outlist.Count>0)
-            {
-                sb.Append(outlist.Pop());
-            }
-            return sb.ToString();
-        }
+        //public static string AddStrings5(string num1, string num2)
     }
 }

@@ -223,51 +223,48 @@ namespace ConsoleTest.StrList
 
         public string MostCommonWord5(string par, string[] ban)
         {
-            Dictionary<string, int> list = new Dictionary<string, int>();
             int start = -1;
             int end = 0;
+            Dictionary<string, int> list = new Dictionary<string, int>();
             par = par.ToLower();
             while(end<par.Length)
             {
                 if(par[end]<'a'||par[end]>'z')
                 {
-                    if(start<0)
-                    {
-                        end++;
-                        continue;
-                    }
-                    else
+                    if(start>=0)
                     {
                         string str = par.Substring(start, end - start);
                         if(list.ContainsKey(str))
                         {
                             list[str]++;
+                            
+
                         }
                         else
                         {
-                            list.Add(str,1);
+                            list.Add(str, 1);
                         }
-                        end++;
-
+                        start = -1;
                     }
-
+                    
                 }
                 else
-
                 {
                     if(start<0)
                     {
                         start = end;
                     }
-                    end++;
+                   
                 }
+                end++;
             }
-            if(start>=0&&start<par.Length)
-                {
-                string str = par.Substring(start,par.Length-start);
-                if(list.ContainsKey(str))
+           if(start>=0&&start<par.Length)
+            {
+                string str = par.Substring(start, par.Length - start);
+                if (list.ContainsKey(str))
                 {
                     list[str]++;
+
                 }
                 else
                 {
@@ -275,21 +272,20 @@ namespace ConsoleTest.StrList
                 }
             }
 
-            foreach(var item in ban)
+           foreach(var item in ban)
             {
                 list[item] = -1;
             }
+
             int max = 0;string outstring = "";
             foreach(var node in list)
             {
-                if(node.Value>=max)
+                if(max<node.Value)
                 {
                     max = node.Value;
-                        outstring = node.Key;
+                    outstring = node.Key;
                 }
             }
-
-
             return outstring;
         }
     }
