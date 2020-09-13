@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace ConsoleTest.Hash
@@ -71,10 +72,14 @@ namespace ConsoleTest.Hash
        
         public int SubarraySum6(int[] nums,int k)
         {
-
-            Dictionary<int, int> list = new Dictionary<int, int>() { { 0, 1 } };
-            int count = 0;
+           
+            if(nums.Length==0)
+            {
+                return 0;
+            }
             int pre = 0;
+            int count = 0;
+            Dictionary<int, int> list = new Dictionary<int, int>() { {0,1 } };
             for(int i=0;i<nums.Length;i++)
             {
                 pre = pre + nums[i];
@@ -82,16 +87,17 @@ namespace ConsoleTest.Hash
                 {
                     count = count + list[pre - k];
                 }
-               if(list.ContainsKey(pre))
+                if(list.ContainsKey(pre))
                 {
                     list[pre]++;
                 }
                 else
                 {
-                    list.Add(pre, 1);
+                    list.Add(pre,1);
                 }
             }
             return count;
+
         }
 
      

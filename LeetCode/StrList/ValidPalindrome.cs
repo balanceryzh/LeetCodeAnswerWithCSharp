@@ -20,62 +20,25 @@ namespace ConsoleTest.StrList
         //输出: True
         //解释: 你可以删除c字符。
         #region list
-        public bool validPalindrome2(String s)
-        {
-            int low = 0, high = s.Length - 1;
-            while (low < high)
-            {
-                char c1 = s[low], c2 = s[high];
-                if (c1 == c2)
-                {
-                    low++;
-                    high--;
-                }
-                else
-                {
-                    bool flag1 = true, flag2 = true;
-                    for (int i = low, j = high - 1; i < j; i++, j--)
-                    {
-                        char c3 = s[i], c4 = s[j];
-                        if (c3 != c4)
-                        {
-                            flag1 = false;
-                            break;
-                        }
-                    }
-                    for (int i = low + 1, j = high; i < j; i++, j--)
-                    {
-                        char c3 = s[i], c4 = s[j];
-                        if (c3 != c4)
-                        {
-                            flag2 = false;
-                            break;
-                        }
-                    }
-                    return flag1 || flag2;
-                }
-            }
-            return true;
-        }
+      
         #endregion
         public static bool validPalindrome3(String s)
         {
-            int low = 0;
-            int high = s.Length - 1;
-            while(low>high)
+            int low = 0;int high = s.Length - 1;
+            while(low<high)
             {
-                bool t1 = true;bool t2 = true;
+                bool t1 = true; bool t2 = true;
                 if(s[low]!=s[high])
                 {
-                    for(int i=low,j=high-1;i>j;i++,j--)
+                    for(int i=low,j=high-1;i<j;i++,j--)
                     {
-                           if(s[i]!=s[j])
-                           {
+                        if(s[i]!=s[j])
+                        {
                             t1 = false;
                             break;
-                            }
+                        }
                     }
-                    for(int i = low+1, j = high; i > j; i++, j--)
+                    for (int i = low+1, j = high ; i < j; i++, j--)
                     {
                         if (s[i] != s[j])
                         {
@@ -83,13 +46,13 @@ namespace ConsoleTest.StrList
                             break;
                         }
                     }
+
                     return t1 || t2;
                 }
                 low++;
                 high--;
             }
             return true;
-
         }
     }
 }
