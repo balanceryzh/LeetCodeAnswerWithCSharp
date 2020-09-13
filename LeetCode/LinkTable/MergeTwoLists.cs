@@ -18,6 +18,7 @@ namespace ConsoleTest.LinkTable
 
     public class MergeTwoLists
     {
+        #region list
         public ListNode MergeTwoLists2(ListNode l1, ListNode l2)
         {
             ListNode prehead = new ListNode(-1);
@@ -149,33 +150,13 @@ namespace ConsoleTest.LinkTable
             return i.next;
 
         }
+        #endregion
 
-    
 
-        public ListNode MergeTwoLists9(ListNode l1, ListNode l2)
-        {
-            ListNode i = new ListNode(-1);
-            ListNode j = i;
-            while(l1!=null&&l2!=null)
-            {
-                if(l1.val<=l2.val)
-                {
-                    j.next = l1;
-                    l1 = l1.next;
-                }
-                else
-                {
-                    j.next = l2;
-                    l2 = l2.next;
-                }
+        //public ListNode MergeTwoLists9(ListNode l1, ListNode l2)
+        //{
 
-                j = j.next;
-
-            }
-            j.next = l1 != null ? l1 : l2;
-            return i.next;
-
-        }
+        //}
 
     }
 }

@@ -157,35 +157,43 @@ namespace ConsoleTest.Hash
         public static bool isAlienSorted5(String[] words, String order)
         {
             int[] list = new int[26];
-            for (int i = 0; i < order.Length; i++)
+            for(int i=0;i<order.Length;i++)
             {
                 list[order[i] - 'a'] = i;
             }
+
             for(int j=0;j<words.Length-1;j++)
             {
                 string word1 = words[j];
                 string word2 = words[j + 1];
-
-                for(int z=0;z<Math.Min(word1.Length,word2.Length);z++)
+                for(int x=0;x<Math.Min(word1.Length,word2.Length);x++)
                 {
-                    if(word1[z]!=word2[z])
+                    if(word1[x]!=word2[x])
                     {
-                        if(list[word1[z] - 'a']> list[word2[z] - 'a'])
-                        { return false; }
-                        break;
+                        if(list[word1[x]-'a']> list[word2[x] - 'a'])
+                        {
+                            return false;
+                        }
+                        else
+                        {
+                            break;
+                        }
                     }
                     else
                     {
-                        if(z== Math.Min(word1.Length, word2.Length)-1&& word1.Length > word2.Length)
+                        if(x== Math.Min(word1.Length, word2.Length)-1&&word1.Length>word2.Length)
                         {
                             return false;
                         }
                     }
-
                 }
 
+
+
+
             }
-                return true;
+
+            return true;
 
         }
     }

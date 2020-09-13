@@ -86,22 +86,25 @@ namespace ConsoleTest.StrList
         #endregion
         public string ReverseWords5(string s)
         {
-            string[] templist = s.Split(" ");
-            Stack<string> outlist = new Stack<string>();
-            for (int i = 0; i < templist.Length; i++)
+            string[] list = s.Split(" ");
+            Stack<string> temp = new Stack<string>();
+            for(int i=0;i<list.Length;i++)
             {
-                if (!string.IsNullOrWhiteSpace(templist[i]))
+                if(!string.IsNullOrWhiteSpace(list[i]))
                 {
-                    outlist.Push(templist[i]);
+                    temp.Push(list[i]);
                 }
+
             }
             StringBuilder sb = new StringBuilder();
-            while(outlist.Count>0)
+            while(temp.Count>0)
             {
-                sb.Append(outlist.Pop());
+                sb.Append(temp.Pop());
                 sb.Append(" ");
             }
             return sb.ToString().TrimEnd();
+
+
         }
     }
 }

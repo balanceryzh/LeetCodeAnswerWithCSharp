@@ -60,22 +60,22 @@ namespace ConsoleTest.StrList
         #endregion
         public static bool validPalindrome3(String s)
         {
-
-            int low = 0;int high = s.Length - 1;
-            while(low<high)
+            int low = 0;
+            int high = s.Length - 1;
+            while(low>high)
             {
                 bool t1 = true;bool t2 = true;
                 if(s[low]!=s[high])
                 {
-                    for (int i = low, j = high - 1; i < j; i++, j--)
+                    for(int i=low,j=high-1;i>j;i++,j--)
                     {
-                        if (s[i] != s[j])
-                        {
+                           if(s[i]!=s[j])
+                           {
                             t1 = false;
                             break;
-                        }
+                            }
                     }
-                    for(int i = low+1, j = high ; i < j; i++, j--)
+                    for(int i = low+1, j = high; i > j; i++, j--)
                     {
                         if (s[i] != s[j])
                         {
@@ -87,9 +87,7 @@ namespace ConsoleTest.StrList
                 }
                 low++;
                 high--;
-
             }
-
             return true;
 
         }

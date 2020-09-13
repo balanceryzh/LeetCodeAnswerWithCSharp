@@ -105,53 +105,31 @@ namespace ConsoleTest.StackQeueue
 
         }
         #endregion
-        public IList<string> TopKFrequent7(string[] words, int k)
-        {
-            Dictionary<string, int> list = new Dictionary<string, int>();
-            foreach(string word in words)
-            {
-                if(list.ContainsKey(word))
-                {
-                    list[word] = list[word] + 1;
-                }
-                else
-                {
-                    list.Add(word, 1);
-                }
-
-            }
-            var templist = list.OrderByDescending(o => o.Value).ThenBy(o => o.Key).Take(k).ToList();
-            List<string> outlist = new List<string>();
-            for(int i=0;i<k;i++)
-            {
-                outlist.Add(templist[i].Key);
-            }
-            return outlist;
-
-        }
+     
 
         public IList<string> TopKFrequent8(string[] words, int k)
         {
+            List<string> outtemp = new List<string>();
             Dictionary<string, int> list = new Dictionary<string, int>();
             for(int i=0;i<words.Length;i++)
             {
-               if(list.ContainsKey(words[i]))
+                if(list.ContainsKey(words[i]))
                 {
                     list[words[i]]++;
                 }
-               else
+                else
                 {
-                    list.Add(words[i], 1);
+                    list.Add(words[i],1);
                 }
             }
 
-            var templist = list.OrderByDescending(o => o.Value).ThenBy(o => o.Key).Take(k).ToList();
-            List<string> outlist = new List<string>();
-            for(int i=0;i<k;i++)
+            var outlist = list.OrderByDescending(o => o.Value).ThenBy(o => o.Key).Take(k).ToList();
+
+            foreach(var node in outlist)
             {
-                outlist.Add(templist[i].Key);
+                outtemp.Add(node.Key);
             }
-            return outlist;
+            return outtemp;
 
         }
 
