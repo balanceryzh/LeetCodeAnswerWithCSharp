@@ -223,21 +223,15 @@ namespace ConsoleTest.StrList
 
         public string MostCommonWord5(string par, string[] ban)
         {
-            
-            int start = -1;
-            int end = 0;
             par = par.ToLower();
             Dictionary<string, int> list = new Dictionary<string, int>();
-            while (end < par.Length)
+            int start = -1;
+            int end = 0;
+            while(end<par.Length)
             {
                 if(par[end]<'a'||par[end]>'z')
                 {
-                    if (start < 0)
-                    {
-                        end++;
-                        continue;
-                    }
-                    if (start>=0)
+                    if(start>=0)
                     {
                         string str = par.Substring(start, end - start);
                         if (list.ContainsKey(str))
@@ -248,54 +242,45 @@ namespace ConsoleTest.StrList
                         {
                             list.Add(str, 1);
                         }
-                        end++;
-                        start = -1;
                     }
-
+                    end++;
                 }
                 else
                 {
-                    if(start==-1)
+                    if(start<0)
                     {
                         start = end;
                     }
                     end++;
                 }
-
             }
-
-
-
-
             if(start>=0)
             {
-                string str = par.Substring(start, par.Length - start);
+                string str = par.Substring(start,par.Length-start);
+                start = -1;
                 if(list.ContainsKey(str))
                 {
                     list[str]++;
                 }
                 else
                 {
-                    list.Add(str,1);
+                    list.Add(str, 1);
                 }
             }
-            foreach(string note in ban)
+            foreach(var node in ban)
             {
-                list[note] = -1;
+                list[node] = -1;
             }
-            int max = 0;
-            string outMax = "";
-
-            foreach(var node in list)
+            int max = 0;string outmax = "";
+            foreach(var listnode in list)
             {
-                if(node.Value>max)
+                if(listnode.Value>max)
                 {
-                    max = node.Value;
-                    outMax = node.Key;
+                    max = listnode.Value;
+                    outmax = listnode.Key;
                 }
             }
-
-            return outMax;
+            return outmax;
         }
     }
 }

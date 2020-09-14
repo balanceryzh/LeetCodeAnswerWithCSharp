@@ -30,7 +30,7 @@ namespace ConsoleTest.StrList
 
     public class ReorderLogFiles
     {
-
+        #region list
         public string[] reorderLogFiles(string[] logs)
         {
             List<string> list1 = new List<string>();
@@ -72,7 +72,9 @@ namespace ConsoleTest.StrList
             }
             return outlist.ToArray();
         }
+        #endregion
 
+        //public static string[] reorderLogFiles2(string[] logs)
     }
 }
 

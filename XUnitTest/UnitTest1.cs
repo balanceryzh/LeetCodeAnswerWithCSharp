@@ -118,5 +118,13 @@ namespace XUnitTest
             var test = BreakfastNumber.BreakfastNumber3(new int[] { 2, 1, 1 },new int[] { 8, 9, 5, 1 },9);
             Assert.Equal(8, test);
         }
+
+
+        [Fact]
+        public void reorderLogFilesTest()
+        {
+            var test = ReorderLogFiles.reorderLogFiles2(new string[] { "dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero" });
+            Assert.Equal(new string[] {"let1 art can", "let3 art zero", "let2 own kit dig", "dig1 8 1 5 1", "dig2 3 6" }, test);
+        }
     }
 }
