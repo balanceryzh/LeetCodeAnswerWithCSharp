@@ -74,52 +74,9 @@ namespace ConsoleTest.StrList
         }
         #endregion
 
-        public static string[] reorderLogFiles2(string[] logs)
-        {
-
-            List<string> list1 = new List<string>();
-            List<string> list2 = new List<string>();
-            foreach (string node in logs)
-            {
-                string[] templist = node.Split(' ', 2);
-                if (char.IsDigit(templist[1][0]))
-                {
-                    list2.Add(node);
-                }
-                else
-                {
-                    list1.Add(node);
-                }
-            }
-                list1.Sort((log1, log2) =>
-                {
-                    string[] templog1 = log1.Split(' ', 2);
-                    string[] templog2 = log2.Split(' ', 2);
-
-                    if(templog1[1].CompareTo(templog2[1])==0)
-                    {
-                        return templog1[0].CompareTo(templog2[0]);
-                    }
-                    else
-                    {
-                        return templog1[1].CompareTo(templog2[1]);
-                    }
-
-                });
-                List<string> outlist = new List<string>();
-
-                foreach(string node1 in list1)
-                {
-                    outlist.Add(node1);
-                }
-
-                foreach (string node2 in list2)
-                {
-                    outlist.Add(node2);
-                }
-                return outlist.ToArray();
-
-        }
+        //public static string[] reorderLogFiles2(string[] logs)
+        //{
+        //}
         
     }
 }

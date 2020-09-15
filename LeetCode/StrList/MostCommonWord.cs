@@ -221,66 +221,9 @@ namespace ConsoleTest.StrList
         #endregion
 
 
-        public string MostCommonWord5(string par, string[] ban)
-        {
-            par = par.ToLower();
-            Dictionary<string, int> list = new Dictionary<string, int>();
-            int start = -1;
-            int end = 0;
-            while(end<par.Length)
-            {
-                if(par[end]<'a'||par[end]>'z')
-                {
-                    if(start>=0)
-                    {
-                        string str = par.Substring(start, end - start);
-                        if (list.ContainsKey(str))
-                        {
-                            list[str]++;
-                        }
-                        else
-                        {
-                            list.Add(str, 1);
-                        }
-                    }
-                    end++;
-                }
-                else
-                {
-                    if(start<0)
-                    {
-                        start = end;
-                    }
-                    end++;
-                }
-            }
-            if(start>=0)
-            {
-                string str = par.Substring(start,par.Length-start);
-                start = -1;
-                if(list.ContainsKey(str))
-                {
-                    list[str]++;
-                }
-                else
-                {
-                    list.Add(str, 1);
-                }
-            }
-            foreach(var node in ban)
-            {
-                list[node] = -1;
-            }
-            int max = 0;string outmax = "";
-            foreach(var listnode in list)
-            {
-                if(listnode.Value>max)
-                {
-                    max = listnode.Value;
-                    outmax = listnode.Key;
-                }
-            }
-            return outmax;
-        }
+        //public string MostCommonWord5(string par, string[] ban)
+        //{
+           
+        //}
     }
 }

@@ -144,21 +144,15 @@ namespace ConsoleTest
         }
         #endregion
 
-        int max5 = int.MinValue;
-        public int MaxPathSum5(TreeNode root)
-        {
-            DFS5(root);
-            return max5;
-        }
+        //int max5 = int.MinValue;
+        //public int MaxPathSum5(TreeNode root)
+        //{
+           
+        //}
 
-        public int DFS5(TreeNode root)
-        {
-            if (root == null) return 0;
-            int leftvalue = Math.Max(0, DFS5(root.left));
-            int rightvalue = Math.Max(0, DFS5(root.right));
-            max = Math.Max(max, leftvalue + rightvalue + root.val);
-            return root.val + Math.Max(leftvalue, rightvalue);
-
-        }
+        //public int DFS5(TreeNode root)
+      
+            
+        //}
     }
 }
