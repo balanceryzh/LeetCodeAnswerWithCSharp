@@ -240,35 +240,35 @@ namespace ConsoleTest.Seach
         #endregion
 
         public int NumIsLands7(char[][] grid)
-        {
-            if (grid == null||grid.Length==0)
+        { 
+            if(grid.Length==0)
             {
                 return 0;
             }
-            int outCount = 0;
+            int Lands = 0;
             for(int i=0;i<grid.Length;i++)
             {
                 for(int j=0;j<grid[0].Length;j++)
                 {
                     if(grid[i][j]=='1')
                     {
-                        outCount++;
+                        DFS(i, j, grid);
+                        Lands++;
                     }
-                    DFS7(i, j, grid);
                 }
             }
-            return outCount;
 
+            return Lands;
+        
         }
-
         public void DFS7(int i,int j,char[][] grid)
         {
             grid[i][j] = '0';
-
             if (i + 1 < grid.Length && grid[i + 1][j] == '1') { DFS7(i + 1, j, grid); }
-            if (i - 1 >= 0 && grid[i - 1][j] == '1') { DFS7(i - 1, j, grid); }
             if (j + 1 < grid[0].Length && grid[i][j+1] == '1') { DFS7(i, j+1, grid); }
+            if (i - 1 >=0 && grid[i - 1][j] == '1') { DFS7(i - 1, j, grid); }
             if (j - 1 >= 0 && grid[i][j-1] == '1') { DFS7(i, j-1, grid); }
+
         }
 
 

@@ -106,21 +106,36 @@ namespace ConsoleTest.tree
             {
                 return list;
             }
-            Queue<TreeNode> queuelist = new Queue<TreeNode>();
-            queuelist.Enqueue(root);
-            while(queuelist.Count!=0)
+            Queue<TreeNode> templist = new Queue<TreeNode>();
+            templist.Enqueue(root);
+
+            while(templist.Count>0)
             {
-                int count = queuelist.Count;
+                int count = templist.Count;
                 for(int i=0;i<count;i++)
                 {
-                    TreeNode temp = queuelist.Dequeue();
-                    if (temp.left != null) { queuelist.Enqueue(temp.left); }
-                    if (temp.right != null) { queuelist.Enqueue(temp.right); }
-                    if (i == count - 1) { list.Add(temp.val); }
+                    TreeNode tempnode = templist.Dequeue();
+
+                    if(tempnode.left!=null)
+                    {
+                        templist.Enqueue(tempnode.left);
+                    }
+                    if (tempnode.right != null)
+                    {
+                        templist.Enqueue(tempnode.right);
+                    }
+                    if(i==count-1)
+                    {
+                        list.Add(tempnode.val);
+
+                    }
+
                 }
 
             }
+
             return list;
+
         }
     }
 }
