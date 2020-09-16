@@ -123,17 +123,16 @@ namespace ConsoleTest
         #endregion
         public int[] TwoSum8(int[] nums, int target)
         {
-            Dictionary<int, int> temp = new Dictionary<int, int>();
-
+            Dictionary<int, int> list = new Dictionary<int, int>();
             for(int i=0;i<nums.Length;i++)
             {
-                if(temp.ContainsKey(target- nums[i]))
+                if(list.ContainsKey(target-nums[i]))
                 {
-                    return new int[] { temp[target- nums[i]],i };
+                    return new int[] { list[target - nums[i]], i};
                 }
-                else if(!temp.ContainsKey(nums[i]))
+                else if(!list.ContainsKey(nums[i]))
                 {
-                    temp.Add(nums[i], i);
+                    list.Add(nums[i], i);
                 }
             }
             throw new AggregateException("no");

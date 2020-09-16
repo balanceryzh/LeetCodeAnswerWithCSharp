@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConsoleTest.game;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -144,15 +145,10 @@ namespace ConsoleTest
         }
         #endregion
 
-        //int max5 = int.MinValue;
-        //public int MaxPathSum5(TreeNode root)
-        //{
-           
-        //}
 
-        //public int DFS5(TreeNode root)
-      
-            
+        //public int DFSTEST(TreeNode root)
+        //{
+         
         //}
     }
 }

@@ -148,31 +148,6 @@ namespace ConsoleTest.Hash
         #endregion
 
         public IList<IList<string>> GroupAnagrams7(string[] strs)
-        {
-            List<IList<string>> list = new List<IList<string>>();
-            Dictionary<long, int> temp = new Dictionary<long, int>();
-            int count = 0;
-            for(int i=0;i<strs.Length;i++)
-            {
-                long t = 1;
-                for(int j=0;j<strs[i].Length;j++)
-                {
-                    t = t * (long)((int)strs[i][j] + 100);
-                }
-                if(temp.ContainsKey(t))
-                {
-                    list[temp[t]].Add(strs[i]);
-                }
-                else
-                {
-                    temp.Add(t, count);
-                    count++;
-                    list.Add(new List<string>() { strs[i]});
-
-                }
-            }
-            return list;
-        }
 
 
 
