@@ -88,6 +88,10 @@ namespace ConsoleTest.LinkTable
 
         public Node CopyRandomList6(Node head)
         {
+            if (head == null)
+            {
+                return head;
+            }
             Node i = new Node(-2);
             Node j = new Node(-1);
             i.next = j;
@@ -170,9 +174,8 @@ namespace ConsoleTest.LinkTable
         public Node CopyRandomLists(Node head)
         {
             Node j = new Node(-1);
-            Node i =j;
+            Node i = j;
             Dictionary<Node, Node> list = new Dictionary<Node, Node>();
-          
             while(head!=null)
             {
                 if(list.ContainsKey(head))
@@ -188,7 +191,7 @@ namespace ConsoleTest.LinkTable
                 {
                     if (list.ContainsKey(head.random))
                     {
-                        j.next.random = list[head.random];
+                        j.next.random =list[head.random];
                     }
                     else
                     {
@@ -198,12 +201,11 @@ namespace ConsoleTest.LinkTable
                 }
                 head = head.next;
                 j = j.next;
+
             }
-
-            return i.next;
-
-
+            return i;
         }
+        
 
     }
 }

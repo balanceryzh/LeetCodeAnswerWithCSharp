@@ -155,5 +155,8 @@ namespace ConsoleTest.Hash
         #endregion
 
         //public static bool isAlienSorted5(String[] words, String order)
+        //{
+ 
+        //}
     }
 }
