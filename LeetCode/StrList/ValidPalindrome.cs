@@ -27,9 +27,9 @@ namespace ConsoleTest.StrList
             int low = 0;int high = s.Length - 1;
             while(low<high)
             {
-                bool t1 = true; bool t2 = true;
                 if(s[low]!=s[high])
                 {
+                    bool t1 = true;bool t2= true;
                     for(int i=low,j=high-1;i<j;i++,j--)
                     {
                         if(s[i]!=s[j])
@@ -37,17 +37,19 @@ namespace ConsoleTest.StrList
                             t1 = false;
                             break;
                         }
+                        
                     }
-                    for (int i = low+1, j = high ; i < j; i++, j--)
+                    for (int i = low+1, j = high; i < j; i++, j--)
                     {
                         if (s[i] != s[j])
                         {
                             t2 = false;
                             break;
                         }
-                    }
 
+                    }
                     return t1 || t2;
+
                 }
                 low++;
                 high--;

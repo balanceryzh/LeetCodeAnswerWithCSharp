@@ -46,16 +46,14 @@ namespace ConsoleTest.tree
         }
         #endregion
 
+
+      
         //public int DiameterOfBinaryTree2(TreeNode root)
         //{
-         
+            
         //}
-        //public int Helper(TreeNode root)
-        //{
 
 
-        //}
- 
     }
 
 

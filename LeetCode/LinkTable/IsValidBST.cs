@@ -66,14 +66,27 @@ namespace ConsoleTest
 
         }
         #endregion
-        //public bool IsValidBST(TreeNode root)
-        //{
+        public bool IsValidBST(TreeNode root)
+        {
+            return helper(root, -1, -1);
 
-        
-        //}
-        //public bool helper3(TreeNode rot, int low, int up)
-        //{
+        }
+        public bool helper(TreeNode root,int l,int r)
+        {
+            
+            if(root==null)
+            {
+                return true;
+            }
+            if (l != -1 && root.val <= l) { return false; }
+            if (r != -1 && root.val >= r) { return false; }
+            if (!helper(root.left,l,root.val))
+                return false;
 
-        //}
+            if (!helper(root.right, root.val,l))
+                return false;
+            return true;
+
+        }
     }
 }

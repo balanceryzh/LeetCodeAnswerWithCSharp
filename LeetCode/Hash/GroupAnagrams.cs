@@ -147,7 +147,11 @@ namespace ConsoleTest.Hash
         }
         #endregion
 
-        public IList<IList<string>> GroupAnagrams7(string[] strs)
+        //public IList<IList<string>> GroupAnagrams7(string[] strs)
+        //{
+          
+
+        //}
 
 
 

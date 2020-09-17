@@ -64,9 +64,7 @@ namespace ConsoleTest.tree
 
         //public TreeNode LowestCmmnAncestor2(TreeNode root, TreeNode p, TreeNode q)
         //{
-         
-
-
+            
         //}
     }
 }
