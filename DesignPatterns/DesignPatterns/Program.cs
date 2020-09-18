@@ -8,16 +8,11 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            for (int i = 0; i < 100; i++)
-            {
-                Task.Run(()=> { writes(i); });
-            }
+
+
         }
 
-        public static void writes(int i)
-        {
-            Console.Write(i);
-        }
+
     }
 
     public class Worker3
