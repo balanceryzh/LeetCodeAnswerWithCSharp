@@ -89,9 +89,9 @@ namespace ConsoleTest.Test
         }
         #endregion
 
-        public int MaxProfit3(int[] prices)
-        {
+        //public int MaxProfit3(int[] prices)
+        //{
 
-        }
+        //}
     }
 }

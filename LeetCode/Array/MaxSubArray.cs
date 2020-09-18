@@ -17,6 +17,7 @@ namespace ConsoleTest.Test
 
     public class MaxSubArray
     {
+#region list
         public int MaxSubArray1(int[] nums)
         {
             int tempi = 0; int pre = nums[0];
@@ -97,20 +98,20 @@ namespace ConsoleTest.Test
             return pre;
         }
 
-
+#endregion
         public static int MaxSubArray9(int[] nums)
         {
-            int tempi = 0; int pre = nums[0];
-
+            if (nums.Length == 0) return 0;
+            int pre = nums[0];
+            int max = 0;
             for(int i=0;i<nums.Length;i++)
             {
-                tempi = Math.Max(tempi + nums[i], nums[i]);
-
-                pre = Math.Max(tempi, pre);
-
+                pre = Math.Max(pre, pre + nums[i]);
+                max = Math.Max(max, pre);
+            
             }
 
-            return pre;
+            return max;
 
         }
     }

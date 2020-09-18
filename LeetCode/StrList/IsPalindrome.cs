@@ -103,9 +103,10 @@ namespace ConsoleTest.Test
         #endregion 
 
 
-        public bool IsPalindrome5(string s)
-        {
+        //public bool IsPalindrome5(string s)
+        //{
 
-        }
+
+        //}
     }
 }
