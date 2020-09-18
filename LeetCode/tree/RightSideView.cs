@@ -102,24 +102,40 @@ namespace ConsoleTest.tree
         public IList<int> RightSideView3(TreeNode root)
         {
             List<int> list = new List<int>();
-            if(root == null)
+            if(root==null)
             {
                 return list;
             }
-            Queue<TreeNode> templist = new Queue<TreeNode>();
-            templist.Enqueue(root);
-            while(templist.Count>0)
+
+            Queue<TreeNode> tempList = new Queue<TreeNode>();
+            tempList.Enqueue(root);
+
+            while(tempList.Count>0)
             {
-                int count = templist.Count;
+                int count = tempList.Count;
                 for(int i=0;i<count;i++)
                 {
-                    TreeNode temp = templist.Dequeue();
-                    if (temp.left != null) { templist.Enqueue(temp.left); }
-                    if (temp.right != null) { templist.Enqueue(temp.left); }
-                    if (i == count - 1) { list.Add(temp.val); }
+                    TreeNode temp = tempList.Dequeue();
+
+                    if(temp.left!=null)
+                    {
+                        tempList.Enqueue(temp.left);
+                    }
+                    if(temp.right!=null)
+                    {
+                        tempList.Enqueue(temp.right);
+                    }
+                    if(i==count-1)
+                    {
+                        list.Add(temp.val);
+                    }
+
                 }
             }
             return list;
+
+
+
         }
     }
 }

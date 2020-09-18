@@ -6,6 +6,7 @@ namespace ConsoleTest.Test
 {
     public class IsPalindrome
     {
+        #region list
         public bool IsPalindrome1(string s)
         {
             int left = 0;
@@ -73,6 +74,37 @@ namespace ConsoleTest.Test
 
             return outs;
 
+
+        }
+
+
+        public bool IsPalindrome3(string s)
+        {
+            int a = 0, b = s.Length - 1;
+            while (a < b)
+            {
+                if (!IsLetterOrNum(s[a])) { a++; continue; }
+                if (!IsLetterOrNum(s[b])) { b--; continue; }
+                if (Lowercase(s[a]) != Lowercase(s[b])) return false;
+                a++;b--;
+            }
+            return true;
+        }
+
+        private bool IsLetterOrNum(char c)
+        {
+            return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z');
+        }
+
+        private char Lowercase(char c)
+        {
+            return c >= 'A' && c <= 'Z' ? (char)(c + 32) : c;
+        }
+        #endregion 
+
+
+        public bool IsPalindrome5(string s)
+        {
 
         }
     }
