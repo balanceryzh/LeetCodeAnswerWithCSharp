@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace ConsoleTest.StrList
@@ -295,52 +296,10 @@ namespace ConsoleTest.StrList
             return sb.ToString();
         }
         #endregion
-        public string NumberToWord6(int num)
-        {
-            if (num < 20) return nums[num];
-            StringBuilder sb = new StringBuilder();
-            if(num<100)
-            {
-                int x = num / 10;
-                int y = num % 10;
-                sb.Append(tys[x]);
-                if (y > 0) { sb.Append(" " +nums[y]); }
-            }
-            else if(num<1000)
-            {
-                int x = num / 100;
-                int y = num % 100;
-                sb.Append(nums[x]);
-                sb.Append(" Hundred");
-                if (y > 0) { sb.Append(" " + NumberToWord6(y)); }
-            }
-            else if(num<1000000)
-            {
-                int x = num / 1000;
-                int y = num % 1000;
-                sb.Append(NumberToWord6(x));
-                sb.Append(" Thousand");
-                if (y > 0) { sb.Append(" " + NumberToWord6(y)); }
-
-            }
-            else if(num<1000000000)
-            {
-                int x = num / 1000000;
-                int y = num % 1000000;
-                sb.Append(NumberToWord6(x));
-                sb.Append(" Million");
-                if (y > 0) { sb.Append(" " + NumberToWord6(y)); }
-            }
-            else
-            {
-                int x = num / 1000000000;
-                int y = num % 1000000000;
-                sb.Append(NumberToWord6(x));
-                sb.Append(" Billion");
-                if (y > 0) { sb.Append(" " + NumberToWord6(y)); }
-            }
-            return sb.ToString();
-        }
+        //public string NumberToWord6(int num)
+        //{
+           
+        //}
 
     }
 }

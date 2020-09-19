@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.CompilerServices;
 using System.Security.Principal;
 using System.Text;
 
@@ -98,16 +100,61 @@ namespace ConsoleTest.Design
         }
     }
 
-    public class LRUCache2 {
-        public class Node
+  
+    public class LRUCache3
+    {
+        Dictionary<int, int> cacheDic = new Dictionary<int, int>();//缓存字典
+        List<int> keyList = new List<int>();//使用顺序
+        private int capacity;
+        public LRUCache3(int capacity)
         {
-           public  int key;
-           public  int value;
-           public  Node pre;
-           public  Node next;
-            
-
+            this.capacity = capacity;
         }
-     
+
+        public int Get(int key)
+        {
+            int value;
+            if (cacheDic.TryGetValue(key, out value))
+            {
+                keyList.Remove(key);
+                keyList.Add(key);
+                return value;
+            }
+            else
+                return -1;
+        }
+
+        public void Put(int key, int value)
+        {
+            if (cacheDic.ContainsKey(key))
+            {
+                keyList.Remove(key);
+                keyList.Add(key);
+                cacheDic[key] = value;
+                return;
+            }
+            if (cacheDic.Count < capacity)
+            {
+                cacheDic.Add(key, value);
+                keyList.Add(key);
+            }
+            else
+            {
+                cacheDic.Remove(keyList[0]);
+                keyList.Remove(keyList[0]);
+                cacheDic.Add(key, value);
+                keyList.Add(key);
+            }
+        }
+
+
     }
+
+    //public class LRUCathe2
+    //{
+      
+    
+        
+
+    //}
 }

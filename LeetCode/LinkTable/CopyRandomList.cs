@@ -173,10 +173,10 @@ namespace ConsoleTest.LinkTable
 
         //public Node CopyRandomLists(Node head)
         //{
-           
 
+          
         //}
-        
+
 
     }
 }

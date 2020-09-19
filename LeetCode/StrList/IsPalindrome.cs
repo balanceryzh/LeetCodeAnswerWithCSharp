@@ -103,10 +103,27 @@ namespace ConsoleTest.Test
         #endregion 
 
 
-        //public bool IsPalindrome5(string s)
-        //{
+        public bool IsPalindrome5(string s)
+        {
+            s = s.ToLower();
+            int low = 0;
+            int high = s.Length - 1;
+            while(low<high)
+            {
 
+                if (!char.IsLetterOrDigit(s[low])) { low++;continue; }
+                if (!char.IsLetterOrDigit(s[high])) { high--; continue; }
+                if(s[low]!=s[high])
+                {
+                    return false;
+                }
 
-        //}
+                low++;
+                high--;
+            }
+
+            return true;
+
+        }
     }
 }
