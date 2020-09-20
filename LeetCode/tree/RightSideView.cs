@@ -99,43 +99,7 @@ namespace ConsoleTest.tree
 
         #endregion
 
-        public IList<int> RightSideView3(TreeNode root)
-        {
-            List<int> list = new List<int>();
-            if(root==null)
-            {
-                return list;
-            }
-
-            Queue<TreeNode> tempList = new Queue<TreeNode>();
-            tempList.Enqueue(root);
-
-            while(tempList.Count>0)
-            {
-                int count = tempList.Count;
-                for(int i=0;i<count;i++)
-                {
-                    TreeNode temp = tempList.Dequeue();
-
-                    if(temp.left!=null)
-                    {
-                        tempList.Enqueue(temp.left);
-                    }
-                    if(temp.right!=null)
-                    {
-                        tempList.Enqueue(temp.right);
-                    }
-                    if(i==count-1)
-                    {
-                        list.Add(temp.val);
-                    }
-
-                }
-            }
-            return list;
-
-
-
-        }
+        //public IList<int> RightSideView3(TreeNode root)
+      
     }
 }

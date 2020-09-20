@@ -101,8 +101,8 @@ namespace XUnitTest
         [Fact]
         public void ValidPalindromeTest()
         {
-          var test=  ValidPalindrome.validPalindrome3("abca");
-            Assert.Equal(true, test);
+          
+            
         }
 
         [Fact]
@@ -121,10 +121,12 @@ namespace XUnitTest
 
 
         [Fact]
-        public void reorderLogFilesTest()
+        public void reorderSpacesTest()
         {
-            var test = ReorderLogFiles.reorderLogFiles2(new string[] { "dig1 8 1 5 1", "let1 art can", "dig2 3 6", "let2 own kit dig", "let3 art zero" });
-            Assert.Equal(new string[] {"let1 art can", "let3 art zero", "let2 own kit dig", "dig1 8 1 5 1", "dig2 3 6" }, test);
+            var test = reorderSpaces.ReorderSpaces("  this   is  a sentence ");
+            Assert.Equal("a", test);
         }
+
+       
     }
 }

@@ -152,9 +152,9 @@ namespace ConsoleTest.Design
 
     //public class LRUCathe2
     //{
-      
-    
-        
+       
+
+
 
     //}
 }
