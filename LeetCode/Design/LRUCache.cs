@@ -7,6 +7,8 @@ using System.Text;
 
 namespace ConsoleTest.Design
 {
+
+    #region list
     public class LRUCache
     {
 
@@ -149,12 +151,8 @@ namespace ConsoleTest.Design
 
 
     }
+    #endregion
 
     //public class LRUCathe2
-    //{
-       
-
-
-
-    //}
+    //{ }
 }
