@@ -46,8 +46,8 @@ namespace XUnitTest
         [Fact]
         public void LongestPalindromeTest()
         {
-            var test = LongestPalindrome.LongestPalindrome7("aabc");
-            Assert.Equal("aa", test);
+            var test = LongestPalindrome.LongestPalindrome2("ccc");
+            Assert.Equal("ccc", test);
         }
 
         [Fact]
