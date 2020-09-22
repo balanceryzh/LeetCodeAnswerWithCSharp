@@ -83,8 +83,8 @@ namespace ConsoleTest.Seach
         #endregion
         //public ListNode MergeKLists2(ListNode[] lists)
         //{
-          
-            
+           
+
         //}
 
     }
