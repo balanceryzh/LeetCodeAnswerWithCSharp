@@ -144,13 +144,18 @@ namespace ConsoleTest
             return root.val + Math.Max(leftVal, rightVal);
         }
         #endregion
-        
 
-        //public int MaxPathSum2(TreeNode root)
+    
+        //public int MaxPathSum3(TreeNode root)
         //{
-         
+           
         //}
+        //public int helper(TreeNode root)
+        //{
+           
 
+
+        //}
 
     }
 }

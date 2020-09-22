@@ -18,7 +18,13 @@ namespace ConsoleTest.Test
 
 
         //public int[] SearchRange2(int[] nums, int target)
-
+        //{
+            
+        
+        
+        
+        
+        //}
 
         #region 测试区域
         public static int[] SearchRange1(int[] nums, int target)

@@ -153,6 +153,9 @@ namespace ConsoleTest.Design
     }
     #endregion
 
-    //public class LRUCathe2
-    //{ }
+    public class LRUCathe2
+    {
+       
+        
+    }
 }

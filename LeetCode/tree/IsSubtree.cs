@@ -45,7 +45,7 @@ namespace ConsoleTest.tree
         public bool IsSubtree(TreeNode s, TreeNode t)
         {
             if (s == null && t == null) return true;
-            if (s != null && t == null) return true;
+            if (s != null && t == null) return false;
             if (s == null && t != null) return false;
             return isSame(s, t) || IsSubtree(s.left, t) || IsSubtree(s.right, t);
         }
@@ -60,10 +60,10 @@ namespace ConsoleTest.tree
 
         //public bool IsSubtree2(TreeNode s, TreeNode t)
         //{
-      
+ 
+
         //}
-
-
+       
 
     }
 }
