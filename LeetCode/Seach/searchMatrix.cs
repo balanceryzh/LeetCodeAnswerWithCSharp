@@ -52,7 +52,6 @@ namespace ConsoleTest.Seach
         //{
             
 
-
         //}
     }
 }

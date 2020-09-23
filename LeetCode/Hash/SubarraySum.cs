@@ -69,14 +69,14 @@ namespace ConsoleTest.Hash
         }
         #endregion
 
-       
-        //public int SubarraySum6(int[] nums,int k)
+
+        //public int SubarraySum6(int[] nums, int k)
         //{
-          
+           
 
         //}
 
-     
+
 
 
     }
