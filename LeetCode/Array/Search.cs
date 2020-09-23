@@ -9,6 +9,8 @@ namespace ConsoleTest
     /// </summary>
    public  class search
     {
+
+        #region list
         public int Search(int[] nums, int target)
         {
             int i = 0;
@@ -33,5 +35,12 @@ namespace ConsoleTest
             }
             return -1;
         }
+        #endregion
+
+
+        //public int Search2(int[] nums, int target)
+        //{
+          
+        //}
     }
 }

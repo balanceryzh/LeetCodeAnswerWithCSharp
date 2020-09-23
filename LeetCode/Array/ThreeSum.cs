@@ -7,41 +7,66 @@ namespace ConsoleTest
     /// <summary>
     /// 三数之和
     /// </summary>
+    /// 
+//    给你一个包含 n 个整数的数组 nums，判断 nums 中是否存在三个元素 a，b，c ，使得 a + b + c = 0 ？请你找出所有满足条件且不重复的三元组。
+
+//注意：答案中不可以包含重复的三元组。
+
+ 
+
+//示例：
+
+//给定数组 nums = [-1, 0, 1, 2, -1, -4]，
+
+//满足要求的三元组集合为：
+//[
+//  [-1, 0, 1],
+//  [-1, -1, 2]
+//]
+
     public class threeSum
     {
-
-        public IList<IList<int>> ThreeSum(int[] nums)
+        #region list
+        public static IList<IList<int>> ThreeSum(int[] nums)
         {
-            IList<IList<int>> res = new List<IList<int>>();
+            IList<IList<int>> result = new List<IList<int>>();
+            int len = nums.Length;
+            if (len < 3) return result;
             Array.Sort(nums);
-            for (int k = 0; k < nums.Length - 2; k++)
-            {
-                if (nums[k] > 0) break;
-                if (k > 0 && nums[k] == nums[k - 1]) continue;
-                int i = k + 1;
-                int j = nums.Length - 1;
-                while (i < j)
-                {
-                    int sum = nums[k] + nums[i] + nums[j];
-                    if (sum < 0)
-                        while (i < j && nums[i] == nums[++i]) ;
-                    else if (sum > 0)
-                        while (i < j && nums[j] == nums[--j]) ;
-                    else
-                    {
-                        IList<int> item = new List<int>();
-                        item.Add(nums[k]);
-                        item.Add(nums[i]);
-                        item.Add(nums[j]);
-                        res.Add(item);
-                        while (i < j && nums[i] == nums[++i]) ;
-                        while (i < j && nums[j] == nums[--j]) ;
-                    }
 
+            for (int i = 0; i < len - 2; i++)
+            {
+                if (nums[i] > 0) break;
+                if (i > 0 && nums[i] == nums[i - 1]) continue; // 去重
+
+                int left = i + 1;
+                int right = len - 1;
+
+                while (left < right)
+                {
+                    int sum = nums[i] + nums[left] + nums[right];
+                    if (sum == 0)
+                    {
+                        result.Add(new List<int>() { nums[i], nums[left], nums[right] });
+                        while (left < right && nums[left] == nums[left + 1]) left++; // 去重
+                        while (left < right && nums[right] == nums[right - 1]) right--; // 去重
+                        left++;
+                        right--;
+                    }
+                    else if (sum < 0) left++;
+                    else if (sum > 0) right--;
                 }
             }
-            return res;
+            return result;
 
         }
-    }
+        #endregion
+
+        //public static IList<IList<int>> ThreeSum2(int[] nums)
+        //{
+          
+
+        //}
+
+     }
 }
