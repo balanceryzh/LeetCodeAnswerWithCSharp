@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ConsoleTest
 {
+    /// <summary>
+    /// 三数之和
+    /// </summary>
     public class threeSum
     {
 

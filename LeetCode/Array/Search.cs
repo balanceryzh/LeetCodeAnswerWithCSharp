@@ -4,6 +4,9 @@ using System.Text;
 
 namespace ConsoleTest
 {
+    /// <summary>
+    /// 搜索旋转数组
+    /// </summary>
    public  class search
     {
         public int Search(int[] nums, int target)
