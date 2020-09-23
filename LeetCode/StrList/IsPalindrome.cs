@@ -5,6 +5,7 @@ using System.Text;
 
 namespace ConsoleTest.Test
 {
+    //验证回文串
     public class IsPalindrome
     {
         #region list
@@ -106,7 +107,7 @@ namespace ConsoleTest.Test
 
         //public bool IsPalindrome5(string s)
         //{
-          
+            
         //}
     }
 }

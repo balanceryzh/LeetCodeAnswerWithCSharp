@@ -14,16 +14,16 @@ namespace ConsoleTest.Test
         //如果数组中不存在目标值，返回[-1, -1]。
 
 
-    
+
 
 
         //public int[] SearchRange2(int[] nums, int target)
         //{
-            
-        
-        
-        
-        
+
+          
+
+
+
         //}
 
         #region 测试区域
