@@ -10,11 +10,14 @@ namespace DesignPatterns
         static void Main(string[] args)
         {
           var test= RedisClientHelper.GetRedis("192.168.1.99:6379");
-            var test2 = DesignPatterns.Redis.RedisHelper.GetClient("192.168.1.99:6379");
-       var test3=     test2.StringSet("a111a", "bbb", new TimeSpan(TimeSpan.TicksPerMinute));
+         var test2 = DesignPatterns.Redis.RedisHelper.GetClient("192.168.1.99:6379");
+       //var test3=     test2.StringSet("a111a", "bbb", new TimeSpan(TimeSpan.TicksPerMinute));
             test.Set("a112a", "aaa",100);
-            Console.WriteLine(test.Get("a111a"));
-            Console.WriteLine(test2.StringGet("a112a"));
+            //test.MSet();
+            //test.IncrBy();
+           
+           Console.WriteLine(test.Get("a111a"));
+           // Console.WriteLine(test2.StringGet("a112a"));
             Console.ReadKey();
         }
 
