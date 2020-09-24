@@ -8,6 +8,7 @@ namespace ConsoleTest.backtracking_algorithm
     //电话号码的字母组合
     public class letterCombinations
     {
+        #region list
         public IList<string> LetterCombinations(string digits)
         {
             if (digits.Length == 0) return new List<string>();
@@ -33,8 +34,32 @@ namespace ConsoleTest.backtracking_algorithm
                 return;
             }
             if (digits[idx] > '9' || digits[idx] < '2') dfs(digits, alpha, path, idx + 2, res);
+
             for (int i = 0; i < alpha[digits[idx]].Length; i++) dfs(digits, alpha, new string(path + alpha[digits[idx]][i]), idx + 1, res);
         }
+
+        #endregion
+        public IList<string> LetterCombinations2(string digits)
+        {
+            List<string> list = new List<string>();
+            if (digits.Length == 0) return list;
+            Dictionary<char, string> nums = new Dictionary<char, string>();
+            {
+
+            }
+
+
+
+
+            return list;
+
+     
+        }
+
+        public void helper(string digits,Dictionary<char,string> nums,string path,int index,List<string> list)
+
+
+
 
     }
 }
