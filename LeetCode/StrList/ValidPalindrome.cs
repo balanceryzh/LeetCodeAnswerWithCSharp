@@ -20,13 +20,11 @@ namespace ConsoleTest.StrList
         //输出: True
         //解释: 你可以删除c字符。
         #region list
-      
+
         #endregion
         //public static bool validPalindrome3(String s)
         //{
-          
-
-
+            
         //}
     }
 }

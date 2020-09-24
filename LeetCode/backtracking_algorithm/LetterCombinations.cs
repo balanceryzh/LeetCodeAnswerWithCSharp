@@ -39,24 +39,10 @@ namespace ConsoleTest.backtracking_algorithm
         }
 
         #endregion
-        public IList<string> LetterCombinations2(string digits)
-        {
-            List<string> list = new List<string>();
-            if (digits.Length == 0) return list;
-            Dictionary<char, string> nums = new Dictionary<char, string>();
-            {
-
-            }
-
-
-
-
-            return list;
-
-     
-        }
-
-        public void helper(string digits,Dictionary<char,string> nums,string path,int index,List<string> list)
+        //public IList<string> LetterCombinations2(string digits)
+        //{
+           
+        //}
 
 
 
