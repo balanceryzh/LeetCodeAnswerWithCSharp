@@ -68,46 +68,15 @@ namespace ConsoleTest.backtracking_algorithm
         }
         #endregion
 
-        public IList<string> GenerateParenthesis2(int n)
-        {
-            List<string> list = new List<string>();
-            if (n == 0) return list;
-            StringBuilder sb = new StringBuilder();
+        //public IList<string> GenerateParenthesis2(int n)
+        //{
+         
 
-            sb.Append("(");
-            helper(1,0,n, sb, list);
+        //}
 
-            return list;
-            
+     
 
-        }
-
-        public void helper(int l, int r, int n, StringBuilder sb, List<string> list)
-        { 
-            if(l>r&&l==n)
-            {
-                sb.Append(")");
-                helper(l, r+1, n, sb, list);
-            }
-            else if(l>r&&l<n)
-            {
-                sb.Append(")");
-                helper(l, r + 1, n, sb, list);
-                sb.Append("(");
-                helper(l + 1, r, n, sb, list);
-            }
-            else if(l==r&&l<n)
-            {
-                sb.Append("(");
-                helper(l+1, r , n, sb, list);
-            }
-            else if(l==r&&l==n)
-            {
-                list.Add(sb.ToString());
-            }
-
-            sb.Remove(sb.Length-1,1);
-        }
+       
 
     }
 }

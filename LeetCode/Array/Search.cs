@@ -38,10 +38,10 @@ namespace ConsoleTest
         #endregion
 
 
-        public int Search2(int[] nums, int target)
-        {
+        //public int Search2(int[] nums, int target)
+        //{
            
 
-        }
+        //}
     }
 }
