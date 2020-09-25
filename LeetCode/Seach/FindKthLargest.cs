@@ -86,7 +86,62 @@ namespace ConsoleTest.Seach
             return quickselect(0, size - 1, size - k);
         }
 
+       
+        public int FindKthLargest2(int[] nums,int k)
+        {
+            int l = nums.Length;
+            return helper(0, l - 1, l - k, nums);
+            
+        }
+
+        public int helper(int l,int r,int k,int[] nums)
+        {
+            if(l==r)
+            { return nums[l]; }
+
+            Random rd = new Random();
+            int index = l + rd.Next(r - l);
+
+            int outl = part(l, r, index, nums);
+
+            if(outl==k)
+            {
+                return nums[outl];
+            }
+            else if(outl>k)
+            {
+                return part(l, outl - 1, index, nums);
+            }
+            return part(outl+1, r, index, nums);
 
 
+        }
+        
+        public int part(int l,int r,int index,int[] nums)
+        {
+            int temp = nums[index];
+            swap2(index, r,nums);
+            int outl = l;
+
+            for(int i=l;i<=r;i++)
+            {
+                if(nums[i]<temp)
+                {
+                    swap2(outl, i, nums);
+                    outl++;
+                }
+
+            }
+            swap2(outl, r,nums);
+
+            return outl;
+
+        }
+        public void swap2(int a,int b, int[] nums)
+        {
+            int temp = nums[a];
+            nums[a] = nums[b];
+            nums[b] = nums[a];
+        }
     }
 }
