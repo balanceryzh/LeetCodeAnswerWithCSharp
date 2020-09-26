@@ -221,9 +221,13 @@ namespace ConsoleTest.StrList
         #endregion
 
 
-        //public string MostCommonWord5(string par, string[] ban)
-        //{
-           
-        //}
+        public string MostCommonWord5(string par, string[] ban)
+        {
+            Dictionary<string, int> list = new Dictionary<string, int>();
+            int start = -1;
+            int end = 0;
+
+
+        }
     }
 }
