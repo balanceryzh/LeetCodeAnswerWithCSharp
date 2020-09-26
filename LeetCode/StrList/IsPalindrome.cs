@@ -107,7 +107,7 @@ namespace ConsoleTest.Test
 
         //public bool IsPalindrome5(string s)
         //{
-            
+           
         //}
     }
 }

@@ -38,10 +38,35 @@ namespace ConsoleTest
         #endregion
 
 
-        //public int Search2(int[] nums, int target)
-        //{
-           
+        public int Search2(int[] nums, int target)
+        {
 
-        //}
+            if (nums.Length == 0) return -1;
+
+            int left = 0;
+            int right = nums.Length - 1;
+            while(left<=right)
+            {
+                int mid = (left + right) / 2;
+
+                if(nums[left]== target)
+                {
+                    return left;
+                }
+                else if(nums[right]==target)
+
+                {
+                    return right;
+                }
+                else if(nums[mid]==target)
+                {
+                    return mid;
+                }
+                left++;right--;
+            }
+
+
+            return -1;
+        }
     }
 }

@@ -20,7 +20,7 @@ namespace ConsoleTest.Seach
 
     public class findKthLargest
     {
-
+        #region list
         int[] nums;
         public void swap(int a, int b)
         {
@@ -86,62 +86,76 @@ namespace ConsoleTest.Seach
             return quickselect(0, size - 1, size - k);
         }
 
-       
-        public int FindKthLargest2(int[] nums,int k)
+        #endregion
+        #region list2
+        public void swap(int a, int b, int[] nums)
         {
-            int l = nums.Length;
-            return helper(0, l - 1, l - k, nums);
-            
-        }
-
-        public int helper(int l,int r,int k,int[] nums)
-        {
-            if(l==r)
-            { return nums[l]; }
-
-            Random rd = new Random();
-            int index = l + rd.Next(r - l);
-
-            int outl = part(l, r, index, nums);
-
-            if(outl==k)
-            {
-                return nums[outl];
-            }
-            else if(outl>k)
-            {
-                return part(l, outl - 1, index, nums);
-            }
-            return part(outl+1, r, index, nums);
-
-
-        }
-        
-        public int part(int l,int r,int index,int[] nums)
-        {
-            int temp = nums[index];
-            swap2(index, r,nums);
-            int outl = l;
-
-            for(int i=l;i<=r;i++)
-            {
-                if(nums[i]<temp)
-                {
-                    swap2(outl, i, nums);
-                    outl++;
-                }
-
-            }
-            swap2(outl, r,nums);
-
-            return outl;
-
-        }
-        public void swap2(int a,int b, int[] nums)
-        {
-            int temp = nums[a];
+            int tmp = nums[a];
             nums[a] = nums[b];
-            nums[b] = nums[a];
+            nums[b] = tmp;
         }
+
+        public int partition(int left, int right, int index, int[] nums)//把左右之间以基准值为中心分好
+        {
+            int pivot = nums[index];
+            // 1. 把基准值移到最后
+            swap(index, right, nums);
+            int outindex = left;
+
+            // 2. 把所有小于基准值的元素移到左边
+            for (int i = left; i <= right; i++)
+            {
+                if (nums[i] < pivot)
+                {
+                    swap(outindex, i, nums);
+                    outindex++;
+                }
+            }
+
+            // 3. 把基准值移到应有的位置
+            swap(outindex, right, nums);
+
+            // 4. 返回基准值的下标
+            return outindex;
+        }
+
+        public int quickselect(int left, int right, int k, int[] nums)
+        {
+            /*
+            返回左右之间第k小的元素
+            */
+
+            if (left == right) // 如果左右相等，即只有一个元素
+                return nums[left];  // 返回那个元素
+
+            // 选择一个随机的基准值的下标
+            Random random_num = new Random();
+            int index = left + random_num.Next(right - left);
+
+            index = partition(left, right, index, nums);
+
+            // 基准值是第(N - k)小的元素，即第k大的元素
+            if (k == index)
+                return nums[k];
+            // 去左（小于基准值的）区间
+            else if (k < index)
+                return quickselect(left, index - 1, k, nums);
+            // 去右（大于基准值的）区间
+            return quickselect(index + 1, right, k, nums);
+        }
+
+        public int FindKthLargest2(int[] nums, int k)
+        {
+
+            int size = nums.Length;
+            return quickselect(0, size - 1, size - k, nums);
+        }
+        #endregion
+
+
+        //public int FindKthLargest3(int[] nums,int k)
+        
+        //}
+
     }
 }

@@ -64,7 +64,6 @@ namespace ConsoleTest
 
         //public static IList<IList<int>> ThreeSum2(int[] nums)
         //{
-
             
 
         //}
