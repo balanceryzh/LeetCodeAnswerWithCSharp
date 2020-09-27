@@ -70,11 +70,12 @@ namespace ConsoleTest.backtracking_algorithm
 
         //public IList<string> GenerateParenthesis2(int n)
         //{
-
-
+         
         //}
 
-       
+
+
+
 
 
 

@@ -8,6 +8,8 @@ using Xunit;
 using ConsoleTest.LinkTable;
 using ConsoleTest;
 using ConsoleTest.game;
+using ConsoleTest.Hash;
+using ConsoleTest.Seach;
 
 namespace XUnitTest
 {
@@ -127,6 +129,13 @@ namespace XUnitTest
             Assert.Equal("a", test);
         }
 
-       
+       [Fact]
+       public void isAlienSorted()
+        {
+            findKthLargest findKthLargest = new findKthLargest();
+            findKthLargest.FindKthLargest(new int[] { 3, 2, 1, 5, 6, 4 }, 2);
+            var test = findKthLargest.FindKthLargest3(new int[] {3, 2, 1, 5, 6, 4},2);
+            Assert.Equal(5, test);
+        }
     }
 }
