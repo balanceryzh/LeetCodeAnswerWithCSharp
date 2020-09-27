@@ -63,34 +63,11 @@ namespace ConsoleTest.Seach
             return point[0] * point[0] + point[1] * point[1];
         }
         #endregion
-        public int[][] kClosest2(int[][] points, int K)
-        {
-            int len = points.Length;
-            int[] list = new int[K];
-            for(int i=0;i<len;i++)
-            {
-                list[i] = helper(points[i]);
-            }
-            Array.Sort(list);
-            int k = list[K - 1];
-            int temp = 0;
-            int[][] outList = new int[K][];
-            for(int i=0;i<len;i++)
-            {
-                if(helper(points[i])<=k)
-                {
-                    outList[temp] = points[i];
-                    temp++;
-                }
-
-            }
-            return outList;
-
-        }
-        public int helper(int[] point)
-        {
-            return point[0] * point[0] + point[1] * point[1];
-        }
+        //public int[][] kClosest2(int[][] points, int K)
+        //{
+    
+        //}
+      
 
     }
 }

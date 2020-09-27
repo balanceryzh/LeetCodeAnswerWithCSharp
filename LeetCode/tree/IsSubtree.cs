@@ -60,10 +60,12 @@ namespace ConsoleTest.tree
 
         //public bool IsSubtree2(TreeNode s, TreeNode t)
         //{
-  
 
+          
         //}
 
-        
+
+
+
     }
 }
