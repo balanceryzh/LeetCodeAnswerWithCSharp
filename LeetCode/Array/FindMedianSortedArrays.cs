@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading;
 
 namespace ConsoleTest
 {
@@ -92,57 +93,14 @@ namespace ConsoleTest
         #endregion
 
 
-        public double FindMedianSortedArrays3(int[] nums1, int[] nums2)
-        {
-
-            int start = int.MinValue;
-            int laster = int.MinValue;
-            int sum = (nums1 == null ? 0 : nums1.Length) + (nums2 == null ? 0 : nums2.Length);
-
-            bool isodd = sum % 2 != 0;
-            int midIndex = isodd ? (sum + 1) / 2 : sum / 2;
-            int firstIndex = 0;
-
-            int index1 = 0;
-            int index2 = 0;
-
-            while(true)
-            {
-
-                if(nums1==null||index1>=nums1.Length)
-                {
-                    laster = start;
-                    start = nums2[index2];
-                    index2++;
-                }
-                else if(nums2 == null || index2 >= nums2.Length)
-                {
-                    laster = start;
-                    start = nums2[index2];
-                    index2++;
-                }
-                else
-                {
-                    if(nums1[index1]>nums2[index2])
-                    {
-                        laster = start;
-                        start = nums1[index1];
-                        index1++;
-                    }
-                    else
-                    {
-                        laster = start;
-                        start = nums2[index2];
-                        index2++;
-                    }
-                }
-
-                if（）
-                    firstIndex++;
-
-            }
+        //public double FindMedianSortedArrays3(int[] nums1, int[] nums2)
+        //{
+          
+            
 
 
-        }
+
+
+        //}
     }
 }

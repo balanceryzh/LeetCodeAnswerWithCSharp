@@ -51,8 +51,6 @@ namespace ConsoleTest.Seach
         //public bool SearchMatrix2(int[,] matrix, int target)
         //{
 
-        
-
 
 
 
