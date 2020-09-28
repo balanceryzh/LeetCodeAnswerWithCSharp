@@ -45,15 +45,15 @@ namespace ConsoleTest.Hash
             }
 
             int left = 0;
-            int right = 0;
+            int end = 0;
             int valide = 0;
 
             int startindex = 0;
             int len = int.MaxValue;
-            while (right < s.Length)
+            while (end < s.Length)
             {
-                char c = s[right];
-                right++;
+                char c = s[end];
+                end++;
                 if (need.ContainsKey(c))
                 {
                     if (!window.ContainsKey(c))
@@ -72,9 +72,9 @@ namespace ConsoleTest.Hash
                 while (valide == need.Count)
                 {
 
-                    if (right - left < len)
+                    if (end - left < len)
                     {
-                        len = right - left;
+                        len = end - left;
                         startindex = left;
                     }
                     char d = s[left];

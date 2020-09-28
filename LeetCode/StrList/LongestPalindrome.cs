@@ -9,10 +9,9 @@ namespace ConsoleTest.Test
     {
         //最长回文子串(重点)
         //public static string LongestPalindrome2(string s)
-        //{ 
-           
-        
-        
+        //{
+            
+
         //}
 
 
