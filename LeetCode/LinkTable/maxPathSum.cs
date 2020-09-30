@@ -145,17 +145,13 @@ namespace ConsoleTest
         }
         #endregion
 
-    
-        //public int MaxPathSum3(TreeNode root)
-        //{
-           
-        //}
-        //public int helper(TreeNode root)
-        //{
-           
 
+        //public int MaxPathSum5(TreeNode root)
+        //{
 
+            
         //}
+       
 
     }
 }

@@ -10,6 +10,7 @@ using ConsoleTest;
 using ConsoleTest.game;
 using ConsoleTest.Hash;
 using ConsoleTest.Seach;
+using ConsoleTest.Dynamic_Programming;
 
 namespace XUnitTest
 {
@@ -129,13 +130,21 @@ namespace XUnitTest
             Assert.Equal("a", test);
         }
 
-       [Fact]
-       public void isAlienSorted()
+       //[Fact]
+       //public void isAlienSorted()
+       // {
+       //     findKthLargest findKthLargest = new findKthLargest();
+       //     findKthLargest.FindKthLargest(new int[] { 3, 2, 1, 5, 6, 4 }, 2);
+       //     var test = findKthLargest.FindKthLargest3(new int[] {3, 2, 1, 5, 6, 4},2);
+       //     Assert.Equal(5, test);
+       // }
+
+        [Fact]
+        public void minPathSumTest()
         {
-            findKthLargest findKthLargest = new findKthLargest();
-            findKthLargest.FindKthLargest(new int[] { 3, 2, 1, 5, 6, 4 }, 2);
-            var test = findKthLargest.FindKthLargest3(new int[] {3, 2, 1, 5, 6, 4},2);
-            Assert.Equal(5, test);
+
+            int[][] test = new int[][] { new int[] { 1, 3, 1 }, new int[] { 1, 5, 1 }, new int[] { 4, 2, 1 } };
+           var test2=  minPathSum.MinPathSum(test);
         }
     }
 }
