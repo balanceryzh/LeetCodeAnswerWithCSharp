@@ -53,31 +53,10 @@ namespace ConsoleTest.Dynamic_Programming
         }
         #endregion
 
-        public static int MinPathSum2(int[][] grid)
-        {
-            int row = grid.Length;
-            int col = grid[0].Length;
-
-            int[] outList = new int[col];
-
-            for(int i=0;i<outList.Length;i++)
-            {
-                outList[i] = int.MaxValue;
-
-            }
-            outList[0] = 0;
-            for(int i=0;i<row;i++)
-            {
-                outList[0] = outList[0] + grid[i][0];
-                for(int j=1;j<col;j++)
-                {
-
-                    outList[j] = Math.Min(outList[j], outList[j - 1]) + grid[i][j];
-                }
-
-            }
-            return outList[outList.Length-1];
-        }
+        //public static int MinPathSum2(int[][] grid)
+        //{
+           
+        //}
 
     }
 }

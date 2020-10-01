@@ -96,7 +96,10 @@ namespace ConsoleTest
         //public double FindMedianSortedArrays3(int[] nums1, int[] nums2)
         //{
 
-          
+  
+
+
+            
 
 
         //}

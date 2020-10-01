@@ -97,8 +97,6 @@ namespace ConsoleTest.Hash
 
         //public string MinWindow2(string s, string t)
         //{
-
-
         //}
 
 

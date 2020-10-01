@@ -40,7 +40,7 @@ namespace ConsoleTest
 
         //public int Search2(int[] nums, int target)
         //{
-           
+  
         //}
     }
 }
