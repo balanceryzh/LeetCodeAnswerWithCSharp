@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using System.Text;
 
 namespace ConsoleTest.Seach
@@ -65,16 +66,10 @@ namespace ConsoleTest.Seach
         #endregion
         //public int[][] kClosest2(int[][] points, int K)
         //{
-            
-
-
-
-
-
 
 
         //}
- 
+  
 
     }
 }

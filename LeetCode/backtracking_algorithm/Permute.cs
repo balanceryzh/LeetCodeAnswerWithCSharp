@@ -69,6 +69,8 @@ namespace ConsoleTest.backtracking_algorithm
           
 
         //}
-    
+
+ 
+
     }
 }

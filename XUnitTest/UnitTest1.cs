@@ -146,5 +146,10 @@ namespace XUnitTest
             int[][] test = new int[][] { new int[] { 1, 3, 1 }, new int[] { 1, 5, 1 }, new int[] { 4, 2, 1 } };
            var test2=  minPathSum.MinPathSum(test);
         }
+
+        //[Fact]
+        //public void ThreeSumTest()
+        //{
+        //}
     }
 }
