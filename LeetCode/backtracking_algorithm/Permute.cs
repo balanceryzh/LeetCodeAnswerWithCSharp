@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace ConsoleTest.backtracking_algorithm
@@ -66,11 +68,10 @@ namespace ConsoleTest.backtracking_algorithm
 
         //public IList<IList<int>> Permute2(int[] nums)
         //{
-          
-
+       
         //}
 
- 
+
 
     }
 }

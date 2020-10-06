@@ -5,7 +5,10 @@ using System.Text;
 
 namespace ConsoleTest.Test
 {
-    //验证回文串
+//    验证回文串
+//给定一个字符串，验证它是否是回文串，只考虑字母和数字字符，可以忽略字母的大小写。
+
+//说明：本题中，我们将空字符串定义为有效的回文串。
     public class IsPalindrome
     {
         #region list
@@ -80,18 +83,7 @@ namespace ConsoleTest.Test
         }
 
 
-        public bool IsPalindrome3(string s)
-        {
-            int a = 0, b = s.Length - 1;
-            while (a < b)
-            {
-                if (!IsLetterOrNum(s[a])) { a++; continue; }
-                if (!IsLetterOrNum(s[b])) { b--; continue; }
-                if (Lowercase(s[a]) != Lowercase(s[b])) return false;
-                a++;b--;
-            }
-            return true;
-        }
+
 
         private bool IsLetterOrNum(char c)
         {
@@ -107,7 +99,7 @@ namespace ConsoleTest.Test
 
         //public bool IsPalindrome5(string s)
         //{
-           
+
         //}
     }
 }

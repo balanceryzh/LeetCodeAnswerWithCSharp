@@ -67,9 +67,8 @@ namespace ConsoleTest.Seach
         //public int[][] kClosest2(int[][] points, int K)
         //{
 
-
         //}
-  
 
+   
     }
 }

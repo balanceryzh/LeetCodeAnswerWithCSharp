@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace ConsoleTest.Test
@@ -56,8 +57,7 @@ namespace ConsoleTest.Test
 
         //public int MaxArea(int[] height)
         //{
-         
-
+   
 
         //}
 
