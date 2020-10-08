@@ -68,10 +68,11 @@ namespace ConsoleTest.backtracking_algorithm
 
         //public IList<IList<int>> Permute2(int[] nums)
         //{
-       
+          
+
+
         //}
-
-
+   
 
     }
 }

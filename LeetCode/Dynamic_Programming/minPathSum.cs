@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Text;
 
 namespace ConsoleTest.Dynamic_Programming
@@ -55,7 +56,8 @@ namespace ConsoleTest.Dynamic_Programming
 
         //public static int MinPathSum2(int[][] grid)
         //{
-           
+
+
         //}
 
     }

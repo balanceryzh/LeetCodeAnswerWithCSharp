@@ -1,0 +1,14 @@
+{
+  "version": "1.0.0",
+  "name": "asp.net",
+  "private": true,
+  "DefaultConnection": "Server=192.168.1.38;Port=3306;Database=Cloud20170321;Uid=root;Pwd=uth;",
+  "RedisConnection": "192.168.1.99:6379",
+  "RedisDefaultKey": "BeiYou",
+  "AutoCloseConnection": true,
+  "DatabaseType": "mysql",
+  "EsCorpusConnection": "localhost:9200/tb_corpus",
+  "EsTermConnection": "192.168.1.38:9201/v6_{@LANGUAGE}/tb_corpus",
+  "devDependencies": {
+  }
+}
