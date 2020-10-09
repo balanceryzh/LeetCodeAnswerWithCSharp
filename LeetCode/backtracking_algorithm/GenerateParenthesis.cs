@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Text;
 
 namespace ConsoleTest.backtracking_algorithm
@@ -70,11 +71,12 @@ namespace ConsoleTest.backtracking_algorithm
 
         //public IList<string> GenerateParenthesis2(int n)
         //{
-       
+
+
         //}
 
-      
 
+      
 
 
 
