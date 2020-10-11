@@ -34,7 +34,6 @@ namespace ConsoleTest.math
 
         //public int superEggDrop1(int K, int N)
         //{
-          
         //}
 
 
