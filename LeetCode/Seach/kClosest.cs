@@ -66,9 +66,10 @@ namespace ConsoleTest.Seach
         #endregion
         //public int[][] kClosest2(int[][] points, int K)
         //{
+          
 
         //}
 
-   
+     
     }
 }
