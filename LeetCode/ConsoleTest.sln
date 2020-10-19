@@ -18,7 +18,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AngleSharpTest", "..\AngleSharpTest\AngleSharpTest.csproj", "{9F393503-CA1F-43C6-BF2E-BECC812F9674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngleSharpTest", "..\AngleSharpTest\AngleSharpTest.csproj", "{9F393503-CA1F-43C6-BF2E-BECC812F9674}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tool", "Tool", "{2A7F5FF9-A837-4C26-8044-4526F6E44973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlTool", "..\XmlTool\XmlTool.csproj", "{98C443F4-499C-4E3D-98C1-2CD163EBCEF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,9 +54,16 @@ Global
 		{9F393503-CA1F-43C6-BF2E-BECC812F9674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F393503-CA1F-43C6-BF2E-BECC812F9674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F393503-CA1F-43C6-BF2E-BECC812F9674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98C443F4-499C-4E3D-98C1-2CD163EBCEF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98C443F4-499C-4E3D-98C1-2CD163EBCEF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98C443F4-499C-4E3D-98C1-2CD163EBCEF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98C443F4-499C-4E3D-98C1-2CD163EBCEF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{98C443F4-499C-4E3D-98C1-2CD163EBCEF8} = {2A7F5FF9-A837-4C26-8044-4526F6E44973}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {549DE196-97F5-42C5-8A25-31FFB737F176}
