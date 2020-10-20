@@ -86,7 +86,7 @@ namespace ConsoleTest.StrList
         #endregion
         //public string ReverseWords5(string s)
         //{
-           
+    
         //}
     }
 }
