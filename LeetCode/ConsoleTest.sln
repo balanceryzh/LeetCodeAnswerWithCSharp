@@ -22,7 +22,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AngleSharpTest", "..\AngleS
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tool", "Tool", "{2A7F5FF9-A837-4C26-8044-4526F6E44973}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlTool", "..\XmlTool\XmlTool.csproj", "{98C443F4-499C-4E3D-98C1-2CD163EBCEF8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TypeTool", "..\XmlTool\TypeTool.csproj", "{98C443F4-499C-4E3D-98C1-2CD163EBCEF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
