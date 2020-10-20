@@ -4,11 +4,24 @@ using System.Linq;
 
 
 namespace ConsoleTest
-{   /// <summary>
-    /// leecode第1题
-    /// </summary>
+{
+//    给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
+
+//你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。
+
+ 
+
+//示例:
+
+//给定 nums = [2, 7, 11, 15], target = 9
+
+//因为 nums[0] + nums[1] = 2 + 7 = 9
+//所以返回[0, 1]
+
     public class TwoSum
     {
+
+
         #region Test
         /// <summary>
         /// leecode1 速度最快 内存使用更多需要引用System.Collections.Generic
@@ -119,7 +132,30 @@ namespace ConsoleTest
             }
             throw new ArgumentException("");
 ;        }
-  
+
+        #endregion
+
+        #region 2020/10/21
+        public int[] TwoSum7(int[] nums, int target)
+        {
+            Dictionary<int,int> temp = new Dictionary<int, int>();
+            for(int i=0;i<nums.Length;i++)
+            {
+                if(temp.ContainsKey(target-nums[i]))
+                {
+
+                    return new int[] { temp[target - nums[i]], i };
+                }
+                else
+                {
+                    if (!temp.ContainsKey(nums[i]))
+                    {
+                        temp.Add(nums[i], i);
+                    }
+                }
+            }
+            throw new FieldAccessException("no");
+        }
         #endregion
         //public int[] TwoSum8(int[] nums, int target)
         //{
