@@ -19,7 +19,7 @@ namespace ConsoleTest.StrList
 
 
 
-    public class AddStrings
+    public class AddStrings20
     {
         #region list
         //

@@ -37,7 +37,7 @@ namespace ConsoleTest.Test
 
 
     /// </summary>
-    public class LastStoneWeightII
+    public class LastStoneWeightII10
     {
         //背包问题
         public static int LastStoneWeightII1(int[] stones)

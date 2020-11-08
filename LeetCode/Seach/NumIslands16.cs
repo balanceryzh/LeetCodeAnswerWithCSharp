@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using System.Runtime.Versioning;
@@ -7,7 +8,7 @@ using System.Text;
 
 namespace ConsoleTest.Seach
 {
-
+    //200. 岛屿数量
     //给你一个由 '1'（陆地）和 '0'（水）组成的的二维网格，请你计算网格中岛屿的数量。
 
     //岛屿总是被水包围，并且每座岛屿只能由水平方向或竖直方向上相邻的陆地连接形成。
@@ -38,7 +39,7 @@ namespace ConsoleTest.Seach
     //输出: 3
     //解释: 每座岛屿只能由水平和/或竖直方向上相邻的陆地连接而成。
 
-    public class NumIslands
+    public class NumIslands16
     {
         #region list
         public int NumIslands2(char[][] grid)
@@ -238,38 +239,16 @@ namespace ConsoleTest.Seach
             if (j - 1 >= 0 && grid[i][j - 1] == '1') { DFS6(i, j - 1, grid); }
         }
         #endregion
+        //NumIslands
+        //public int NumIsLands7(char[][] grid)
+        //{
+          
+        //}
 
-        public int NumIsLands7(char[][] grid)
-        { 
-            if(grid.Length==0)
-            {
-                return 0;
-            }
-            int Lands = 0;
-            for(int i=0;i<grid.Length;i++)
-            {
-                for(int j=0;j<grid[0].Length;j++)
-                {
-                    if(grid[i][j]=='1')
-                    {
-                        DFS(i, j, grid);
-                        Lands++;
-                    }
-                }
-            }
-
-            return Lands;
-        
-        }
-        public void DFS7(int i,int j,char[][] grid)
-        {
-            grid[i][j] = '0';
-            if (i + 1 < grid.Length && grid[i + 1][j] == '1') { DFS7(i + 1, j, grid); }
-            if (j + 1 < grid[0].Length && grid[i][j+1] == '1') { DFS7(i, j+1, grid); }
-            if (i - 1 >=0 && grid[i - 1][j] == '1') { DFS7(i - 1, j, grid); }
-            if (j - 1 >= 0 && grid[i][j-1] == '1') { DFS7(i, j-1, grid); }
-
-        }
+        //public void DFS7(int i,int j,char[][] grid)
+        //{
+         
+        //}
 
 
     }
