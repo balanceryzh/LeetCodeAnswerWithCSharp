@@ -20,3 +20,5 @@
 /GrpcGreeterClient/obj
 /GrpcTest1/obj
 /XmlTool/obj
+netcoreapp2.0
+netcoreapp3.1

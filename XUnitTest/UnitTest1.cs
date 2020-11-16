@@ -82,7 +82,7 @@ namespace XUnitTest
         [Fact]
         public void AddStringsTest()
         {
-          var test=  AddStrings.AddStrings2("111", "222");
+          var test=  AddStrings20.AddStrings2("111", "222");
             Assert.Equal("333", test);
         }
 

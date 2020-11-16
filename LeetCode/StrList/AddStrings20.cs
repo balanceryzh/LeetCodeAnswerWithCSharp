@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ConsoleTest.StrList
 {
-//    字符串相加(重点1)
+//   415 字符串相加(重点1)20
 //给定两个字符串形式的非负整数 num1 和num2 ，计算它们的和。
 
  
@@ -19,7 +19,7 @@ namespace ConsoleTest.StrList
 
 
 
-    public class AddStrings
+    public class AddStrings20
     {
         #region list
         //
@@ -108,10 +108,31 @@ namespace ConsoleTest.StrList
         }
         #endregion
 
-        //public static string AddStrings5(string num1, string num2)
-        //{
-          
-        //}
+        public static string AddStrings5(string num1, string num2)
+        {
+
+            int len1 = num1.Length-1;
+            int len2 = num2.Length-1;
+            int a = 0;
+            Stack<int> list = new Stack<int>();
+            while(len1>=0||len2>=0||a>0)
+            {
+                int temp1 = len1 >= 0 ? num1[len1] - '0' : 0;
+                int temp2 = len2 >= 0 ? num1[len2] - '0' : 0;
+
+                int temp = temp1 + temp2 + a;
+                a = temp / 10;
+                list.Push(temp % 10);
+                len1--;
+                len2--;
+            }
+            StringBuilder sb = new StringBuilder();
+            while(list.Count>0)
+            {
+                sb.Append(list.Pop().ToString());
+            }
+            return sb.ToString();
+        }
 
     }
 }
