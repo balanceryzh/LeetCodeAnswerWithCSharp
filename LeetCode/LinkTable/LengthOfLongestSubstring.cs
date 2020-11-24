@@ -31,79 +31,39 @@ namespace ConsoleTest.LinkTable
         public static int LengthOfLongestSubstring3(string s)
         {
             int max = s.Length >= 1 ? 1 : 0;
+            //先进先出无重复队列
             Queue<char> que = new Queue<char>();
             char c;
             char delStr;
+
             for (int i = 0; i < s.Length; i++)
             {
                 c = s[i];
 
-                //重复
+                //如果重复则去重
                 if (que.Contains(c))
                 {
+                    //从头开始去除，直到找到重复项
                     do
                     {
                         delStr = que.Dequeue();
                     } while (delStr != c);
                 }
+                //压入队列
                 que.Enqueue(c);
+                //比较队列长度
                 max = que.Count > max ? que.Count : max;
             }
             return max;
         }
 
 
-   
-
-        public static int LengthOfLongestSubstring10(string s)
-        {
-            int max = s.Length >= 1 ? 1 : 0;
-
-            Queue<char> list = new Queue<char>();
-            char c, delstr;
-            for(int i=0;i<s.Length;i++)
-            {
-                c = s[i];
-                if(list.Contains(c))
-                {
-                    do { delstr = list.Dequeue(); } while (delstr != c);
-                }
-
-                list.Enqueue(c);
-                max = max < list.Count ? list.Count : max;
-
-            }
-
-            return max;
 
 
-        }
 
 
-        public static int LengthOfLongestSubstring11(string s)
-        {
-            int max = s.Length >= 1 ? 1 : 0;
-            
-            char c, delstr;
-            Queue<char> list = new Queue<char>();
-            for(int i=0;i<s.Length;i++)
-            {
-                if(list.Contains(s[i]))
-                {
-                    
-                    do { delstr = list.Dequeue();  } while (delstr!=s[i]);
-                }
-                else
-                {
-                    list.Enqueue(s[i]);
-                }
-                max = max > list.Count ? max : list.Count;
-            }
-            
 
-            return max;
 
-        }
 
         #endregion
         //public static int LengthOfLongestSubstring12(string s)
@@ -111,6 +71,6 @@ namespace ConsoleTest.LinkTable
            
 
         //}
-  
+
     }
 }
