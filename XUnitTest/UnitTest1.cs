@@ -85,12 +85,14 @@ namespace XUnitTest
           var test=  AddStrings20.AddStrings2("111", "222");
             Assert.Equal("333", test);
         }
-
+        /// <summary>
+        /// 无重复字符的最长子串
+        /// </summary>
         [Fact]
         public void LengthOfLongestSubstringTest()
         {
-            //var test = LengthOfLongestSubstring.LengthOfLongestSubstring12("pwwkew");
-            //Assert.Equal(2, test);
+            var test = LengthOfLongestSubstring.LengthOfLongestSubstring12("abcabcd");
+            Assert.Equal(3, test);
         }
 
 
@@ -147,9 +149,6 @@ namespace XUnitTest
            var test2=  minPathSum.MinPathSum(test);
         }
 
-        //[Fact]
-        //public void ThreeSumTest()
-        //{
-        //}
+   
     }
 }
