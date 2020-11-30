@@ -6,35 +6,35 @@ using System.Text;
 
 namespace ConsoleTest
 {
-    //有效的括号
-//    给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
+    //20. 有效的括号
+    //    给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
 
-//有效字符串需满足：
+    //有效字符串需满足：
 
-//左括号必须用相同类型的右括号闭合。
-//左括号必须以正确的顺序闭合。
-//注意空字符串可被认为是有效字符串。
+    //左括号必须用相同类型的右括号闭合。
+    //左括号必须以正确的顺序闭合。
+    //注意空字符串可被认为是有效字符串。
 
-//示例 1:
+    //示例 1:
 
-//输入: "()"
-//输出: true
-//示例 2:
+    //输入: "()"
+    //输出: true
+    //示例 2:
 
-//输入: "()[]{}"
-//输出: true
-//示例 3:
+    //输入: "()[]{}"
+    //输出: true
+    //示例 3:
 
-//输入: "(]"
-//输出: false
-//示例 4:
+    //输入: "(]"
+    //输出: false
+    //示例 4:
 
-//输入: "([)]"
-//输出: false
-//示例 5:
+    //输入: "([)]"
+    //输出: false
+    //示例 5:
 
-//输入: "{[]}"
-//输出: true
+    //输入: "{[]}"
+    //输出: true
 
 
     public class IsValid
@@ -187,146 +187,40 @@ namespace ConsoleTest
             }
             return st.Count == 0;//如果栈为空，括号全部配对完，返回true
         }
-        public bool IsValid3(string s)
-        {
-            Stack<char> stack = new Stack<char>();
-            Hashtable hashtable = new Hashtable() { { ')', '(' }, { ']', '[' }, { '}', '{' } };
-            for(int i=0;i<s.Length;i++)
-            {
-                if (hashtable.ContainsValue(s[i]))
-                {
-                    stack.Push(s[i]);
-                }
-                else if(stack.Count==0||stack.Pop()!=(char)hashtable[s[i]])
-                {
-                    return false;
-                }
-            }
 
-            return stack.Count == 0;
-        }
 
-        public bool IsValid4(string s)
-        {
-            Stack<char> list = new Stack<char>();
-            Hashtable validList = new Hashtable() { {')','(' },{']','[' },{'}','{' } };
 
-            for(int i=0;i<s.Length;i++)
-            {
-                if(validList.ContainsValue(s[i]))
-                {
-                    list.Push(s[i]);
-                }
-                else if (list.Count == 0 || list.Pop() != (char)validList[s[i]])
-                {
-                    return false;
-                }
-            }
-            return list.Count == 0;
 
-        }
 
-        public bool IsValid5(string s)
-        {
-            Stack<char> list = new Stack<char>();
-            Hashtable hashtable = new Hashtable() { { ')', '(' }, { ']', '[' }, { '}', '{' } };
-            for(int i=0;i<s.Length;i++)
-            {
-                if(hashtable.ContainsValue(s[i]))
-                {
-                    list.Push(s[i]);
-                }
-                else if (list.Count == 0 || list.Pop() != (char)hashtable[s[i]])
-                {
-                  
-                    
-                        return false;
-                    
-                }
-            }
-            return list.Count == 0;
 
-        }
-
-        public bool IsValid6(string s)
-        {
-            Stack<char> list = new Stack<char>();
-            Hashtable hashtable = new Hashtable() { {')','(' },{']','[' },{'}','{' } };
-
-            for(int i=0;i<s.Length;i++)
-            {
-                if (hashtable.ContainsValue(s[i]))
-                {
-                    list.Push(s[i]);
-                   
-                    
-                }
-                else if (list.Count == 0 || s[i] != (char)hashtable[s[i]])
-                {
-                    return false;
-                }
-            }
-
-            return list.Count == 0;
-        }
-
-        public bool IsValid7(string s)
-        {
-            Stack<char> list = new Stack<char>();
-            Hashtable hashtable = new Hashtable() { { ')', '(' }, { ']', '[' }, { '}', '{' } };
-            for (int i = 0; i < s.Length; i++)
-            {
-                if (hashtable.ContainsValue(s[i]))
-                {
-                    list.Push(s[i]);
-                }
-                else if (list.Count == 0||list.Pop()!=(char)hashtable[s[i]])
-                {
-                return false;
-                }
-            }
-            return list.Count == 0;
-        }
-
-        public bool IsValid8(string s) {
-            Stack<char> list = new Stack<char>();
-            Hashtable hashtable = new Hashtable() { {')','(' },{']','['},{'}','{' } };
-            for(int i=0;i<s.Length;i++)
-            {
-                if(hashtable.ContainsValue(s[i]))
-                {
-                    list.Push(s[i]);
-                }
-                else if(list.Count==0||list.Pop()!=(char)hashtable[s[i]])
-                {
-                    return false;
-                }
-            }
-
-            return list.Count == 0;
-  
-        }
+     
         #endregion
         public bool IsValid9(string s)
         {
-            Hashtable hashtable = new Hashtable() { {')','(' },{ ']', '[' }, { '}', '{' } };
-            Stack<char> list = new Stack<char>();
+            if(s.Length<=1||s.Length/2>0)
+            {
+                return false;
+            }
+            Hashtable list = new Hashtable() { { '}', '{' }, { ']', '[' }, { ')', '(' } };
+            Stack<char> temp = new Stack<char>();
+
             for(int i=0;i<s.Length;i++)
             {
-                if(hashtable.ContainsKey(s[i]))
+                if(!list.ContainsValue(s[i]))
                 {
-                    if(list.Count==0||list.Pop()!=(char)hashtable[s[i]])
+                    if(temp.Count==0||temp.Pop()!=(char)list[s[i]])
                     {
                         return false;
                     }
                 }
                 else
                 {
-                    list.Push(s[i]);
+                    temp.Push(s[i]);
                 }
+
             }
-            return list.Count == 0;
-        
+
+            return temp.Count == 0;
         }
     }
 }
