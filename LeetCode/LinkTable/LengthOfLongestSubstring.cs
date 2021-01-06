@@ -68,8 +68,7 @@ namespace ConsoleTest.LinkTable
         #endregion
         //public static int LengthOfLongestSubstring12(string s)
         //{
-           
-
+        
         //}
 
     }

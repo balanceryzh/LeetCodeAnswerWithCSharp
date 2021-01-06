@@ -94,10 +94,67 @@ namespace ConsoleTest
         #endregion
 
 
-        //public double FindMedianSortedArrays3(int[] nums1, int[] nums2)
-        //{
+        public double FindMedianSortedArrays3(int[] nums1, int[] nums2)
+        {
+            int last = 0, first = 0;
+            int sum = (nums1 == null ? 0 : nums1.Length) + (nums2 == null ? 0 : nums2.Length);
 
-            
-        //}
+            bool isOddNum = sum % 2 != 0;
+
+            int midIndex = isOddNum ? (sum - 1) / 2 : sum / 2;
+            int nowIndex = 0;
+
+            int index1 = 0;
+            int index2 = 0;
+            while (true)
+            {
+                if(nums1==null|| index1 > nums1.Length)
+                {
+                    last = first;
+                    first = nums2[index2];
+                    index2++;
+                }
+                else if(nums2==null|| index2 > nums2.Length)
+                {
+                    last = first;
+                    first = nums1[index1];
+                    index1++;
+                }
+                else
+                {
+                    last = first;
+                    if(nums1[index1]>nums2[index2])
+                    {
+
+                        first = nums1[index1];
+                        index1++;
+                    }
+                    else
+                    {
+                        first = nums2[index2];
+                        index2++;
+                    }
+
+                }
+
+                if(nowIndex== midIndex)
+                {
+                    if(isOddNum)
+                    {
+                        return first;
+                    }
+                    else
+                    {
+                        return (first + last) / 2.0f;
+                    }
+
+                }
+
+
+                nowIndex++;
+            }
+
+
+        }
     }
 }
